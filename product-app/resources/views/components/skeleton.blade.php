@@ -10,10 +10,9 @@
 </head>
 
 <body>
-
     <x-navbar></x-navbar>
 
-    <div class="mt-20">
+    <div>
         {{ $slot }}
     </div>
 </body>

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    /**
+     * Fetches and displays the items that are in the cart
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $cartItems = session('cart');
