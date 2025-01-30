@@ -9,9 +9,18 @@ class SessionController extends Controller
 {
     public function create()
     {
-        return view('login');
+        if (!session('user')) {
+            return view('login');
+        }
     }
 
+    /**
+     * Log in the user ifthe credentials get validated
+     * 
+     * @param \Illuminate\Http\Request $request
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -27,6 +36,14 @@ class SessionController extends Controller
 
         session(['user' => $user['username']]);
 
-        redirect('/');
+        return redirect('/products');
+    }
+
+    public function destroy()
+    {
+        if (session('user')) {
+            session()->remove('user');
+            return redirect('/login');
+        }
     }
 }

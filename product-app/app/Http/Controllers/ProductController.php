@@ -19,4 +19,15 @@ class ProductController extends Controller
 
         return view('welcome', compact('products'));
     }
+
+    /**
+     * Queries and opens the view for the products dashboard along with the fetched products
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function dashboard()
+    {
+        $products = Product::query()->simplePaginate(12);
+        return view('products.products', compact('products'));
+    }
 }
