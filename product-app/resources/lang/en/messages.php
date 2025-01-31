@@ -41,5 +41,13 @@ return [
     'delete' => 'Delete',
     'total' => 'Total',
     'grand_total' => 'Grand Total',
-    'new_order' => 'New order from '
+    'new_order' => 'New order from ',
+    'customer_details' => 'Customer details',
+    'add' => 'Add product',
+    'edit_product' => 'Edit product',
+    'publish' => 'Publish',
+    'title' => 'Title',
+    'enter_title' => 'Enter product title here',
+    'enter_description' => 'Enter product description here',
+    'enter_price' => 'Enter product price here',
 ];

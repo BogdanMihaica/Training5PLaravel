@@ -8,6 +8,7 @@
         @if(session()->has('user'))
         <x-navlink href="/products" class="{{ request()->is('products') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __('messages.products_link') }}</x-navlink>
         <x-navlink href="/orders" class="{{ request()->is('orders') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __('messages.orders_link') }}</x-navlink>
+        <x-navlink href="/product/publish" class="{{ request()->is('product/publish') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __('messages.publish') }}</x-navlink>
         <x-navlink href="/logout" class="bg-black">{{ __('messages.logout') }}</x-navlink>
         @endif
     </div>

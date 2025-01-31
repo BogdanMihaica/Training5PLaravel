@@ -51,7 +51,9 @@
                                         <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                                             <form action="/product/{{ $product->id }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="_method" value="delete">
+
+                                                @method('DELETE')
+
                                                 <button class="text-white py-3 px-3 bg-red-700 rounded-lg cursor-pointer hover:bg-red-800">
                                                     {{__('messages.delete')}}
                                                 </button>

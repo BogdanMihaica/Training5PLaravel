@@ -10,9 +10,13 @@
 </head>
 
 <body>
+    <div class="opacity-10 relative" style="z-index:-1">
+        <img class="w-full fixed top-0" src="{{ asset('storage/bg.jpg') }}" alt="background">
+    </div>
+
     <x-navbar></x-navbar>
 
-    <div>
+    <div class="z-50">
         {{ $slot }}
     </div>
 </body>

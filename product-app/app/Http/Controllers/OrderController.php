@@ -12,12 +12,25 @@ use Illuminate\Support\Facades\Mail;
 class OrderController extends Controller
 {
 
+    /**
+     * Returns the view responsible with displaying all the orders
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $orders = Order::query()->simplePaginate(12);
         return view('orders.orders', compact('orders'));
     }
 
+    /**
+     * Attempts to store an order in the orders table, then maps all the products in the cart to it's corresponding order id
+     * in the order_products table. After all these sql operations, attempt to send an email to the admin with details about the order
+     * 
+     * @param \Illuminate\Http\Request $request
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -50,5 +63,20 @@ class OrderController extends Controller
 
         Mail::to('admin@email.com')->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
         return redirect('/');
+    }
+
+    /**
+     * Returns the view of an order with its corresponding products and details
+     * 
+     * @param int $id
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function inspect($id)
+    {
+        $products = Order::findOrFail($id)->products;
+        $order = Order::findOrFail($id);
+
+        return view('orders.order', compact('products', 'order'));
     }
 }
