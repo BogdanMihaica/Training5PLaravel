@@ -27,6 +27,7 @@ class SetLocale
             $lang = session()->get('lang');
             App::setLocale($lang);
         }
+
         return $next($request);
     }
 }

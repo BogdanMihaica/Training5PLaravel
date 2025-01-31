@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     /**
-     * Fetches and displays the items that are in the cart
+     * Fetches to display the items that are in the cart
      * 
      * @return \Illuminate\Contracts\View\View
      */
@@ -28,12 +28,14 @@ class CartController extends Controller
      * 
      * @return mixed
      */
-    public function store($id, $quantity)
+    public function saveToCart(Request $request)
     {
         if (!session()->has('cart')) {
             session()->put('cart', []);
         }
 
+        $quantity = request('quantity');
+        $id = request('id');
         $product = Product::find($id);
 
         if (!$product) {
@@ -59,7 +61,7 @@ class CartController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function removeFromCart($id)
     {
         $product = Product::find($id);
         $cartItems = session('cart');

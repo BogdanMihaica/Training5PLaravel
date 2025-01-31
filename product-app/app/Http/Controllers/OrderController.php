@@ -62,6 +62,7 @@ class OrderController extends Controller
         session()->forget('cart');
 
         Mail::to('admin@email.com')->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
+
         return redirect('/');
     }
 

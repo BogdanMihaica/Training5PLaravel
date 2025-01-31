@@ -28,17 +28,17 @@ Route::middleware([SetLocale::class])->group(function () {
 
     Route::controller(CartController::class)->group(function () {
         Route::get('/cart', 'index');
-        Route::get('/cart/remove/{id}', 'destroy');
-        Route::get('/cart/add/{id}/{quantity}', 'store');
+        Route::get('/cart/remove/{id}', 'removeFromCart');
+        Route::get('/cart/add/{id}/{quantity}', 'saveToCart');
     });
 
     Route::controller(SessionController::class)->group(function () {
         Route::middleware([IsGuest::class])->group(function () {
-            Route::get('/login', 'create');
-            Route::post('/login', 'store');
+            Route::get('/login', 'loginForm');
+            Route::post('/login', 'login');
         });
 
-        Route::get('/logout', 'destroy');
+        Route::get('/logout', 'logout');
     });
     Route::middleware([IsAdmin::class])->group(function () {
         Route::controller(OrderController::class)->group(function () {

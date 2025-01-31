@@ -9,11 +9,14 @@ use function PHPUnit\Framework\returnSelf;
 
 class SessionController extends Controller
 {
-    public function create()
+    /**
+     * View the login page
+     * 
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function loginForm()
     {
-        if (!session('user')) {
-            return view('login');
-        }
+        return view('login');
     }
 
     /**
@@ -23,7 +26,7 @@ class SessionController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'username' => ['required'],
@@ -41,7 +44,12 @@ class SessionController extends Controller
         return redirect('/products');
     }
 
-    public function destroy()
+    /**
+     * Logout logic
+     * 
+     * @return mixed|\Illuminate\Http\RedirectResponse
+     */
+    public function logout()
     {
         if (session('user')) {
             session()->remove('user');
