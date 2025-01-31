@@ -30,4 +30,19 @@ class ProductController extends Controller
         $products = Product::query()->simplePaginate(12);
         return view('products.products', compact('products'));
     }
+
+    /**
+     * Attempts to destroy a product by its id
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $products = Product::destroy($id);
+
+        return redirect('/products');
+    }
 }

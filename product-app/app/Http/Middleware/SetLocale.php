@@ -21,7 +21,11 @@ class SetLocale
 
             if (in_array($lang, ['en', 'ro'])) {
                 App::setLocale($lang);
+                session()->put('lang', $lang);
             }
+        } else {
+            $lang = session()->get('lang');
+            App::setLocale($lang);
         }
         return $next($request);
     }

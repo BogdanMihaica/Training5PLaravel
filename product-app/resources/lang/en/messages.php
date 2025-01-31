@@ -30,5 +30,13 @@ return [
     'id' => 'Id',
     'products_link' => 'Products',
     'orders_link' => 'Orders',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'enter_name' => 'Enter your name',
+    'name' => 'Name',
+    'orders' => 'Orders',
+    'customer_name' => 'Customer name',
+    'customer_email' => 'Customer email',
+    'view' => 'View order',
+    'created_at' => 'Created at',
+    'delete' => 'Delete'
 ];

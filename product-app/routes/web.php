@@ -8,11 +8,14 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsGuest;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
+use App\Mail\OrderPosted;
+use Illuminate\Support\Facades\Mail;
 
 Route::middleware([SetLocale::class])->group(function () {
 
     Route::controller(ProductController::class)->group(function () {
         Route::get('/', 'index');
+
         Route::middleware([IsAdmin::class])->group(function () {
             Route::get('/products', 'dashboard');
             Route::post('/products', 'store');
@@ -34,12 +37,14 @@ Route::middleware([SetLocale::class])->group(function () {
             Route::get('/login', 'create');
             Route::post('/login', 'store');
         });
+
         Route::get('/logout', 'destroy');
     });
-
-    Route::controller(OrderController::class)->group(function () {
-        Route::get('/orders', 'index');
-        Route::post('/orders', 'store');
-        Route::get('/order/{id}', 'inspect');
+    Route::middleware([IsAdmin::class])->group(function () {
+        Route::controller(OrderController::class)->group(function () {
+            Route::get('/orders', 'index');
+            Route::post('/orders', 'store');
+            Route::get('/order/{id}', 'inspect');
+        });
     });
 });

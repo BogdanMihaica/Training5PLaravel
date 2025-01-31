@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use function PHPUnit\Framework\returnSelf;
+
 class SessionController extends Controller
 {
     public function create()
@@ -44,6 +46,8 @@ class SessionController extends Controller
         if (session('user')) {
             session()->remove('user');
             return redirect('/login');
+        } else {
+            return redirect()->back();
         }
     }
 }

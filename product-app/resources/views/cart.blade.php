@@ -21,23 +21,23 @@
 
             <h2 class="text-slate-900 text-2xl font-semibold text-center mb-6">{{ __('messages.checkout') }}</h2>
 
-            @if ($errors->has('no-match'))
+            @if ($errors->has('empty'))
             <div class="text-red-500 bg-red-200 p-3 rounded-lg">
-                {{ $errors->first('no-match') }}
+                {{ $errors->first('empty') }}
             </div>
             @endif
             <form class="space-y-4" method="POST" action="/orders">
                 @csrf
 
                 <div>
-                    <label class="text-slate-900 block mb-1" for="username">{{ __('messages.username') }}</label>
-                    <input type="text" id="username"
+                    <label class="text-slate-900 block mb-1" for="name">{{ __('messages.name') }}</label>
+                    <input type="text" id="name"
                         class="w-full p-3 rounded-lg bg-slate-400 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
-                        placeholder="{{ __('messages.enter_username') }}"
-                        name="username"
-                        value="{{ old('username') }}">
+                        placeholder="{{ __('messages.enter_name') }}"
+                        name="name"
+                        value="{{ old('name') }}">
                     <p class="text-red-500">
-                        @error('username')
+                        @error('name')
                         {{ $message }}
                         @enderror
                     </p>

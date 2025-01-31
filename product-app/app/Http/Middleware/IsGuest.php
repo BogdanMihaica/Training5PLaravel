@@ -18,6 +18,7 @@ class IsGuest
         if ($request->session()->has('user')) {
             return redirect('/products');
         }
+
         return $next($request);
     }
 }

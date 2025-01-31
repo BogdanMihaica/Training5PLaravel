@@ -5,17 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class OrderProduct extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
-    use HasFactory;
 
     protected $guarded = [];
-
-    public function orders()
-    {
-        return $this
-            ->belongsToMany(Order::class, 'order_products')
-            ->withPivot('quantity');
-    }
 }

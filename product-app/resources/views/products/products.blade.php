@@ -9,43 +9,30 @@
                         <div class="overflow-hidden ">
                             <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
                                 <thead class="bg-gray-100 dark:bg-gray-700">
-                                    <tr>
-                                        <th scope="col" class="p-4">
-                                            <div class="flex items-center">
-                                                <input id="checkbox-all" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="checkbox-all" class="sr-only"></label>
-                                            </div>
-                                        </th>
-                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.id')}}
-                                        </th>
-                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.image')}}
-                                        </th>
-                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.product_title')}}
-                                        </th>
-                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.description')}}
-                                        </th>
-                                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.price')}}
-                                        </th>
-                                        <th scope="col" class="p-4">
-                                            <span class="sr-only">{{__('messages.edit')}}</span>
-                                        </th>
+                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        {{__('messages.id')}}
+                                    </th>
+                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        {{__('messages.image')}}
+                                    </th>
+                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        {{__('messages.product_title')}}
+                                    </th>
+                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        {{__('messages.description')}}
+                                    </th>
+                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                        {{__('messages.price')}}
+                                    </th>
+                                    <th scope="col" class="p-4">
+                                        <span class="sr-only">{{__('messages.edit')}}</span>
+                                    </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
                                     @foreach ($products as $product)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                        <td class="p-4 w-4">
-                                            <div class="flex items-center">
-                                                <input id="checkbox-table-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="checkbox-table-1" class="sr-only">checkbox</label>
-                                            </div>
-                                        </td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->id }}</td>
 
@@ -53,14 +40,23 @@
                                             <img class="max-h-20 rounded-lg" src="{{ findImage($product->id) }}" alt="Product Image">
                                         </td>
 
-                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->title }}</td>
+                                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <a class="text-blue-500" href="/product/{{ $product->id }}/edit">{{ $product->title }}</a>
+                                        </td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $product->description }}</td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->price }}</td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                            <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">{{__('messages.edit')}}</a>
+                                            <form action="/product/{{ $product->id }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="delete">
+                                                <button class="text-white py-3 px-3 bg-red-700 rounded-lg cursor-pointer hover:bg-red-800">
+                                                    {{__('messages.delete')}}
+                                                </button>
+                                            </form>
+
                                         </td>
                                     </tr>
                                     @endforeach
