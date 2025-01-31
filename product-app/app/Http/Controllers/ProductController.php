@@ -39,9 +39,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
-
-        $products = Product::destroy($id);
+        Product::findOrFail($id);
+        Product::destroy($id);
 
         return redirect('/products');
     }

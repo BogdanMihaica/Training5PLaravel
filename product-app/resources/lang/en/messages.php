@@ -38,5 +38,8 @@ return [
     'customer_email' => 'Customer email',
     'view' => 'View order',
     'created_at' => 'Created at',
-    'delete' => 'Delete'
+    'delete' => 'Delete',
+    'total' => 'Total',
+    'grand_total' => 'Grand Total',
+    'new_order' => 'New order from '
 ];

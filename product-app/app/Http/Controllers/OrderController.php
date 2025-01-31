@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderPosted;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -42,8 +45,10 @@ class OrderController extends Controller
             $orderProduct->save();
         }
 
+        $products = Order::findOrFail($order->id)->products;
         session()->forget('cart');
 
+        Mail::to('admin@email.com')->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
         return redirect('/');
     }
 }

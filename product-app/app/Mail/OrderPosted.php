@@ -15,13 +15,16 @@ class OrderPosted extends Mailable
 
     protected $username;
     protected $email;
+
+    protected $products;
     /**
      * Create a new message instance.
      */
-    public function __construct($email, $username)
+    public function __construct($email, $username, $products)
     {
         $this->username = $username;
         $this->email = $email;
+        $this->products = $products;
     }
 
     /**
@@ -41,7 +44,12 @@ class OrderPosted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.order-posted'
+            view: 'mail.order-posted',
+            with: [
+                'username' => $this->username,
+                'email' => $this->email,
+                'products' => $this->products,
+            ],
         );
     }
 
