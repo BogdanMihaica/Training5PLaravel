@@ -41,15 +41,16 @@
                                         </td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <a class="text-blue-500" href="/product/{{ $product->id }}/edit">{{ $product->title }}</a>
+                                            <a class="text-blue-500" href="{{route('products.edit', $product)}}">{{ $product->title }}</a>
                                         </td>
 
-                                        <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $product->description }}</td>
+                                        <td class=" py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $product->description }}
+                                        </td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->price }}</td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                            <form action="/product/{{ $product->id }}" method="post">
+                                            <form action="{{route('products.destroy', $product)}}" method="post">
                                                 @csrf
 
                                                 @method('DELETE')

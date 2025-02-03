@@ -18,7 +18,7 @@ Route::middleware([SetLocale::class])->group(function () {
             Route::get('/products', 'dashboard')->name('products.dashboard');
             Route::post('/products', 'store')->name('products.store');
             Route::get('/product/publish', 'create')->name('products.create');
-            Route::get('/product/{product}/edit', 'edit')->name('products.edit');
+            Route::get('/products/{product}/edit', 'edit')->name('products.edit');
             Route::delete('/product/{product}', 'destroy')->name('products.destroy');
             Route::patch('/product/{product}', 'update')->name('products.update');
         });

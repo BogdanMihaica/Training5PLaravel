@@ -11,12 +11,12 @@
             </div>
             @endif
 
-            <form class="space-y-4" method="POST" action="{{ $edit ? route('products.edit', $product->id) : route('products.store') }}" enctype="multipart/form-data">
+            <form class="space-y-4" method="POST" action="{{ $edit ? route('products.update', $product) : route('products.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 @method($edit ? 'PATCH' : 'POST')
 
-                @if ($edit)
+                @if ($edit && $product->image_filename)
                 <div class="flex justify-center">
                     <img class="max-w-50 rounded-lg" src="{{getImageUrl($product)}}" alt="Product image">
                 </div>
