@@ -40,6 +40,7 @@ Route::middleware([SetLocale::class])->group(function () {
 
         Route::get('/logout', 'logout');
     });
+
     Route::middleware([IsAdmin::class])->group(function () {
         Route::controller(OrderController::class)->group(function () {
             Route::get('/orders', 'index');
@@ -47,4 +48,9 @@ Route::middleware([SetLocale::class])->group(function () {
             Route::get('/order/{id}', 'inspect');
         });
     });
+});
+Route::fallback(function () {
+    if (request()->isMethod('GET')) {
+        abort(404);
+    }
 });
