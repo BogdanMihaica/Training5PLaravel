@@ -35,39 +35,39 @@ $grandTotal = 0;
             <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
                 @foreach ($products as $product)
-                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $product->id }}
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $product->id }}
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="max-h-20 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="max-h-20 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $product->title }}
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $product->title }}
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
-                        {{ $product->description }}
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">
+                            {{ $product->description }}
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $product->price }}
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $product->price }}
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $product->pivot->quantity }}
-                    </td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $product->pivot->quantity }}
+                        </td>
 
-                    <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $product->price * $product->pivot->quantity }}
-                    </td>
-                    @php
-                    $grandTotal += $product->price * $product->pivot->quantity
-                    @endphp
-                </tr>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $product->price * $product->pivot->quantity }}
+                        </td>
+                        @php
+                        $grandTotal += $product->price * $product->pivot->quantity
+                        @endphp
+                    </tr>
                 @endforeach
                 <tr>
                     <td colspan="5" class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>

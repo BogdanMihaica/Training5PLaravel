@@ -17,9 +17,9 @@
                 @method($edit ? 'PATCH' : 'POST')
 
                 @if ($edit && $product->image_filename)
-                <div class="flex justify-center">
-                    <img class="max-w-50 rounded-lg" src="{{getImageUrl($product)}}" alt="Product image">
-                </div>
+                    <div class="flex justify-center">
+                        <img class="max-w-50 rounded-lg" src="{{getImageUrl($product)}}" alt="Product image">
+                    </div>
                 @endif
 
                 <div>
@@ -31,9 +31,9 @@
                         value="{{ $edit ? $product->title : '' }}">
 
                     @error('title')
-                    <p class="text-red-500">
-                        {{ $message }}
-                    </p>
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
@@ -45,9 +45,9 @@
                         name="description" rows="7">{{ $edit ? $product->description : '' }}</textarea>
 
                     @error('description')
-                    <p class="text-red-500">
-                        {{ $message }}
-                    </p>
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
@@ -60,9 +60,9 @@
                         value="{{ $edit ? $product->price : '' }}">
 
                     @error('price')
-                    <p class="text-red-500">
-                        {{ $message }}
-                    </p>
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 
@@ -71,9 +71,9 @@
                     <input class="p-3 border cursor-pointer border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" type="file" name="image">
 
                     @error('image')
-                    <p class="text-red-500">
-                        {{ $message }}
-                    </p>
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
                 <button type="submit" class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">

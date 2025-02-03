@@ -89,18 +89,18 @@ $grandTotal = 0;
         </thead>
         <tbody class="order-body">
             @foreach ($products as $product)
-            <tr class="order-row">
-                <td class="table-data">{{ $product->id }}</td>
-                <td class="table-data"><img class="product-image" src="{{ getImageUrl($product) }}" alt="Product Image"></td>
-                <td class="table-data">{{ $product->title }}</td>
-                <td class="table-data">{{ $product->description }}</td>
-                <td class="table-data">{{ $product->price }}</td>
-                <td class="table-data">{{ $product->pivot->quantity }}</td>
-                <td class="table-data">{{ $product->price * $product->pivot->quantity }}</td>
-                @php
-                $grandTotal += $product->price * $product->pivot->quantity
-                @endphp
-            </tr>
+                <tr class="order-row">
+                    <td class="table-data">{{ $product->id }}</td>
+                    <td class="table-data"><img class="product-image" src="{{ getImageUrl($product) }}" alt="Product Image"></td>
+                    <td class="table-data">{{ $product->title }}</td>
+                    <td class="table-data">{{ $product->description }}</td>
+                    <td class="table-data">{{ $product->price }}</td>
+                    <td class="table-data">{{ $product->pivot->quantity }}</td>
+                    <td class="table-data">{{ $product->price * $product->pivot->quantity }}</td>
+                    @php
+                    $grandTotal += $product->price * $product->pivot->quantity
+                    @endphp
+                </tr>
             @endforeach
             <tr>
                 <td colspan="5" class="empty-cell"></td>

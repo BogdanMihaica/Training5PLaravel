@@ -5,9 +5,9 @@
             <h2 class="text-slate-100 text-2xl font-semibold text-center mb-6">{{ __('messages.login_title') }}</h2>
 
             @if ($errors->has('no-match'))
-            <div class="text-red-500 bg-red-200 p-3 rounded-lg">
-                {{ $errors->first('no-match') }}
-            </div>
+                <div class="text-red-500 bg-red-200 p-3 rounded-lg">
+                    {{ $errors->first('no-match') }}
+                </div>
             @endif
 
             <form class="space-y-4" method="POST" action="{{ route('login') }}">
@@ -41,9 +41,9 @@
                         name="password">
 
                     @error('password')
-                    <p class="text-red-500">
-                        {{ $message }}
-                    </p>
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
                     @enderror
                 </div>
 

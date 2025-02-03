@@ -15,7 +15,7 @@
     </div>
 
     <x-navbar></x-navbar>
-
+    
     <div class="z-50">
         {{ $slot }}
     </div>
