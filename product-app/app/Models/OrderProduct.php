@@ -9,5 +9,5 @@ class OrderProduct extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 }

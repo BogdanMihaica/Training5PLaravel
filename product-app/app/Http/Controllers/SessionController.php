@@ -14,7 +14,7 @@ class SessionController extends Controller
      * 
      * @return \Illuminate\Contracts\View\View
      */
-    public function loginForm()
+    public function create()
     {
         return view('login');
     }
@@ -35,13 +35,16 @@ class SessionController extends Controller
 
         $user = config('user.user');
 
-        if ($user['username'] != $request->input('username') || !Hash::check($request->input('password'), $user['password'])) {
+        if (
+            $user['username'] != $request->input('username') ||
+            !Hash::check($request->input('password'), $user['password'])
+        ) {
             return redirect()->back()->withErrors(['match-error' => 'Credentials don\'t match!']);
         }
 
         session(['user' => $user['username']]);
 
-        return redirect('/products');
+        return redirect()->route('products.dashboard');
     }
 
     /**
@@ -53,7 +56,8 @@ class SessionController extends Controller
     {
         if (session('user')) {
             session()->remove('user');
-            return redirect('/login');
+
+            return redirect()->route('login');
         } else {
             return redirect()->back();
         }

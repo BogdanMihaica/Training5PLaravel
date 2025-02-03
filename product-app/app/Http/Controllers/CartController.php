@@ -28,14 +28,14 @@ class CartController extends Controller
      * 
      * @return mixed
      */
-    public function saveToCart(Request $request)
+    public function saveToCart(Product $product)
     {
         if (!session()->has('cart')) {
             session()->put('cart', []);
         }
 
         $quantity = request('quantity');
-        $id = request('id');
+        $id = $product->id;
         $product = Product::find($id);
 
         if (!$product) {
@@ -61,9 +61,9 @@ class CartController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function removeFromCart($id)
+    public function removeFromCart(Product $product)
     {
-        $product = Product::find($id);
+        $id = $product->id;
         $cartItems = session('cart');
 
         if (!session()->has('cart') || !$product) {

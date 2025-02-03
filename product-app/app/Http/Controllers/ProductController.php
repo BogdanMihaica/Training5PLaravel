@@ -28,25 +28,19 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $edit = false;
-
-        return view('products.product', compact('edit'));
+        return view('products.product', ['edit' => false]);
     }
 
     /**
      * Return the view for editing a product with a specified id
 
-     * @param int $id
+     * @param Product $product
 
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = Product::findOrFail($id);
-
-        $edit = true;
-
-        return view('products.product', compact('edit', 'product'));
+        return view('products.product', ['edit' => true, 'product' => $product]);
     }
 
     /**
@@ -57,28 +51,25 @@ class ProductController extends Controller
     public function dashboard()
     {
         $products = Product::query()->simplePaginate(12);
+
         return view('products.products', compact('products'));
     }
 
     /**
      * Attempts to destroy a product by its id
      * 
-     * @param int $id
+     * @param Product $product
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        Product::findOrFail($id);
-
-        Product::destroy($id);
-
-        $image = findImageName($id);
-
-        if ($image) {
-            unlink(storage_path('app/public/products/' . $image));
+        if ($product->image_filename) {
+            Storage::disk('public')->delete('products/' . $product->image_filename);
         }
 
-        return redirect('/products');
+        $product->delete();
+
+        return redirect()->route('products.dashboard');
     }
 
     /**
@@ -88,26 +79,8 @@ class ProductController extends Controller
      */
     public function store()
     {
-        request()->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => ['required', 'max:50'],
-            'description' => ['required', 'max:300'],
-            'price' => ['required', 'numeric', 'min:1'],
-        ]);
-
-        $product = new Product();
-        $product->title = request('title');
-        $product->description = request('description');
-        $product->price = request('price');
-        $product->save();
-
-        if (request()->hasFile('image')) {
-            $image = request()->file('image');
-            $fileName = $product->id . '.' . $image->extension();
-            $imagePath = $image->storeAs('products', $fileName, 'public');
-        }
-
-        return redirect('/product/' . $product->id . '/edit');
+        $product = $this->validateAndSaveProduct(new Product());
+        return redirect()->route('products.edit', $product);
     }
 
     /**
@@ -115,34 +88,45 @@ class ProductController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update($id)
+    public function update(Product $product)
     {
-        request()->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $this->validateAndSaveProduct($product);
+        return redirect()->route('products.edit', $product);
+    }
+
+    /**
+     * Validates and saves a product from the request
+     * 
+     * @param \App\Models\Product $product
+     * 
+     * @return Product
+     */
+    private function validateAndSaveProduct(Product $product)
+    {
+        $validated = request()->validate([
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'title' => ['required', 'max:50'],
             'description' => ['required', 'max:300'],
             'price' => ['required', 'numeric', 'min:1'],
         ]);
 
-        $product = Product::findOrFail($id);
-        $product->title = request('title');
-        $product->description = request('description');
-        $product->price = request('price');
+        $product->fill($validated);
         $product->save();
 
         if (request()->hasFile('image')) {
             $image = request()->file('image');
             $fileName = $product->id . '.' . $image->extension();
 
-            $originalFile = findImageName($product->id);
-
-            if ($originalFile) {
-                unlink(storage_path('app/public/products/' . $originalFile));
+            if ($product->image_filename) {
+                Storage::disk('public')->delete('products/' . $product->image_filename);
             }
 
-            $imagePath = $image->storeAs('products', $fileName, 'public');
+            $image->storeAs('products', $fileName, 'public');
+
+            $product->image_filename = $fileName;
+            $product->save();
         }
 
-        return redirect('/product/' . $product->id . '/edit');
+        return $product;
     }
 }

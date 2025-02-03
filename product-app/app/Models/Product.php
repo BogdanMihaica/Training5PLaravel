@@ -10,8 +10,12 @@ class Product extends Model
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
+    /**
+     * Summary of orders
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Order, Product>
+     */
     public function orders()
     {
         return $this

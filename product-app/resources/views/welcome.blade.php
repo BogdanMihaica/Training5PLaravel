@@ -1,4 +1,4 @@
-<x-skeleton title="Homepage">
+<x-layout title="Homepage">
     <div class="mt-20">
         <x-title>{{ __('messages.browse_products') }}</x-title>
 
@@ -6,22 +6,24 @@
             @foreach($products as $product)
             <div class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                 <div class="">
-                    <img class="max-h-70 rounded-lg" src="{{ findImage($product->id) }}" alt="Product Image">
+                    <img class="max-h-70 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
                 </div>
                 <h2 class="text-lg font-semibold text-gray-800">{{ $product->title }}</h2>
                 <p class="text-sm text-gray-600 mt-2">{{ $product->description }}</p>
                 <p class="text-lg font-bold text-green-600 mt-4">${{ $product->price }}</p>
-                <a class="mt-4 px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition cursor-pointer"
-                    href="/cart/add/{{ $product->id }}/"
-                    onclick="this.href += document.querySelector('.select-{{$product->id}}').value;">{{ __('messages.add_to_cart') }}</a>
-
-                <span>{{ __('messages.select_quantity') }}:
-                    <select class="select-{{$product->id}}">
-                        @for($i = 1; $i <= 10; $i++)
-                            <option> {{ $i }} </option>
-                            @endfor
-                    </select>
-                </span>
+                <form action="{{ route('cart.add', ['product' => $product]) }}" method="POST" class="mt-4">
+                    @csrf
+                    <span>{{ __('messages.select_quantity') }}:
+                        <select name="quantity" class="select-{{$product->id}}">
+                            @for($i = 1; $i <= 10; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                        </select>
+                    </span>
+                    <button type="submit" class="mt-4 px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition cursor-pointer">
+                        {{ __('messages.add_to_cart') }}
+                    </button>
+                </form>
             </div>
             @endforeach
         </div>
@@ -29,4 +31,4 @@
             {{$products->links()}}
         </div>
     </div>
-</x-skeleton>
+</x-layout>

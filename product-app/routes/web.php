@@ -8,49 +8,48 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsGuest;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
-use App\Mail\OrderPosted;
-use Illuminate\Support\Facades\Mail;
 
 Route::middleware([SetLocale::class])->group(function () {
 
     Route::controller(ProductController::class)->group(function () {
-        Route::get('/', 'index');
+        Route::get('/', 'index')->name('products.index');
 
         Route::middleware([IsAdmin::class])->group(function () {
-            Route::get('/products', 'dashboard');
-            Route::post('/products', 'store');
-            Route::get('/product/publish', 'create');
-            Route::get('/product/{id}/edit', 'edit');
-            Route::delete('/product/{id}', 'destroy');
-            Route::patch('/product/{id}', 'update');
+            Route::get('/products', 'dashboard')->name('products.dashboard');
+            Route::post('/products', 'store')->name('products.store');
+            Route::get('/product/publish', 'create')->name('products.create');
+            Route::get('/product/{product}/edit', 'edit')->name('products.edit');
+            Route::delete('/product/{product}', 'destroy')->name('products.destroy');
+            Route::patch('/product/{product}', 'update')->name('products.update');
         });
     });
 
     Route::controller(CartController::class)->group(function () {
-        Route::get('/cart', 'index');
-        Route::get('/cart/remove/{id}', 'removeFromCart');
-        Route::get('/cart/add/{id}/{quantity}', 'saveToCart');
+        Route::get('/cart', 'index')->name('cart.index');
+        Route::get('/cart/remove/{product}', 'removeFromCart')->name('cart.remove');
+        Route::post('/cart/add/{product}', 'saveToCart')->name('cart.add');
     });
 
     Route::controller(SessionController::class)->group(function () {
         Route::middleware([IsGuest::class])->group(function () {
-            Route::get('/login', 'loginForm');
-            Route::post('/login', 'login');
+            Route::get('/login', 'create')->name('login');
+            Route::post('/login', 'login')->name('login.post');
         });
 
-        Route::get('/logout', 'logout');
+        Route::get('/logout', 'logout')->name('logout');
     });
 
     Route::middleware([IsAdmin::class])->group(function () {
         Route::controller(OrderController::class)->group(function () {
-            Route::get('/orders', 'index');
-            Route::post('/orders', 'store');
-            Route::get('/order/{id}', 'inspect');
+            Route::get('/orders', 'index')->name('orders.index');
+            Route::post('/orders', 'store')->name('orders.store');
+            Route::get('/order/{order}', 'show')->name('order.show');
         });
     });
 });
+
 Route::fallback(function () {
     if (request()->isMethod('GET')) {
         abort(404);
     }
-});
+})->name('fallback');

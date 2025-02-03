@@ -1,4 +1,4 @@
-<x-skeleton title="Login">
+<x-layout title="Login">
     <div class="flex justify-center items-center min-h-screen bg-slate-900">
         <div class="bg-slate-800 p-8 rounded-2xl shadow-lg w-96">
 
@@ -9,13 +9,16 @@
                 {{ $errors->first('no-match') }}
             </div>
             @endif
-            <form class="space-y-4" method="POST" action="/login">
+
+            <form class="space-y-4" method="POST" action="{{ route('login') }}">
                 @csrf
+
                 <p class="text-red-500">
                     @error('match-error')
                     {{ __('messages.match_error') }}
                     @enderror
                 </p>
+
                 <div>
                     <label class="text-slate-300 block mb-1" for="username">{{ __('messages.username') }}</label>
                     <input type="text" id="username"
@@ -36,15 +39,16 @@
                         class="w-full p-3 rounded-lg bg-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
                         placeholder="{{ __('messages.enter_password') }}"
                         name="password">
+
+                    @error('password')
                     <p class="text-red-500">
-                        @error('password')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">{{ __('messages.login_button') }}</button>
             </form>
         </div>
     </div>
-</x-skeleton>
+</x-layout>

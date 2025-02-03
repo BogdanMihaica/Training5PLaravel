@@ -1,4 +1,4 @@
-<x-skeleton title="Cart">
+<x-layout title="Cart">
     <div class="mt-20">
         <x-title>{{ __('messages.cart_title') }}</x-title>
 
@@ -6,13 +6,13 @@
             @foreach($products as $product)
             <div class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                 <div class="">
-                    <img class="max-h-70 rounded-lg" src="{{ findImage($product->id) }}" alt="Product Image">
+                    <img class="max-h-70 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
                 </div>
                 <h2 class="text-lg font-semibold text-gray-800">{{ $product->title }}</h2>
                 <p class="text-sm text-gray-600 mt-2">{{ $product->description }}</p>
                 <p class="text-lg font-bold text-green-600 mt-4">${{ $product->price }}</p>
                 <p class="text-lg font-bold text-black-600 mt-4">{{ __('messages.quantity') }} {{ session('cart')[$product->id] }}</p>
-                <a class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition cursor-pointer" href="/cart/remove/{{ $product->id }}">{{ __('messages.remove') }}</a>
+                <a class="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition cursor-pointer" href="{{ route('cart.remove', $product->id) }}">{{ __('messages.remove') }}</a>
             </div>
             @endforeach
         </div>
@@ -26,7 +26,7 @@
                 {{ $errors->first('empty') }}
             </div>
             @endif
-            <form class="space-y-4" method="POST" action="/orders">
+            <form class="space-y-4" method="POST" action="{{ route('orders.store') }}">
                 @csrf
 
                 <div>
@@ -36,11 +36,12 @@
                         placeholder="{{ __('messages.enter_name') }}"
                         name="name"
                         value="{{ old('name') }}">
+
+                    @error('name')
                     <p class="text-red-500">
-                        @error('name')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -49,15 +50,16 @@
                         class="w-full p-3 rounded-lg bg-slate-400 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
                         placeholder="{{ __('messages.enter_email') }}"
                         name="email">
+
+                    @error('email')
                     <p class="text-red-500">
-                        @error('email')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">{{ __('messages.done') }}</button>
             </form>
         </div>
     </div>
-</x-skeleton>
+</x-layout>

@@ -1,8 +1,8 @@
-<x-skeleton>
+<x-layout>
     <div class="mt-30">
         <div class="bg-slate-100 p-8 rounded-2xl shadow-lg w-200 my-5 mx-auto">
             <strong>
-                <h1 class="text-center text-3xl mb-5">{{$edit ? __('messages.edit_product') . ' #' . $product->id : __('messages.add')}}</h1>
+                <h1 class="text-center text-3xl mb-5">{{ $edit ? __('messages.edit_product') . ' #' . $product->id : __('messages.add')}}</h1>
             </strong>
 
             @if ($errors->has('empty'))
@@ -11,14 +11,14 @@
             </div>
             @endif
 
-            <form class="space-y-4" method="POST" action="{{ $edit ? '/product/' . $product->id : '/products' }}" enctype="multipart/form-data">
+            <form class="space-y-4" method="POST" action="{{ $edit ? route('products.edit', $product->id) : route('products.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 @method($edit ? 'PATCH' : 'POST')
 
                 @if ($edit)
                 <div class="flex justify-center">
-                    <img class="max-w-50 rounded-lg" src="{{findImage($product->id)}}" alt="Product image">
+                    <img class="max-w-50 rounded-lg" src="{{getImageUrl($product)}}" alt="Product image">
                 </div>
                 @endif
 
@@ -29,11 +29,12 @@
                         placeholder="{{ __('messages.enter_title') }}"
                         name="title"
                         value="{{ $edit ? $product->title : '' }}">
+
+                    @error('title')
                     <p class="text-red-500">
-                        @error('title')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -43,11 +44,11 @@
                         placeholder="{{ __('messages.enter_description') }}"
                         name="description" rows="7">{{ $edit ? $product->description : '' }}</textarea>
 
+                    @error('description')
                     <p class="text-red-500">
-                        @error('description')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -57,21 +58,23 @@
                         placeholder="{{ __('messages.enter_price') }}"
                         name="price"
                         value="{{ $edit ? $product->price : '' }}">
+
+                    @error('price')
                     <p class="text-red-500">
-                        @error('price')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
 
                 <div>
                     <label class="text-slate-900 block mb-1" for="image">{{ __('messages.image') }}</label>
                     <input class="p-3 border cursor-pointer border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" type="file" name="image">
+
+                    @error('image')
                     <p class="text-red-500">
-                        @error('image')
                         {{ $message }}
-                        @enderror
                     </p>
+                    @enderror
                 </div>
                 <button type="submit" class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">
                     {{ __('messages.publish') }}
@@ -79,4 +82,4 @@
             </form>
         </div>
     </div>
-</x-skeleton>
+</x-layout>

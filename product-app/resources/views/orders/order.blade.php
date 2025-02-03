@@ -1,7 +1,7 @@
 @php
 $grandTotal = 0;
 @endphp
-<x-skeleton>
+<x-layout>
     <div class="mt-20 mx-10">
         <h1 class="text-xl"><strong>{{__('messages.customer_details')}}</strong></h1>
         <h2>{{__('messages.customer_name') .': '. $order->customer_name}}</h2>
@@ -42,7 +42,7 @@ $grandTotal = 0;
                     </td>
 
                     <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="max-h-20 rounded-lg" src="{{ findImage($product->id) }}" alt="Product Image">
+                        <img class="max-h-20 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
                     </td>
 
                     <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -81,4 +81,4 @@ $grandTotal = 0;
             </tbody>
         </table>
     </div>
-</x-skeleton>
+</x-layout>

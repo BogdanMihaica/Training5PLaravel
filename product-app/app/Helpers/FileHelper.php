@@ -1,48 +1,23 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
-
 /**
- * Searches for an image in the storage and returns it's asset path or the unk image if it doesn't exist
+ * Get the public URL of a products image if it is not null
  * 
- * @param int $id
- * 
- * @return string
- */
-function findImage(int $id)
-{
-    $directory = storage_path() . '\\app\\public\\products\\';
-    $files = scandir($directory);
-
-    foreach ($files as $file) {
-        $name = explode('.', $file)[0];
-
-        if ($name == $id) {
-            return asset('storage/products/' . $file);
-        }
-    }
-    return asset('storage/products/unk.jpg');
-}
-
-/**
- * Searches for an image in the storage and returns it's name or null
- * 
- * @param int $id
+ * @param App\Models\Product $product
  * 
  * @return string|null
  */
-function findImageName(int $id)
+function getImageUrl(Product $product)
 {
-    $directory = storage_path() . '\\app\\public\\products\\';
-    $files = scandir($directory);
-
-    foreach ($files as $file) {
-        $name = explode('.', $file)[0];
-
-        if ($name == $id) {
-            return $file;
-        }
+    if ($product->image_filename == null) {
+        return null;
     }
-    return null;
+
+    $separator = DIRECTORY_SEPARATOR;
+    # $path = 'public' . $separator . 'products' . $separator . $product->image_filename;
+
+    return asset('storage' . $separator . 'products' . $separator . $product->image_filename);
 }

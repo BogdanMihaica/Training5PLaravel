@@ -20,6 +20,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::query()->simplePaginate(12);
+
         return view('orders.orders', compact('orders'));
     }
 
@@ -33,20 +34,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'max:100'],
-            'email' => ['required', 'email']
-        ]);
-
         $cartItems = session('cart');
 
         if (!$cartItems) {
             return redirect()->back()->withErrors(['empty' => 'Your cart is empty']);
         }
 
+        $validated = $request->validate([
+            'name' => ['required', 'max:100'],
+            'email' => ['required', 'email']
+        ]);
+
         $order = new Order();
-        $order->customer_name = $request->input('name');
-        $order->customer_email = $request->input('email');
+        $order->customer_name = $validated['name'];
+        $order->customer_email = $validated['email'];
         $order->save();
 
         foreach (array_keys($cartItems) as $itemId) {
@@ -61,7 +62,7 @@ class OrderController extends Controller
         $products = Order::findOrFail($order->id)->products;
         session()->forget('cart');
 
-        Mail::to('admin@email.com')->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
+        Mail::to(config('mail.from')['address'])->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
 
         return redirect('/');
     }
@@ -73,10 +74,9 @@ class OrderController extends Controller
      * 
      * @return \Illuminate\Contracts\View\View
      */
-    public function inspect($id)
+    public function show(Order $order)
     {
-        $products = Order::findOrFail($id)->products;
-        $order = Order::findOrFail($id);
+        $products = $order->products;
 
         return view('orders.order', compact('products', 'order'));
     }

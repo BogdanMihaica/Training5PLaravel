@@ -1,4 +1,4 @@
-<x-skeleton title="Dashboard">
+<x-layout title="Dashboard">
     <div class="mt-20">
         <x-title>{{__('messages.products')}}</x-title>
         <div class="mx-20">{{ $products->links() }}</div>
@@ -37,7 +37,7 @@
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->id }}</td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img class="max-h-20 rounded-lg" src="{{ findImage($product->id) }}" alt="Product Image">
+                                            <img class="max-h-20 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
                                         </td>
 
                                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -70,4 +70,4 @@
                 </div>
             </div>
         </div>
-</x-skeleton>
+</x-layout>
