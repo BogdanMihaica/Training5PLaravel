@@ -15,6 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $cartItems = session('cart');
         $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->simplePaginate(8);
 
@@ -115,7 +116,7 @@ class ProductController extends Controller
 
         if (request()->hasFile('image')) {
             $image = request()->file('image');
-            $fileName = $product->id . '.' . $image->extension();
+            $fileName = $product->getKey() . '.' . $image->extension();
 
             if ($product->image_filename) {
                 Storage::disk('public')->delete('products/' . $product->image_filename);

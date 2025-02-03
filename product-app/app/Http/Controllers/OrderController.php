@@ -53,13 +53,13 @@ class OrderController extends Controller
         foreach (array_keys($cartItems) as $itemId) {
             $orderProduct = new OrderProduct();
             $orderProduct->product_id = $itemId;
-            $orderProduct->order_id = $order->id;
+            $orderProduct->order_id = $order->getKey();
             $orderProduct->quantity = $cartItems[$itemId];
 
             $orderProduct->save();
         }
 
-        $products = Order::findOrFail($order->id)->products;
+        $products = Order::findOrFail($order->getKey())->products;
         session()->forget('cart');
 
         Mail::to(config('mail.from')['address'])->send(new OrderPosted($order->customer_email, $order->customer_name, $products));

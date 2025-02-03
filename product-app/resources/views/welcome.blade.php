@@ -4,7 +4,8 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-2">
             @foreach($products as $product)
-                <div class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
+                <div
+                    class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                     <div class="">
                         <img class="max-h-70 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
                     </div>
@@ -15,14 +16,15 @@
                         @csrf
 
                         <span>{{ __('messages.select_quantity') }}:
-                            <select name="quantity" class="select-{{$product->id}}">
+                            <select name="quantity">
                                 @for($i = 1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                         </span>
-                        
-                        <button type="submit" class="mt-4 px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition cursor-pointer">
+
+                        <button type="submit"
+                            class="mt-4 px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition cursor-pointer">
                             {{ __('messages.add_to_cart') }}
                         </button>
                     </form>
@@ -33,5 +35,5 @@
             {{$products->links()}}
         </div>
     </div>
-    
+
 </x-layout>

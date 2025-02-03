@@ -35,7 +35,7 @@ class CartController extends Controller
         }
 
         $quantity = request('quantity');
-        $id = $product->id;
+        $id = $product->getKey();
         $product = Product::find($id);
 
         if (!$product) {
@@ -63,7 +63,7 @@ class CartController extends Controller
      */
     public function removeFromCart(Product $product)
     {
-        $id = $product->id;
+        $id = $product->getKey();
         $cartItems = session('cart');
 
         if (!session()->has('cart') || !$product) {
@@ -77,6 +77,6 @@ class CartController extends Controller
         unset($cartItems[$id]);
         session()->put('cart', $cartItems);
 
-        return redirect('/cart');
+        return redirect()->route('cart.index');
     }
 }

@@ -15,7 +15,7 @@
 
                 <p class="text-red-500">
                     @error('match-error')
-                    {{ __('messages.match_error') }}
+                        {{ __('messages.match_error') }}
                     @enderror
                 </p>
 
@@ -23,12 +23,10 @@
                     <label class="text-slate-300 block mb-1" for="username">{{ __('messages.username') }}</label>
                     <input type="text" id="username"
                         class="w-full p-3 rounded-lg bg-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
-                        placeholder="{{ __('messages.enter_username') }}"
-                        name="username"
-                        value="{{ old('username') }}">
+                        placeholder="{{ __('messages.enter_username') }}" name="username" value="{{ old('username') }}">
                     <p class="text-red-500">
                         @error('username')
-                        {{ $message }}
+                            {{ $message }}
                         @enderror
                     </p>
                 </div>
@@ -37,8 +35,7 @@
                     <label class="text-slate-300 block mb-1" for="password">{{ __('messages.password') }}</label>
                     <input type="password" id="password"
                         class="w-full p-3 rounded-lg bg-slate-700 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
-                        placeholder="{{ __('messages.enter_password') }}"
-                        name="password">
+                        placeholder="{{ __('messages.enter_password') }}" name="password">
 
                     @error('password')
                         <p class="text-red-500">
@@ -47,7 +44,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">{{ __('messages.login_button') }}</button>
+                <button type="submit"
+                    class="w-full bg-slate-600 cursor-pointer hover:bg-slate-500 text-slate-100 py-3 rounded-lg font-semibold transition">{{ __('messages.login_button') }}</button>
             </form>
         </div>
     </div>
