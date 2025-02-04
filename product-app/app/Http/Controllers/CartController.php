@@ -21,41 +21,36 @@ class CartController extends Controller
     }
 
     /**
-     * Stores an item in the session cart
+     * Stores an item in the session cart variable
      * 
      * @param integer $id
      * @param integer $quantity
      * 
      * @return mixed
      */
-    public function saveToCart(Product $product)
+    public function store(Product $product)
     {
-        if (!session()->has('cart')) {
-            session()->put('cart', []);
-        }
+        request()->validate([
+            'quantity' => ['required', 'integer', 'min:1'],
+        ]);
 
-        $quantity = request('quantity');
+        $quantity = request()->input('quantity');
         $id = $product->getKey();
-        $product = Product::find($id);
 
-        if (!$product) {
-            abort(404);
-        }
+        $cartItems = session()->get('cart', []);
 
-        $cartItems = session('cart');
-
-        if (array_key_exists($id, $cartItems)) {
-            abort(403);
+        if (isset($cartItems[$id])) {
+            return redirect()->back();
         }
 
         $cartItems[$id] = $quantity;
         session()->put('cart', $cartItems);
 
-        return redirect('/');
+        return redirect()->route('products.index');
     }
 
     /**
-     * Tries to remove an item from the cart
+     * Removes an item from the session cart variable if it exists
      * 
      * @param integer $id
      * 
@@ -66,7 +61,7 @@ class CartController extends Controller
         $id = $product->getKey();
         $cartItems = session('cart');
 
-        if (!session()->has('cart') || !$product) {
+        if (!session()->has('cart')) {
             abort(404);
         }
 

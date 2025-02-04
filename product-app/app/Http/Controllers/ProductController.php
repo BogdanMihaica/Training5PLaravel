@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         if ($product->image_filename) {
-            Storage::disk('public')->delete('products/' . $product->image_filename);
+            Storage::disk('public')->delete('products' . DIRECTORY_SEPARATOR . $product->image_filename);
         }
 
         $product->delete();
@@ -119,7 +119,7 @@ class ProductController extends Controller
             $fileName = $product->getKey() . '.' . $image->extension();
 
             if ($product->image_filename) {
-                Storage::disk('public')->delete('products/' . $product->image_filename);
+                Storage::disk('public')->delete('products' . DIRECTORY_SEPARATOR . $product->image_filename);
             }
 
             $image->storeAs('products', $fileName, 'public');

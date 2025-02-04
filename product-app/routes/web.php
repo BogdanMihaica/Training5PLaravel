@@ -26,8 +26,8 @@ Route::middleware([SetLocale::class])->group(function () {
 
     Route::controller(CartController::class)->group(function () {
         Route::get('/cart', 'index')->name('cart.index');
-        Route::get('/cart/remove/{product}', 'removeFromCart')->name('cart.remove');
-        Route::post('/cart/add/{product}', 'saveToCart')->name('cart.add');
+        Route::get('/cart/remove/{product}', 'destroy')->name('cart.remove');
+        Route::post('/cart/add/{product}', 'store')->name('cart.add');
     });
 
     Route::controller(SessionController::class)->group(function () {

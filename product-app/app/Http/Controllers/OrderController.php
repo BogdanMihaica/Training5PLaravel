@@ -64,7 +64,7 @@ class OrderController extends Controller
 
         session()->forget('cart');
 
-        return redirect('/');
+        return redirect()->route('products.index');
     }
 
     /**
