@@ -61,7 +61,7 @@ class CartController extends Controller
      * 
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function removeFromCart(Product $product)
+    public function destroy(Product $product)
     {
         $id = $product->getKey();
         $cartItems = session('cart');

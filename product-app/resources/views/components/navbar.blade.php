@@ -1,20 +1,20 @@
 <div class="z-50 w-full h-15 bg-slate-500 fixed top-0 flex justify-between items-center px-5">
     <div class="flex gap-5">
         <x-navlink href="{{ route('products.index') }}"
-            class="{{ request()->is('/') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.home") }}</x-navlink>
+            class="{{ request()->route()->getName() == 'products.index' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.home") }}</x-navlink>
         <x-navlink href="{{ route('cart.index') }}"
-            class="{{ request()->is('cart') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.cart") }}</x-navlink>
+            class="{{ request()->route()->getName() == 'cart.index' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.cart") }}</x-navlink>
 
         @if(!session()->has('user'))
             <x-navlink href="{{ route('login') }}"
-                class="{{ request()->is('login') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.login") }}</x-navlink>
-        @endif @if(session()->has('user'))
+                class="{{ request()->route()->getName() == 'login' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.login") }}</x-navlink>
+        @else
             <x-navlink href="{{ route('products.dashboard') }}"
-                class="{{ request()->is('products') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.products_link") }}</x-navlink>
+                class="{{ request()->route()->getName() == 'products.dashboard' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.products_link") }}</x-navlink>
             <x-navlink href="{{ route('orders.index') }}"
-                class="{{ request()->is('orders') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.orders_link") }}</x-navlink>
+                class="{{ request()->route()->getName() == 'orders.index' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.orders_link") }}</x-navlink>
             <x-navlink href="{{ route('products.create') }}"
-                class="{{ request()->is('product/publish') ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.publish") }}</x-navlink>
+                class="{{ request()->route()->getName() == 'products.create' ? 'bg-slate-700' : 'bg-slate-600' }}">{{ __("messages.publish") }}</x-navlink>
             <x-navlink href="{{ route('logout') }}" class="bg-black">{{ __("messages.logout") }}</x-navlink>
         @endif
     </div>
