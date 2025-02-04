@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Mail\OrderPosted;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Notifications\OrderSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
 {
@@ -54,14 +56,13 @@ class OrderController extends Controller
             $orderProduct->product_id = $itemId;
             $orderProduct->order_id = $order->getKey();
             $orderProduct->quantity = $cartItems[$itemId];
-
             $orderProduct->save();
         }
 
-        $products = Order::findOrFail($order->getKey())->products;
-        session()->forget('cart');
+        Notification::route('mail', config('mail.from')['address'])
+            ->notify(new OrderSent($order->customer_email, $order->customer_name, $order));
 
-        Mail::to(config('mail.from')['address'])->send(new OrderPosted($order->customer_email, $order->customer_name, $products));
+        session()->forget('cart');
 
         return redirect('/');
     }

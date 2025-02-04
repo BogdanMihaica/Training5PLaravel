@@ -1,6 +1,6 @@
 <x-layout title="Dashboard">
     <div class="mt-20">
-        <x-title>{{__('messages.products')}}</x-title>
+        <x-title>{{ __('messages.products') }}</x-title>
         <div class="mx-20">{{ $products->links() }}</div>
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col">
@@ -11,26 +11,26 @@
                                 <thead class="bg-gray-100 dark:bg-gray-700">
                                     <th scope="col"
                                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                        {{__('messages.id')}}
+                                        {{ __('messages.id') }}
                                     </th>
                                     <th scope="col"
                                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                        {{__('messages.image')}}
+                                        {{ __('messages.image') }}
                                     </th>
                                     <th scope="col"
                                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                        {{__('messages.product_title')}}
+                                        {{ __('messages.product_title') }}
                                     </th>
                                     <th scope="col"
                                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                        {{__('messages.description')}}
+                                        {{ __('messages.description') }}
                                     </th>
                                     <th scope="col"
                                         class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                        {{__('messages.price')}}
+                                        {{ __('messages.price') }}
                                     </th>
                                     <th scope="col" class="p-4">
-                                        <span class="sr-only">{{__('messages.edit')}}</span>
+                                        <span class="sr-only">{{ __('messages.edit') }}</span>
                                     </th>
                                     </tr>
                                 </thead>
@@ -53,7 +53,7 @@
                                             <td
                                                 class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 <a class="text-blue-500"
-                                                    href="{{route('products.edit', $product)}}">{{ $product->title }}</a>
+                                                    href="{{ route('products.edit', $product) }}">{{ $product->title }}</a>
                                             </td>
 
                                             <td
@@ -67,14 +67,15 @@
                                             </td>
 
                                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                                <form action="{{route('products.destroy', $product)}}" method="post">
+                                                <form action="{{ route('products.destroy', $product) }}"
+                                                    method="post">
                                                     @csrf
 
                                                     @method('DELETE')
 
                                                     <button
                                                         class="text-white py-3 px-3 bg-red-700 rounded-lg cursor-pointer hover:bg-red-800">
-                                                        {{__('messages.delete')}}
+                                                        {{ __('messages.delete') }}
                                                     </button>
                                                 </form>
 

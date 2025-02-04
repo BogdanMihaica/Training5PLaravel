@@ -3,7 +3,7 @@
         <x-title>{{ __('messages.cart_title') }}</x-title>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
-            @foreach($products as $product)
+            @foreach ($products as $product)
                 <div
                     class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                     <div class="">

@@ -4,7 +4,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Get the public URL of a products image if it is not null
+ * Get the public URL of a products image if the specified product object's image_filename variable is not null
  * 
  * @param App\Models\Product $product
  * 
@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\Storage;
  */
 function getImageUrl(Product $product)
 {
-    if ($product->image_filename == null) {
-        return null;
+    if (!$product->image_filename) {
+        return;
     }
 
     $separator = DIRECTORY_SEPARATOR;
-    # $path = 'public' . $separator . 'products' . $separator . $product->image_filename;
 
     return asset('storage' . $separator . 'products' . $separator . $product->image_filename);
 }

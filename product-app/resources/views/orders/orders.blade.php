@@ -1,6 +1,6 @@
 <x-layout title="Dashboard">
     <div class="mt-20">
-        <x-title>{{__('messages.orders')}}</x-title>
+        <x-title>{{ __('messages.orders') }}</x-title>
         <div class="mx-20">{{ $orders->links() }}</div>
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col">
@@ -12,22 +12,22 @@
                                     <tr>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.id')}}
+                                            {{ __('messages.id') }}
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.customer_name')}}
+                                            {{ __('messages.customer_name') }}
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.customer_email')}}
+                                            {{ __('messages.customer_email') }}
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                            {{__('messages.created_at')}}
+                                            {{ __('messages.created_at') }}
                                         </th>
                                         <th scope="col" class="p-4">
-                                            <span class="sr-only">{{__('messages.view')}}</span>
+                                            <span class="sr-only">{{ __('messages.view') }}</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -57,7 +57,7 @@
 
                                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                                                 <a href="{{ route('order.show', $order->getKey()) }}"
-                                                    class="text-blue-600 dark:text-blue-500 hover:underline">{{__('messages.view')}}</a>
+                                                    class="text-blue-600 dark:text-blue-500 hover:underline">{{ __('messages.view') }}</a>
                                             </td>
                                         </tr>
                                     @endforeach

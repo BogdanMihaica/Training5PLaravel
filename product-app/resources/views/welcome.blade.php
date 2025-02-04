@@ -3,7 +3,7 @@
         <x-title>{{ __('messages.browse_products') }}</x-title>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-2">
-            @foreach($products as $product)
+            @foreach ($products as $product)
                 <div
                     class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                     <div class="">
@@ -17,7 +17,7 @@
 
                         <span>{{ __('messages.select_quantity') }}:
                             <select name="quantity">
-                                @for($i = 1; $i <= 10; $i++)
+                                @for ($i = 1; $i <= 10; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
@@ -32,7 +32,7 @@
             @endforeach
         </div>
         <div class="w-1/2 mx-auto">
-            {{$products->links()}}
+            {{ $products->links() }}
         </div>
     </div>
 

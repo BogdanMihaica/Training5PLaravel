@@ -3,7 +3,7 @@
         <div class="bg-slate-100 p-8 rounded-2xl shadow-lg w-200 my-5 mx-auto">
             <strong>
                 <h1 class="text-center text-3xl mb-5">
-                    {{ $edit ? __('messages.edit_product') . ' #' . $product->getKey() : __('messages.add')}}
+                    {{ $edit ? __('messages.edit_product') . ' #' . $product->getKey() : __('messages.add') }}
                 </h1>
             </strong>
 
@@ -22,7 +22,7 @@
 
                 @if ($edit && $product->image_filename)
                     <div class="flex justify-center">
-                        <img class="max-w-50 rounded-lg" src="{{getImageUrl($product)}}" alt="Product image">
+                        <img class="max-w-50 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product image">
                     </div>
                 @endif
 
@@ -44,8 +44,7 @@
                     <label class="text-slate-900 block mb-1" for="email">{{ __('messages.email') }}</label>
                     <textarea type="text" id="description"
                         class="resize-none w-full p-3 rounded-lg bg-slate-400 text-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
-                        placeholder="{{ __('messages.enter_description') }}" name="description"
-                        rows="7">{{ $edit ? $product->description : '' }}</textarea>
+                        placeholder="{{ __('messages.enter_description') }}" name="description" rows="7">{{ $edit ? $product->description : '' }}</textarea>
 
                     @error('description')
                         <p class="text-red-500">

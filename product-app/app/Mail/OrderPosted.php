@@ -15,7 +15,6 @@ class OrderPosted extends Mailable
 
     protected $username;
     protected $email;
-
     protected $products;
     /**
      * Create a new message instance.
