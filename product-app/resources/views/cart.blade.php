@@ -7,7 +7,9 @@
                 <div
                     class="border border-gray-300 rounded-lg shadow-lg bg-white p-4 flex flex-col items-center text-center justify-between">
                     <div class="">
-                        <img class="max-h-70 rounded-lg" src="{{ getImageUrl($product) }}" alt="Product Image">
+                        <img class="max-h-70 rounded-lg"
+                            src="{{ getImageUrl($product) ?? asset('storage' . DIRECTORY_SEPARATOR . 'products' . DIRECTORY_SEPARATOR . 'unk.jpg') }}"
+                            alt="Product Image">
                     </div>
                     <h2 class="text-lg font-semibold text-gray-800">{{ $product->title }}</h2>
                     <p class="text-sm text-gray-600 mt-2">{{ $product->description }}</p>

@@ -4,8 +4,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SessionController;
-use App\Http\Middleware\IsAdmin;
-use App\Http\Middleware\IsGuest;
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\Guest;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +14,7 @@ Route::middleware([SetLocale::class])->group(function () {
     Route::controller(ProductController::class)->group(function () {
         Route::get('/', 'index')->name('products.index');
 
-        Route::middleware([IsAdmin::class])->group(function () {
+        Route::middleware([Admin::class])->group(function () {
             Route::get('/products', 'dashboard')->name('products.dashboard');
             Route::post('/products', 'store')->name('products.store');
             Route::get('/product/publish', 'create')->name('products.create');
@@ -31,7 +31,7 @@ Route::middleware([SetLocale::class])->group(function () {
     });
 
     Route::controller(SessionController::class)->group(function () {
-        Route::middleware([IsGuest::class])->group(function () {
+        Route::middleware([Guest::class])->group(function () {
             Route::get('/login', 'create')->name('login');
             Route::post('/login', 'login')->name('login.post');
         });
@@ -39,7 +39,7 @@ Route::middleware([SetLocale::class])->group(function () {
         Route::get('/logout', 'logout')->name('logout');
     });
 
-    Route::middleware([IsAdmin::class])->group(function () {
+    Route::middleware([Admin::class])->group(function () {
         Route::controller(OrderController::class)->group(function () {
             Route::get('/orders', 'index')->name('orders.index');
             Route::post('/orders', 'store')->name('orders.store');
