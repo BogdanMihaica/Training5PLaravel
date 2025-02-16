@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,17 +12,13 @@ class OrderSent extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $username;
-    protected $email;
     protected $order;
 
-    /**
-     * Create a new notification instance.
+    /** 
+     * @param Order $order
      */
-    public function __construct($email, $username, $order)
+    public function __construct($order)
     {
-        $this->username = $username;
-        $this->email = $email;
         $this->order = $order;
     }
 
@@ -43,8 +40,6 @@ class OrderSent extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->view('mail.order-posted', [
-                'username' => $this->username,
-                'email' => $this->email,
                 'order' => $this->order
             ]);
     }

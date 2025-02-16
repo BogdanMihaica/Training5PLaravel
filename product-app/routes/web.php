@@ -4,9 +4,15 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SPA\SPAAdminProductController;
+use App\Http\Controllers\SPA\SPACartController;
+use App\Http\Controllers\SPA\SPAOrderController;
+use App\Http\Controllers\SPA\SPAProductController;
+use App\Http\Controllers\SPA\SPAUserController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\Guest;
 use App\Http\Middleware\SetLocale;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([SetLocale::class])->group(function () {
@@ -47,6 +53,57 @@ Route::middleware([SetLocale::class])->group(function () {
         });
     });
 });
+
+Route::prefix('/spa')->group(function () {
+    Route::controller(SPAProductController::class)->group(function () {
+        Route::get('/products', 'index');
+    });
+
+    Route::controller(SPAAdminProductController::class)->group(function () {
+        Route::middleware(['auth:sanctum'])->group(function () {
+            Route::get('/products/all', 'index');
+            Route::get('/products/{product}', 'show');
+            Route::put('/products/{product}', 'update');
+            Route::post('/products', 'store');
+            Route::delete('/products/{product}', 'destroy');
+        });
+    });
+
+    Route::controller(SPACartController::class)->group(function () {
+        Route::get('/cart', 'index');
+        Route::delete('/cart/{product}', 'destroy');
+        Route::post('/cart', 'store');
+    });
+
+    Route::controller(SPAOrderController::class)->group(function () {
+        Route::post('/orders', 'store');
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::get('/orders', 'index');
+            Route::get('/orders/{order}', 'products');
+        });
+    });
+
+    Route::get('/csrf-token', function () {
+        return response()->json(['csrf_token' => csrf_token()]);
+    });
+
+    Route::controller(SPAUserController::class)->group(function () {
+        Route::post('/login', 'login');
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::post('/logout', 'logout');
+            Route::get('/user', function () {
+                return Auth::user();
+            });
+        });
+    });
+
+    Route::get('/change-locale', function () {
+        return response()->json();
+    });
+});
+
 
 Route::fallback(function () {
     if (request()->isMethod('GET')) {
