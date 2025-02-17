@@ -92,7 +92,7 @@
                 <tr class="order-row">
                     <td class="table-data">{{ $product->getKey() }}</td>
                     <td class="table-data">
-                        <img class="product-image" src="{{ getImageUrl($product) }}" alt="Product Image">
+                        <img class="product-image" src="{{ $product->getImageUrl() }}" alt="Product Image">
                     </td>
                     <td class="table-data">
                         {{ $product->title }}

@@ -38,15 +38,11 @@ class SPAOrderController extends Controller
     {
         $cartItems = Session::get('cart', []);
 
-        $validated = $request->validate([
+        $validated = request()->merge(['cart' => $cartItems])->validate([
+            'cart' => ['required'],
             'name' => ['required', 'max:100'],
             'email' => ['required', 'email'],
         ]);
-
-        Validator::make(
-            ['cart' => $cartItems],
-            ['cart' => 'required']
-        )->validate();
 
         $order = new Order();
         $order->customer_name = $validated['name'];
@@ -58,10 +54,9 @@ class SPAOrderController extends Controller
             collect($cartItems)->map(fn($quantity) => ['quantity' => $quantity])->toArray()
         );
 
-        Notification::route('mail', config('mail.from.address'))
-            ->notify(new OrderSent($order));
+        Notification::route('mail', config('mail.from.address'))->notify(new OrderSent($order));
 
-        session()->forget('cart');
+        Session::forget('cart');
 
         return new OrderResource($order);
     }

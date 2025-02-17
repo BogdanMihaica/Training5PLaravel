@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -53,7 +52,7 @@ class SPAAdminProductController extends Controller
      * 
      * @return ProductResource
      */
-    public function store(Request $request)
+    public function store()
     {
         $product = new Product();
         $this->save($product, true);

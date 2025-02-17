@@ -96,9 +96,9 @@ export default {
 		<PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
 	</div>
 
-	<div class="my-6 w-full flex justify-center items-center flex-col">
-		<button v-if="!checkoutOpen" class=" cursor-pointer w-40 py-2 px-4 bg-violet-600 text-white rounded-md
-			hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500" @click.prevent=" toggleCheckout()">
+	<div v-if="products.length" class="my-6 w-full flex justify-center items-center flex-col">
+		<button v-if="!checkoutOpen" @click.prevent=" toggleCheckout()" class=" cursor-pointer w-40 py-2 px-4 bg-violet-600 text-white rounded-md
+			hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
 			{{ $t('checkout') }}
 		</button>
 
@@ -138,7 +138,6 @@ export default {
 						{{ $t('submit') }}
 					</button>
 				</div>
-				<ErrorMessage v-if="errors.cart" :error="errors.cart" />
 			</form>
 		</div>
 	</div>
