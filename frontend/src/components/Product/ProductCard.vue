@@ -38,16 +38,16 @@ export default {
                     this.$emit('added');
 
                     Swal.fire({
-                        title: "Success!",
-                        text: "Successfully added product to the cart!",
-                        icon: "success"
+                        title: this.$t('success'),
+                        text: this.$t('addedToCart'),
+                        icon: 'success'
                     });
                 })
                 .catch(() => {
                     Swal.fire({
-                        title: "Ugh...",
-                        text: "Something wrong happened.",
-                        icon: "error"
+                        title: this.$t('errorTitle'),
+                        text: this.$t('somethingWrongHappened'),
+                        icon: 'error'
                     });
                 });
         },
@@ -66,18 +66,32 @@ export default {
                     this.$emit('removed');
 
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Successfully removed product from the cart!',
+                        title: this.$t('success'),
+                        text: this.$t('removedFromCart'),
                         icon: 'success'
                     });
                 })
                 .catch(() => {
                     Swal.fire({
-                        title: 'Ugh...',
-                        text: 'Something wrong happened.',
+                        title: this.$t('errorTitle'),
+                        text: this.$t('somethingWrongHappened'),
                         icon: 'error'
                     });
                 });
+        },
+
+        /**
+         * Handles the click of the button
+         * 
+         * @param id 
+         * @param quantity 
+         */
+        async handleButtonClick(id, quantity) {
+            if (this.isCartPage) {
+                await this.removeFromCart(id);
+            } else {
+                await this.addToCart(id, quantity);
+            }
         }
     }
 }
@@ -101,8 +115,7 @@ export default {
                 <h2 class="text-3xl text-violet-300">${{ product.price }}</h2>
 
                 <div class="flex justify-center items-center mt-1 flex-col">
-                    <ProductButton :is-cart-page="isCartPage" @add="addToCart(product.id, quantity)"
-                        @remove="removeFromCart(product.id)" />
+                    <ProductButton :is-cart-page="isCartPage" @action="handleButtonClick(product.id, quantity || 0)" />
 
                     <label :for="`quantity-${product.id}`" v-show="!isCartPage">{{ $t('selectQuantity') }}</label>
 

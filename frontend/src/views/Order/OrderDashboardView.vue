@@ -41,37 +41,19 @@ export default {
         <table v-else class="w-[90%] rounded-lg">
             <thead>
                 <tr class="bg-violet-800">
-                    <th class="rounded-tl-lg">
-                        {{ $t('id') }}
-                    </th>
-                    <th>
-                        {{ $t('customerName') }}
-                    </th>
-                    <th>
-                        {{ $t('customerEmail') }}
-                    </th>
-                    <th>
-                        {{ $t('createdAt') }}
-                    </th>
-                    <th class="rounded-tr-lg">
-                        {{ $t('actions') }}
-                    </th>
+                    <th class="rounded-tl-lg">{{ $t('id') }}</th>
+                    <th>{{ $t('customerName') }}</th>
+                    <th>{{ $t('customerEmail') }}</th>
+                    <th>{{ $t('createdAt') }}</th>
+                    <th class="rounded-tr-lg">{{ $t('actions') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="bg-neutral-800" v-for="(order) in orders" :key="order.id">
-                    <td>
-                        {{ order.id }}
-                    </td>
-                    <td>
-                        {{ order.customer_name }}
-                    </td>
-                    <td>
-                        {{ order.customer_email }}
-                    </td>
-                    <td>
-                        {{ order.created_at }}
-                    </td>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.customer_email }}</td>
+                    <td>{{ order.created_at }}</td>
                     <td>
                         <RouterLink
                             class="mx-auto px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 focus:ring-blue-400 focus:ring-1"

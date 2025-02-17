@@ -10,7 +10,7 @@
     "products" : "Products",
     "orders" : "Orders",
     "logout" : "Logout",
-    "upload" : "Upload",
+    "create" : "Create",
     "cart" : "Cart",
     "removeFromCart" : "Remove from cart",
     "quantity" : "Quantity",
@@ -45,5 +45,15 @@
     "enterTitle" : "Enter product title",
     "enterDescription" : "Enter product description",
     "enterPrice" : "Enter product price",
-    "productAlt" : "Product Image"
+    "productAlt" : "Product Image",
+    "success" : "Success",
+    "productCreated" : "Product created successfully!",
+    "productUpdated" : "Product updated successfullly!",
+    "productDeleted" : "Product deleted successfullly!",
+    "errorTitle" : "Ugh..",
+    "somethingWentWrong" : "Something whent wrong.",
+    "addedToCart" : "Successfully added product to cart",
+    "removedFromCart" : "Successfully removed product from cart",
+    "loggedIn" : "Successfully logged in!",
+    "orderPlaced" : "Order placed successfully!"
 }

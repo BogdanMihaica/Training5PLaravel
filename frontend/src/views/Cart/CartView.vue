@@ -66,8 +66,8 @@ export default {
 				})
 				.then(() => {
 					Swal.fire({
-						title: 'Success',
-						text: 'Order placed successfully!',
+						title: this.$t('success'),
+						text: this.$t('orderPlaced'),
 						icon: 'success'
 					});
 

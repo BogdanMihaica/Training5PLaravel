@@ -79,52 +79,24 @@ export default {
                 <table class="w-[90%] rounded-lg">
                     <thead>
                         <tr class="bg-violet-800">
-                            <th class="rounded-tl-lg">
-                                {{ $t('id') }}
-                            </th>
-                            <th>
-                                {{ $t('image') }}
-                            </th>
-                            <th>
-                                {{ $t('title') }}
-                            </th>
-                            <th>
-                                {{ $t('description') }}
-                            </th>
-                            <th>
-                                {{ $t('price') }}
-                            </th>
-                            <th>
-                                {{ $t('quantity') }}
-                            </th>
-                            <th>
-                                {{ $t('total') }}
-                            </th>
+                            <th class="rounded-tl-lg">{{ $t('id') }}</th>
+                            <th>{{ $t('image') }}</th>
+                            <th>{{ $t('title') }}</th>
+                            <th>{{ $t('description') }}</th>
+                            <th>{{ $t('price') }}</th>
+                            <th>{{ $t('quantity') }}</th>
+                            <th>{{ $t('total') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-neutral-800" v-for="(product) in products" :key="product.id">
-                            <td>
-                                {{ product.id }}
-                            </td>
-                            <td>
-                                <img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')">
-                            </td>
-                            <td>
-                                {{ product.title }}
-                            </td>
-                            <td>
-                                {{ product.description }}
-                            </td>
-                            <td>
-                                {{ product.price }}
-                            </td>
-                            <td>
-                                {{ product.quantity }}
-                            </td>
-                            <td>
-                                {{ product.quantity * product.price }}
-                            </td>
+                            <td>{{ product.id }}</td>
+                            <td><img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')"></td>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.quantity * product.price }}</td>
                         </tr>
 
                         <tr class="bg-neutral-800">

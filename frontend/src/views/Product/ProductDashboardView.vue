@@ -39,21 +39,24 @@ export default {
         async handleDelete(id, index) {
             await axios.get('/sanctum/csrf-cookie');
 
-            await axios.delete(`/spa/products/${id}`).then(() => {
-                this.products.splice(index, 1);
+            await axios
+                .delete(`/spa/products/${id}`)
+                .then(() => {
+                    this.products.splice(index, 1);
 
-                Swal.fire({
-                    title: "Success",
-                    text: "Succesfully deleted item with id " + id,
-                    icon: "success"
-                });
-            }).catch(() => {
-                Swal.fire({
-                    title: "Ugh...",
-                    text: "Something went wrong.",
-                    icon: "error"
-                });
-            })
+                    Swal.fire({
+                        title: this.$t('success'),
+                        text: this.$t('productDeleted'),
+                        icon: 'success'
+                    });
+                })
+                .catch(() => {
+                    Swal.fire({
+                        title: this.$t('errorTitle'),
+                        text: this.$t('somethingWrongHappened'),
+                        icon: 'error'
+                    });
+                })
         }
     }
 }
@@ -66,49 +69,23 @@ export default {
         <table v-else class="w-[90%] rounded-lg">
             <thead>
                 <tr class="bg-violet-800">
-                    <th class="rounded-tl-lg">
-                        {{ $t('id') }}
-                    </th>
-                    <th>
-                        {{ $t('image') }}
-                    </th>
-                    <th>
-                        {{ $t('title') }}
-                    </th>
-                    <th>
-                        {{ $t('description') }}
-                    </th>
-                    <th>
-                        {{ $t('price') }}
-                    </th>
-                    <th>
-                        {{ $t('createdAt') }}
-                    </th>
-                    <th class="rounded-tr-lg">
-                        {{ $t('actions') }}
-                    </th>
+                    <th class="rounded-tl-lg">{{ $t('id') }}</th>
+                    <th> {{ $t('image') }}</th>
+                    <th> {{ $t('title') }}</th>
+                    <th> {{ $t('description') }}</th>
+                    <th> {{ $t('price') }}</th>
+                    <th> {{ $t('createdAt') }}</th>
+                    <th class="rounded-tr-lg"> {{ $t('actions') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="bg-neutral-800" v-for="(product, i) in products" :key="product.id">
-                    <td>
-                        {{ product.id }}
-                    </td>
-                    <td>
-                        <img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')">
-                    </td>
-                    <td>
-                        {{ product.title }}
-                    </td>
-                    <td>
-                        {{ product.description }}
-                    </td>
-                    <td>
-                        {{ product.price }}
-                    </td>
-                    <td>
-                        {{ product.created_at }}
-                    </td>
+                    <td> {{ product.id }}</td>
+                    <td> <img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')"></td>
+                    <td> {{ product.title }}</td>
+                    <td> {{ product.description }}</td>
+                    <td> {{ product.price }}</td>
+                    <td> {{ product.created_at }}</td>
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
                             <RouterLink :to="{ name: 'product', params: { id: product.id } }" class="px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 

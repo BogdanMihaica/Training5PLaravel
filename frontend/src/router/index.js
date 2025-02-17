@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CartView from '@/views/CartView.vue'
-import LoginView from '@/views/LoginView.vue'
-import ProductsDashboardView from '@/views/ProductsDashboardView.vue'
-import OrdersDashboardView from '@/views/OrdersDashboardView.vue'
-import OrderView from '@/views/OrderView.vue'
-import ProductManageView from '@/views/ProductManageView.vue'
 import { useAuthStore } from '@/stores/authStore'
 import NotFound from '@/components/NotFound/NotFound.vue'
+import ProductHomeView from '@/views/Product/ProductHomeView.vue'
+import ProductDashboardView from '@/views/Product/ProductDashboardView.vue'
+import ProductManageView from '@/views/Product/ProductManageView.vue'
+import LoginView from '@/views/Auth/LoginView.vue'
+import CartView from '@/views/Cart/CartView.vue'
+import OrderDashboardView from '@/views/Order/OrderDashboardView.vue'
+import OrderView from '@/views/Order/OrderView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +15,7 @@ const router = createRouter({
 		{
 			path: '/',
 			name: 'home',
-			component: HomeView,
+			component: ProductHomeView,
 		},
 		{
 			path: '/cart',
@@ -30,11 +30,11 @@ const router = createRouter({
 		{
 			path: '/products',
 			name: 'products',
-			component: ProductsDashboardView,
+			component: ProductDashboardView,
 		},
 		{
-			path: '/products/upload',
-			name: 'upload',
+			path: '/products/create',
+			name: 'create',
 			component: ProductManageView,
 		},
 		{
@@ -45,7 +45,7 @@ const router = createRouter({
 		{
 			path: '/orders',
 			name: 'orders',
-			component: OrdersDashboardView,
+			component: OrderDashboardView,
 		},
 		{
 			path: '/order/:id',

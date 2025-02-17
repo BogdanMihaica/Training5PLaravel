@@ -23,7 +23,7 @@ export default {
 		 * Async function that fetches for the products that are not in the cart
 		 */
 		async getProducts() {
-			await axios.get("/spa/products")
+			await axios.get('/spa/products')
 				.then(response => {
 					this.products = response.data.data;
 				})

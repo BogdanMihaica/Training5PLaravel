@@ -29,9 +29,9 @@ export const useAuthStore = defineStore('auth',
 
 				await axios.post(`/spa/login`, body).then((res) => {
 					Swal.fire({
-						title: "Success",
-						text: "Successfully logged in!",
-						icon: "success"
+						title: this.$t('success'),
+						text: this.$t('loggedIn'),
+						icon: 'success'
 					});
 
 					this.isAuthenticated = true;

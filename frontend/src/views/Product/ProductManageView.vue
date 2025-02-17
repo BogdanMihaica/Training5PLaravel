@@ -54,18 +54,18 @@ export default {
         async handleSubmit() {
             let formData = new FormData();
 
-            formData.append("title", this.title);
-            formData.append("description", this.description);
-            formData.append("price", this.price);
+            formData.append('title', this.title);
+            formData.append('description', this.description);
+            formData.append('price', this.price);
 
             if (this.image) {
-                formData.append("image", this.image);
+                formData.append('image', this.image);
             }
 
-            await axios.get("/sanctum/csrf-cookie");
+            await axios.get('/sanctum/csrf-cookie');
 
             if (this.edit) {
-                formData.append("_method", "PUT");
+                formData.append('_method', 'PUT');
 
                 await axios.post(`/spa/products/${this.id}`, formData, {
                     headers: {
@@ -75,15 +75,15 @@ export default {
                     console.log(res);
 
                     Swal.fire({
-                        title: "Success",
-                        text: "Product updated succesfully!",
-                        icon: "success"
+                        title: this.$t('success'),
+                        text: this.$t('productUpdated'),
+                        icon: 'success'
                     });
 
-                    router.push({ name: "products" });
+                    router.push({ name: 'products' });
 
                 }).catch((error) => {
-                    this.errors = error.response.data.errors
+                    this.errors = error.response?.data?.errors
                 });
             } else {
                 await axios.post(`/spa/products`, formData, {
@@ -92,17 +92,17 @@ export default {
                     }
                 }).then((res) => {
                     Swal.fire({
-                        title: "Success",
-                        text: "Product uploaded succesfully!",
-                        icon: "success"
+                        title: this.$t('success'),
+                        text: this.$t('productCreated'),
+                        icon: 'success'
                     });
 
-                    const createdId = res.data.data.id;
+                    const createdId = res.data?.data?.id;
 
-                    router.push({ name: "product", params: { id: createdId } })
+                    router.push({ name: 'product', params: { id: createdId } })
 
                 }).catch((error) => {
-                    this.errors = error.response.data.errors;
+                    this.errors = error.response?.data?.errors;
                 });
             }
         },
@@ -152,7 +152,7 @@ export default {
         </div>
         <div v-else class="bg-neutral-800 p-8 rounded-2xl shadow-lg w-128 border-1 border-violet-600">
             <h2 class="text-2xl font-semibold text-center text-white mb-6">
-                {{ edit ? $t('editProduct') : $t('upload') }}
+                {{ edit ? $t('editProduct') : $t('create') }}
             </h2>
 
             <div class="w-full flex justify-center mb-2" v-if="edit">

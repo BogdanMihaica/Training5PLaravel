@@ -14,7 +14,7 @@ export default {
         'bg-violet-700 hover:bg-violet-600': !isCartPage,
         'bg-red-700 hover:bg-red-600': isCartPage
     }" class="w-60 h-10 rounded-lg text-xl cursor-pointer transition-all duration-300"
-        @click.prevent="isCartPage ? $emit('remove') : $emit('add')">
+        @click.prevent="$emit('action')">
 
         <span v-if="isCartPage">{{ $t('removeFromCart') }}</span>
         <span v-else>{{ $t('addToCart') }}</span>
