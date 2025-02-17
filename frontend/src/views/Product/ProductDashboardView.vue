@@ -1,4 +1,5 @@
 <script>
+import { awaitCsrfCookie } from '@/common/functions';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -13,7 +14,8 @@ export default {
         }
     },
 
-    mounted() {
+    created() {
+        awaitCsrfCookie();
         this.getProducts();
     },
 
@@ -22,6 +24,7 @@ export default {
          * Async function that fetches for the products that are not in the cart
          */
         async getProducts() {
+            this.loaded = false;
 
             await axios.get('/spa/products/all')
                 .then(response => {
@@ -36,14 +39,10 @@ export default {
          * @param id 
          * @param index 
          */
-        async handleDelete(id, index) {
-            await axios.get('/sanctum/csrf-cookie');
-
+        async handleDelete(id) {
             await axios
                 .delete(`/spa/products/${id}`)
                 .then(() => {
-                    this.products.splice(index, 1);
-
                     Swal.fire({
                         title: this.$t('success'),
                         text: this.$t('productDeleted'),
@@ -79,7 +78,7 @@ export default {
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-neutral-800" v-for="(product, i) in products" :key="product.id">
+                <tr class="bg-neutral-800" v-for="product in products" :key="product.id">
                     <td> {{ product.id }}</td>
                     <td> <img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')"></td>
                     <td> {{ product.title }}</td>
@@ -88,14 +87,15 @@ export default {
                     <td> {{ product.created_at }}</td>
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
-                            <RouterLink :to="{ name: 'product', params: { id: product.id } }" class="px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
+                            <RouterLink :key="$route.fullPath" :to="{ name: 'product', params: { id: product.id } }"
+                                class="px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
                                 focus:ring-blue-400 focus:ring-1">
                                 {{ $t('edit') }}
                             </RouterLink>
 
 
                             <button class="px-4 py-1 bg-red-500 rounded-lg cursor-pointer hover:bg-red-600
-                                focus:ring-red-400 focus:ring-1" @click.prevent="handleDelete(product.id, i)">
+                                focus:ring-red-400 focus:ring-1" @click.prevent="handleDelete(product.id)">
                                 {{ $t('delete') }}
                             </button>
                         </div>

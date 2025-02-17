@@ -1,7 +1,6 @@
 import router from '@/router';
 import axios from 'axios';
 import { defineStore } from 'pinia'
-import Swal from 'sweetalert2';
 
 export const useAuthStore = defineStore('auth',
 	{
@@ -26,20 +25,19 @@ export const useAuthStore = defineStore('auth',
 				let errors = {};
 
 				await axios.get('/sanctum/csrf-cookie');
-
-				await axios.post(`/spa/login`, body).then((res) => {
-					Swal.fire({
-						title: this.$t('success'),
-						text: this.$t('loggedIn'),
-						icon: 'success'
-					});
-
+				
+				await axios
+				.post(`/spa/login`, body)
+				.then((res) => {
 					this.isAuthenticated = true;
-					localStorage.setItem('token', res.data.token);
+					localStorage.setItem('token', res.data?.token);
 
 					router.push({ name: 'home' });
-				}).catch(error => {
-					errors = error.response.data.errors;
+				})
+				.catch(error => {
+					console.log(error);
+					
+					errors = error.response?.data?.errors;
 				});
 
 				return errors;

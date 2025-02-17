@@ -2,6 +2,7 @@
 import axios from 'axios';
 import ProductButton from './ProductButton.vue';
 import Swal from 'sweetalert2';
+
 export default {
     components: { ProductButton },
 
@@ -27,8 +28,6 @@ export default {
          * @param quantity 
          */
         async addToCart(id, quantity) {
-            await axios.get('/sanctum/csrf-cookie');
-
             await axios
                 .post(`/spa/cart`, {
                     quantity: quantity,
@@ -93,7 +92,7 @@ export default {
                 await this.addToCart(id, quantity);
             }
         }
-    }
+    },
 }
 </script>
 

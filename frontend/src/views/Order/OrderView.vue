@@ -8,35 +8,35 @@ export default {
 
     data() {
         return {
-            products: [],
-            customerName: "",
-            customerEmail: "",
-            createdAt: "",
+            products: {},
+            order: {},
             loaded: false
         }
     },
 
     methods: {
         /**
-         * Fetches all the products corresponding to the order
+         * Fetches the order details
          */
-        async getOrderProducts() {
-            const id = this.$route.params.id;
+        async getOrder(id) {
+            this.loaded = false;
 
             await axios.get(`/spa/orders/${id}`)
                 .then((res) => {
-                    res = res.data;
-
-                    this.products = res.data.products;
-                    this.customerEmail = res.data.customer_email;
-                    this.customerName = res.data.customer_name;
-                    this.createdAt = res.data.created_at;
+                    this.order = res.data.data;
                 })
+                .catch(() => {
+                    router.push({ name: 'notFound' });
+                });
 
-            if (!this.products.length) {
-                router.push({ name: 'notFound' });
-            }
 
+            await axios.get(`/spa/orders/${id}/products`)
+                .then((res) => {
+                    this.products = res.data.data;
+                })
+                .catch(() => {
+                    router.push({ name: 'notFound' });
+                });
             this.loaded = true;
         },
 
@@ -49,15 +49,19 @@ export default {
             let total = 0;
 
             if (this.products) {
-                this.products.forEach(product => total += (product.price * product.quantity));
+                this.products.forEach(product => total += (product.price * product.pivot.quantity));
             }
 
             return total.toFixed(2);
         }
     },
 
-    mounted() {
-        this.getOrderProducts();
+    created() {
+        const id = this.$route.params.id;
+
+        if (id) {
+            this.getOrder(id);
+        }
     }
 }
 </script>
@@ -68,11 +72,11 @@ export default {
 
         <SquaresLoader v-if="!loaded" class="mx-auto" />
         <div v-else>
-            <h1 class="text-5xl text-center"> {{ $t("order") + " #" + $route.params.id }}</h1>
+            <h1 class="text-5xl text-center"> {{ $t("order") + " #" + order.id }}</h1>
             <div class="text-xl mb-10">
-                <h2>{{ $t("customerName") + ": " + customerName }}</h2>
-                <h2>{{ $t("customerEmail") + ": " + customerEmail }}</h2>
-                <h2>{{ $t("createdAt") + ": " + createdAt }}</h2>
+                <h2>{{ $t("customerName") + ": " + order.customer_name }}</h2>
+                <h2>{{ $t("customerEmail") + ": " + order.customer_email }}</h2>
+                <h2>{{ $t("createdAt") + ": " + order.created_at }}</h2>
             </div>
 
             <div class="w-full flex flex-col justify-center items-center text-white">
@@ -95,8 +99,8 @@ export default {
                             <td>{{ product.title }}</td>
                             <td>{{ product.description }}</td>
                             <td>{{ product.price }}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td>{{ product.quantity * product.price }}</td>
+                            <td>{{ product.pivot.quantity }}</td>
+                            <td>{{ product.pivot.quantity * product.price }}</td>
                         </tr>
 
                         <tr class="bg-neutral-800">

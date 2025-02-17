@@ -15,13 +15,13 @@ class SPAProductController extends Controller
     /**
      * Returns the collection of products that are not part of the cart
      * 
-     * @return ProductCollection
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
         $cartItems = session('cart');
         $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->get();
 
-        return new ProductCollection($products);
+        return ProductResource::collection($products);
     }
 }

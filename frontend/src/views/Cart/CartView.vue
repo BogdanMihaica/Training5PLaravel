@@ -1,4 +1,5 @@
 <script>
+import { awaitCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import ProductCard from '@/components/Product/ProductCard.vue';
@@ -19,7 +20,8 @@ export default {
 		}
 	},
 
-	mounted() {
+	created() {
+		awaitCsrfCookie();
 		this.getProducts();
 	},
 
@@ -28,10 +30,12 @@ export default {
 		 * Fetches the products corresponding with the server session variable 'cart'
 		 */
 		async getProducts() {
+			this.loaded = false;
+
 			await axios
 				.get('/spa/cart')
 				.then(response => {
-					this.products = response.data.data;
+					this.products = response.data?.data;
 				});
 
 			this.loaded = true;
@@ -57,8 +61,6 @@ export default {
 		 * Handles the checkout process by making a post request to the server
 		 */
 		async handleCheckout() {
-			await axios.get('/sanctum/csrf-cookie');
-
 			await axios
 				.post(`/spa/orders`, {
 					name: this.name,
@@ -118,7 +120,7 @@ export default {
 					<input type="email" id="customer-email" v-model="email"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
 						:placeholder="$t('enterEmail')" />
-					<ErrorMessage :error="errors.email" />
+					<ErrorMessage v-if="errors.email" :error="errors.email" />
 				</div>
 
 				<div class="mb-6">
@@ -126,7 +128,7 @@ export default {
 					<input type="text" id="name" v-model="name"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
 						:placeholder="$t('enterName')" />
-					<ErrorMessage :error="errors.name" />
+					<ErrorMessage v-if="errors.name" :error="errors.name" />
 				</div>
 
 				<div class="flex items-center justify-between">
@@ -135,7 +137,7 @@ export default {
 						{{ $t('submit') }}
 					</button>
 				</div>
-				<ErrorMessage :error="errors.cart" />
+				<ErrorMessage v-if="errors.cart" :error="errors.cart" />
 			</form>
 		</div>
 	</div>

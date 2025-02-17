@@ -4,8 +4,10 @@ namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CartProductsCollection;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -15,14 +17,14 @@ class SPACartController extends Controller
     /**
      * Returns a collection of products that are present in the session cart variable
      * 
-     * @return CartProductsCollection
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
         $cartItems = Session::get('cart', []);
         $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->get();
 
-        return new CartProductsCollection($products);
+        return ProductResource::collection($products);
     }
 
     /**

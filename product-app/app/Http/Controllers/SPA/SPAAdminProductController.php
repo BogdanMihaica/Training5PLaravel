@@ -7,6 +7,7 @@ use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Storage;
 
 class SPAAdminProductController extends Controller
@@ -14,11 +15,11 @@ class SPAAdminProductController extends Controller
     /**
      * Returns a collection of all the products
      * 
-     * @return ProductCollection
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return new ProductCollection(Product::orderByDesc('created_at')->get());
+        return ProductResource::collection(Product::orderByDesc('created_at')->get());
     }
 
     /**

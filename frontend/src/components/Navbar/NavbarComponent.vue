@@ -72,11 +72,11 @@ export default {
         <div class="mr-10 flex gap-2">
             <button class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
                 @click.prevent="handleLocaleChange('en')">
-                EN
+                {{ $t('en') }}
             </button>
             <button class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
                 @click.prevent="handleLocaleChange('ro')">
-                RO
+                {{ $t('ro') }}
             </button>
         </div>
     </div>

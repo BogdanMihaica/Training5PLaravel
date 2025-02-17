@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Session;
 
 class ProductResource extends JsonResource
 {
@@ -15,14 +16,9 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'description' => $this->description,
-            'price' => $this->price,
-            'image_url' => getImageUrl($this),
-            'created_at' => $this->created_at->toDateTimeString(),
-            'updated_at' => $this->updated_at->toDateTimeString(),
-        ];
+        $attributes = parent::toArray($request);
+        $attributes['image_url'] = $this->getImageUrl();
+        $attributes['quantity'] = Session::get('cart')[$this->getKey()] ?? 0;
+        return $attributes;
     }
 }

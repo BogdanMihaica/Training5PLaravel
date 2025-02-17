@@ -31,55 +31,59 @@ const router = createRouter({
 			path: '/products',
 			name: 'products',
 			component: ProductDashboardView,
+			meta: {auth : true}
 		},
 		{
 			path: '/products/create',
 			name: 'create',
 			component: ProductManageView,
+			meta: {auth : true}
 		},
 		{
 			path: '/products/:id/edit',
 			name: 'product',
 			component: ProductManageView,
+			meta: {auth : true}
 		},
 		{
 			path: '/orders',
 			name: 'orders',
 			component: OrderDashboardView,
+			meta: {auth : true}
 		},
 		{
 			path: '/order/:id',
 			name: 'order',
 			component: OrderView,
+			meta: {auth : true}
 		},
 		{
 			path: "/:catchAll(.*)",
-			component: NotFound
+			component: NotFound,
 		},
 		{
 			path: "/404",
 			name: 'notFound',
-			component: NotFound
+			component: NotFound,
 		}
 	],
 })
 
 router.beforeEach(async (to, from, next) => {
 	const authStore = useAuthStore();
-	const privateRoutes = ['products', 'product', 'orders', 'order', 'upload', 'login'];
 
 	if (!authStore.isInitialized) {
 		await authStore.initialize();
 	}
 
-	if (privateRoutes.includes(to.name)) {
-		if (to.name === 'login' && authStore.isAuthenticated) {
-			next({ name: 'products' });
-		} else if (to.name !== 'login' && !authStore.isAuthenticated ) {
+	if (to.meta?.auth) {
+		if (!authStore.isAuthenticated) {
 			next({ name: 'login' });
 		} else {
 			next();
 		}
+	} else if (to.name === 'login' && authStore.isAuthenticated) {
+		next({ name: 'products' });
 	} else {
 		next();
 	}

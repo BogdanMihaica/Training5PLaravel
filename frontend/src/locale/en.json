@@ -51,9 +51,11 @@
     "productUpdated" : "Product updated successfullly!",
     "productDeleted" : "Product deleted successfullly!",
     "errorTitle" : "Ugh..",
-    "somethingWentWrong" : "Something whent wrong.",
+    "somethingWrongHappened" : "Something wrong happened.",
     "addedToCart" : "Successfully added product to cart",
     "removedFromCart" : "Successfully removed product from cart",
     "loggedIn" : "Successfully logged in!",
-    "orderPlaced" : "Order placed successfully!"
+    "orderPlaced" : "Order placed successfully!",
+    "en" : "EN",
+    "ro" : "RO"
 }

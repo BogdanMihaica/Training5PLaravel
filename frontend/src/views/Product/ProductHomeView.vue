@@ -1,4 +1,5 @@
 <script>
+import { awaitCsrfCookie } from '@/common/functions';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import ProductCard from '@/components/Product/ProductCard.vue';
 import axios from 'axios';
@@ -14,6 +15,7 @@ export default {
 	},
 
 	created() {
+		awaitCsrfCookie();
 		this.getProducts();
 	},
 
@@ -23,6 +25,8 @@ export default {
 		 * Async function that fetches for the products that are not in the cart
 		 */
 		async getProducts() {
+			this.loaded = false;
+
 			await axios.get('/spa/products')
 				.then(response => {
 					this.products = response.data.data;

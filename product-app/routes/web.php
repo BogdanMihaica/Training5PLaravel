@@ -54,6 +54,7 @@ Route::middleware([SetLocale::class])->group(function () {
     });
 });
 
+// SPA routes
 Route::prefix('/spa')->group(function () {
     Route::controller(SPAProductController::class)->group(function () {
         Route::get('/products', 'index');
@@ -80,7 +81,8 @@ Route::prefix('/spa')->group(function () {
 
         Route::middleware('auth:sanctum')->group(function () {
             Route::get('/orders', 'index');
-            Route::get('/orders/{order}', 'products');
+            Route::get('/orders/{order}', 'show');
+            Route::get('/orders/{order}/products', 'showProducts');
         });
     });
 

@@ -21,7 +21,7 @@ const app = createApp(App)
 const pinia = createPinia();
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 axios.defaults.withXSRFToken = true;
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 

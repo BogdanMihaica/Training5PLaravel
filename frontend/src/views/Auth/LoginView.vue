@@ -34,7 +34,7 @@ export default {
                     <input type="email" id="email" v-model="email"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterEmail')" />
-                    <ErrorMessage :error="errors.email" />
+                    <ErrorMessage v-if="errors.email" :error="errors.email" />
                 </div>
 
                 <div class="mb-6">
@@ -42,7 +42,7 @@ export default {
                     <input type="password" id="password" v-model="password"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterPassword')" />
-                    <ErrorMessage :error="errors.password" />
+                    <ErrorMessage v-if="errors.password" :error="errors.password" />
                 </div>
 
                 <div class="flex items-center justify-between">

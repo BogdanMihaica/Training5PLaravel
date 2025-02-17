@@ -71,10 +71,9 @@
 </style>
 @php
     $grandTotal = 0;
-    $products = $order->products;
 @endphp
 <div>
-    <h2 class="order-header">{{ __('messages.new_order') . $username }}</h2>
+    <h2 class="order-header">{{ __('messages.new_order') . $order->username }}</h2>
     <h3 class="products-title">{{ __('messages.products_link') }}</h3>
     <table class="order-table">
         <thead class="order-header-row">
@@ -89,7 +88,7 @@
             </tr>
         </thead>
         <tbody class="order-body">
-            @foreach ($products as $product)
+            @foreach ($order->products as $product)
                 <tr class="order-row">
                     <td class="table-data">{{ $product->getKey() }}</td>
                     <td class="table-data">

@@ -51,16 +51,16 @@ class OrderController extends Controller
         $order->customer_email = $validated['email'];
         $order->save();
 
-        foreach (array_keys($cartItems) as $itemId) {
+        foreach ($cartItems as $itemId => $quantity) {
             $orderProduct = new OrderProduct();
             $orderProduct->product_id = $itemId;
             $orderProduct->order_id = $order->getKey();
-            $orderProduct->quantity = $cartItems[$itemId];
+            $orderProduct->quantity = $quantity;
             $orderProduct->save();
         }
 
         Notification::route('mail', config('mail.from')['address'])
-            ->notify(new OrderSent($order->customer_email, $order->customer_name, $order));
+            ->notify(new OrderSent($order));
 
         session()->forget('cart');
 

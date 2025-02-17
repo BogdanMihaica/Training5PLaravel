@@ -12,7 +12,7 @@ export default {
         }
     },
 
-    mounted() {
+    created() {
         this.getOrders();
     },
 
@@ -21,6 +21,8 @@ export default {
          * Async function that fetches for the orders that are not in the cart
          */
         async getOrders() {
+            this.loaded = false;
+
             await axios
                 .get('/spa/orders')
                 .then(response => {

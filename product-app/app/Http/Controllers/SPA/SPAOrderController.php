@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SPA;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Notifications\OrderSent;
@@ -15,15 +16,14 @@ use Illuminate\Support\Facades\Validator;
 
 class SPAOrderController extends Controller
 {
-
     /**
      * Returns all the orders from the database
      * 
-     * @return OrderCollection
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-        return new OrderCollection(Order::orderByDesc('created_at')->get());
+        return OrderResource::collection(Order::orderByDesc('created_at')->get());
     }
 
     /**
@@ -52,15 +52,12 @@ class SPAOrderController extends Controller
         $order = new Order();
         $order->customer_name = $validated['name'];
         $order->customer_email = $validated['email'];
+
         $order->save();
 
-        foreach (array_keys($cartItems) as $itemId) {
-            $orderProduct = new OrderProduct();
-            $orderProduct->product_id = $itemId;
-            $orderProduct->order_id = $order->getKey();
-            $orderProduct->quantity = $cartItems[$itemId];
-            $orderProduct->save();
-        }
+        $order->products()->sync(
+            collect($cartItems)->map(fn($quantity) => ['quantity' => $quantity])->toArray()
+        );
 
         Notification::route('mail', config('mail.from.address'))
             ->notify(new OrderSent($order));
@@ -77,8 +74,20 @@ class SPAOrderController extends Controller
      * 
      * @return OrderResource
      */
-    public function products(Order $order)
+    public function show(Order $order)
     {
         return new OrderResource($order);
+    }
+
+    /**
+     * Get the products of a specific order
+     * 
+     * @param \App\Models\Order $order
+     * 
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function showProducts(Order $order)
+    {
+        return ProductResource::collection($order->products);
     }
 }
