@@ -2,16 +2,19 @@
 import { awaitCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
+import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import ProductCard from '@/components/Product/ProductCard.vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
-	components: { ProductCard, SquaresLoader, ErrorMessage },
+	components: { ProductCard, SquaresLoader, ErrorMessage, PaginationButtons },
 
 	data() {
 		return {
 			products: [],
+			paginationInfo: {},
+			currentPage: 1,
 			loaded: false,
 			checkoutOpen: false,
 			name: '',
@@ -33,21 +36,13 @@ export default {
 			this.loaded = false;
 
 			await axios
-				.get('/spa/cart')
+				.get(`/spa/cart?page=${this.currentPage}`)
 				.then(response => {
 					this.products = response.data?.data;
+					this.paginationInfo = response.data?.meta;
 				});
 
 			this.loaded = true;
-		},
-
-		/**
-		 * Removes an item from the products array by an index
-		 * 
-		 * @param index 
-		 */
-		removeItemFromList(index) {
-			this.products.splice(index, 1);
 		},
 
 		/**
@@ -79,6 +74,12 @@ export default {
 					this.errors = error.response?.data?.errors || {};
 				});
 		}
+	},
+
+	watch: {
+		currentPage() {
+			this.getProducts();
+		}
 	}
 }
 </script>
@@ -91,8 +92,8 @@ export default {
 	</div>
 
 	<div class="w-full flex flex-wrap gap-4 justify-center">
-		<ProductCard v-for="(product, i) in products" :key="product.id" :index="i" @removed="removeItemFromList(i)"
-			:product="product" :is-cart-page="true" />
+		<ProductCard v-for="product in products" :key="product.id" :product="product" :is-cart-page="true" />
+		<PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
 	</div>
 
 	<div class="my-6 w-full flex justify-center items-center flex-col">
@@ -112,7 +113,7 @@ export default {
 
 			<h2 class="text-2xl font-semibold text-center text-white mb-6">{{ $t('checkout') }}</h2>
 
-			<form @submit.prevent="handleLogin" class="w-[70%]">
+			<form @submit.prevent="handleCheckout" class="w-[70%]">
 				<div class="mb-4">
 					<label for="customer-email" class="block text-sm font-medium text-gray-300">
 						{{ $t('email') }}
@@ -133,7 +134,7 @@ export default {
 
 				<div class="flex items-center justify-between">
 					<button type="submit" class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md 
-						hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500" @click.prevent="handleCheckout">
+						hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
 						{{ $t('submit') }}
 					</button>
 				</div>

@@ -19,7 +19,7 @@ class SPAAdminProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::orderByDesc('created_at')->get());
+        return ProductResource::collection(Product::orderByDesc('created_at')->paginate(12));
     }
 
     /**

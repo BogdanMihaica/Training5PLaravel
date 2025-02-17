@@ -13,10 +13,10 @@ export default {
     data() {
         return {
             id: 0,
-            title: "",
-            description: "",
-            price: "",
-            currentImageUrl: "",
+            title: '',
+            description: '',
+            price: '',
+            currentImageUrl: '',
             image: null,
             edit: false,
             errors: {},
@@ -65,43 +65,48 @@ export default {
             if (this.edit) {
                 formData.append('_method', 'PUT');
 
-                await axios.post(`/spa/products/${this.id}`, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                }).then((res) => {
-                    console.log(res);
+                await axios
+                    .post(`/spa/products/${this.id}`, formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    })
+                    .then((res) => {
+                        console.log(res);
 
-                    Swal.fire({
-                        title: this.$t('success'),
-                        text: this.$t('productUpdated'),
-                        icon: 'success'
+                        Swal.fire({
+                            title: this.$t('success'),
+                            text: this.$t('productUpdated'),
+                            icon: 'success'
+                        });
+
+                        router.push({ name: 'products' });
+
+                    })
+                    .catch((error) => {
+                        this.errors = error.response?.data?.errors
                     });
-
-                    router.push({ name: 'products' });
-
-                }).catch((error) => {
-                    this.errors = error.response?.data?.errors
-                });
             } else {
-                await axios.post(`/spa/products`, formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                }).then((res) => {
-                    Swal.fire({
-                        title: this.$t('success'),
-                        text: this.$t('productCreated'),
-                        icon: 'success'
+                await axios
+                    .post(`/spa/products`, formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    })
+                    .then((res) => {
+                        Swal.fire({
+                            title: this.$t('success'),
+                            text: this.$t('productCreated'),
+                            icon: 'success'
+                        });
+
+                        const createdId = res.data?.data?.id;
+
+                        router.push({ name: 'product', params: { id: createdId } })
+                    })
+                    .catch((error) => {
+                        this.errors = error.response?.data?.errors;
                     });
-
-                    const createdId = res.data?.data?.id;
-
-                    router.push({ name: 'product', params: { id: createdId } })
-
-                }).catch((error) => {
-                    this.errors = error.response?.data?.errors;
-                });
             }
         },
 
@@ -113,21 +118,6 @@ export default {
         handleImageChange(e) {
             this.image = e.target.files[0];
         },
-
-        /**
-         * Resets the used data from the page. Used when the route path changes
-         */
-        resetData() {
-            this.id = 0;
-            this.title = "";
-            this.description = "";
-            this.price = "";
-            this.currentImageUrl = "";
-            this.image = null;
-            this.edit = false;
-            this.errors = {};
-            this.loaded = true;
-        }
     },
 
     created() {

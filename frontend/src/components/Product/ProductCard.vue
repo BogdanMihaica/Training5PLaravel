@@ -34,8 +34,6 @@ export default {
                     id: id
                 })
                 .then(() => {
-                    this.$emit('added');
-
                     Swal.fire({
                         title: this.$t('success'),
                         text: this.$t('addedToCart'),
@@ -62,8 +60,6 @@ export default {
             await axios
                 .delete(`/spa/cart/${id}`)
                 .then(() => {
-                    this.$emit('removed');
-
                     Swal.fire({
                         title: this.$t('success'),
                         text: this.$t('removedFromCart'),

@@ -23,7 +23,7 @@ class SPAOrderController extends Controller
      */
     public function index()
     {
-        return OrderResource::collection(Order::orderByDesc('created_at')->get());
+        return OrderResource::collection(Order::orderByDesc('created_at')->paginate(12));
     }
 
     /**
@@ -88,6 +88,6 @@ class SPAOrderController extends Controller
      */
     public function showProducts(Order $order)
     {
-        return ProductResource::collection($order->products);
+        return ProductResource::collection($order->products()->paginate(12));
     }
 }

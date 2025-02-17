@@ -20,7 +20,7 @@ class SPAProductController extends Controller
     public function index()
     {
         $cartItems = session('cart');
-        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->get();
+        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
 
         return ProductResource::collection($products);
     }

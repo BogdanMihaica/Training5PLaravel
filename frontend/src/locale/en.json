@@ -57,5 +57,7 @@
     "loggedIn" : "Successfully logged in!",
     "orderPlaced" : "Order placed successfully!",
     "en" : "EN",
-    "ro" : "RO"
+    "ro" : "RO",
+    "next" : "Next",
+    "previous" : "Previous"
 }

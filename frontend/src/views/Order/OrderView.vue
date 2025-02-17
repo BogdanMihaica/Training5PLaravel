@@ -1,14 +1,17 @@
 <script>
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
+import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import router from '@/router';
 import axios from 'axios';
 
 export default {
-    components: { SquaresLoader },
+    components: { SquaresLoader, PaginationButtons },
 
     data() {
         return {
-            products: {},
+            products: [],
+            paginationInfo: {},
+            currentPage: 1,
             order: {},
             loaded: false
         }
@@ -16,27 +19,42 @@ export default {
 
     methods: {
         /**
-         * Fetches the order details
+         * Fetches the products of a specific order
+         */
+        async getProducts() {
+            this.loaded = false;
+
+            await axios
+                .get(`/spa/orders/${this.order.id}/products?page=${this.currentPage}`)
+                .then((res) => {
+                    this.products = res.data?.data;
+                    this.paginationInfo = res.data?.meta;
+                })
+                .catch(() => {
+                    router.push({ name: 'notFound' });
+                });
+
+            this.loaded = true;
+        },
+
+        /**
+         * Fetches the order details and the products associated with it
+         * 
+         * @param id
          */
         async getOrder(id) {
             this.loaded = false;
 
             await axios.get(`/spa/orders/${id}`)
                 .then((res) => {
-                    this.order = res.data.data;
+                    this.order = res.data?.data;
                 })
                 .catch(() => {
                     router.push({ name: 'notFound' });
                 });
 
+            await this.getProducts();
 
-            await axios.get(`/spa/orders/${id}/products`)
-                .then((res) => {
-                    this.products = res.data.data;
-                })
-                .catch(() => {
-                    router.push({ name: 'notFound' });
-                });
             this.loaded = true;
         },
 
@@ -61,6 +79,12 @@ export default {
 
         if (id) {
             this.getOrder(id);
+        }
+    },
+
+    watch: {
+        currentPage() {
+            this.getProducts();
         }
     }
 }
@@ -110,6 +134,7 @@ export default {
                         </tr>
                     </tbody>
                 </table>
+                <PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
             </div>
         </div>
     </div>

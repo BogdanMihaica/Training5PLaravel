@@ -22,7 +22,7 @@ class SPACartController extends Controller
     public function index()
     {
         $cartItems = Session::get('cart', []);
-        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->get();
+        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
 
         return ProductResource::collection($products);
     }

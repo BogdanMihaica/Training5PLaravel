@@ -1,13 +1,16 @@
 <script>
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
+import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import axios from 'axios';
 
 export default {
-    components: { SquaresLoader },
+    components: { SquaresLoader, PaginationButtons },
 
     data() {
         return {
             orders: [],
+            paginationInfo: {},
+            currentPage: 1,
             loaded: false
         }
     },
@@ -24,13 +27,20 @@ export default {
             this.loaded = false;
 
             await axios
-                .get('/spa/orders')
+                .get(`/spa/orders?page=${this.currentPage}`)
                 .then(response => {
-                    this.orders = response.data.data;
+                    this.orders = response.data?.data;
+                    this.paginationInfo = response.data?.meta;
                 })
 
             this.loaded = true;
         },
+    },
+
+    watch: {
+        currentPage() {
+            this.getOrders();
+        }
     }
 }
 </script>
@@ -66,6 +76,7 @@ export default {
                 </tr>
             </tbody>
         </table>
+        <PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
     </div>
 </template>
 <style scoped>
