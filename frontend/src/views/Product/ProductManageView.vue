@@ -1,6 +1,6 @@
 <!-- eslint-disable no-unused-vars -->
 <script>
-import { awaitCsrfCookie } from '@/common/functions';
+import { fetchCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import router from '@/router';
@@ -31,7 +31,8 @@ export default {
         async getProduct(id) {
             this.loaded = false;
 
-            await axios.get(`/spa/products/${id}`)
+            await axios
+                .get(`/spa/products/${id}`)
                 .then((res) => {
                     res = res.data;
 
@@ -121,7 +122,7 @@ export default {
     },
 
     created() {
-        awaitCsrfCookie();
+        fetchCsrfCookie();
 
         const id = this.$route.params.id;
 
@@ -142,7 +143,7 @@ export default {
                 {{ edit ? $t('editProduct') : $t('create') }}
             </h2>
 
-            <div class="w-full flex justify-center mb-2" v-if="edit">
+            <div v-if="edit" class="w-full flex justify-center mb-2">
                 <img :src="currentImageUrl" :alt="$t('productAlt')" class="h-50">
             </div>
 

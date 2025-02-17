@@ -55,8 +55,6 @@ export default {
          * @param id 
          */
         async removeFromCart(id) {
-            await axios.get('/sanctum/csrf-cookie');
-
             await axios
                 .delete(`/spa/cart/${id}`)
                 .then(() => {

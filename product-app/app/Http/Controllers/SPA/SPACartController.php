@@ -56,7 +56,7 @@ class SPACartController extends Controller
         Validator::make(
             ['id' => $product->getKey()],
             ['id' => ['required', Rule::in(array_keys($cartItems))]],
-        );
+        )->validate();
 
         unset($cartItems[$product->getKey()]);
         Session::put('cart', $cartItems);

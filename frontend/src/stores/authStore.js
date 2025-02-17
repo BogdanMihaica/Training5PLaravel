@@ -1,3 +1,4 @@
+import { fetchCsrfCookie } from '@/common/functions';
 import router from '@/router';
 import axios from 'axios';
 import { defineStore } from 'pinia'
@@ -21,10 +22,9 @@ export const useAuthStore = defineStore('auth',
 					email: email,
 					password: password
 				};
-
 				let errors = {};
 
-				await axios.get('/sanctum/csrf-cookie');
+				await fetchCsrfCookie();
 				
 				await axios
 				.post(`/spa/login`, body)
@@ -47,7 +47,7 @@ export const useAuthStore = defineStore('auth',
 			 * Logs the user out
 			 */
 			async logout(){
-				await axios.get('/sanctum/csrf-cookie');
+				await fetchCsrfCookie();
 
 				await axios.post(`/spa/logout`).then(()=>{
 					this.isAuthenticated = false;

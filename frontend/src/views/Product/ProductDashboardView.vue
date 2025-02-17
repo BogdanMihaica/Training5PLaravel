@@ -1,5 +1,5 @@
 <script>
-import { awaitCsrfCookie } from '@/common/functions';
+import { fetchCsrfCookie } from '@/common/functions';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import axios from 'axios';
@@ -18,7 +18,7 @@ export default {
     },
 
     created() {
-        awaitCsrfCookie();
+        fetchCsrfCookie();
         this.getProducts();
     },
 
@@ -29,7 +29,8 @@ export default {
         async getProducts() {
             this.loaded = false;
 
-            await axios.get(`/spa/products/all?page=${this.currentPage}`)
+            await axios
+                .get(`/spa/products/all?page=${this.currentPage}`)
                 .then(response => {
                     this.products = response.data?.data;
                     this.paginationInfo = response.data?.meta;

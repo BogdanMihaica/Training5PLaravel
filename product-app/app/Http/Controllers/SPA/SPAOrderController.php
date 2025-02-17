@@ -48,7 +48,6 @@ class SPAOrderController extends Controller
             ['cart' => 'required']
         )->validate();
 
-
         $order = new Order();
         $order->customer_name = $validated['name'];
         $order->customer_email = $validated['email'];

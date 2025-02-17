@@ -1,5 +1,5 @@
 <script>
-import { awaitCsrfCookie } from '@/common/functions';
+import { fetchCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
@@ -24,7 +24,7 @@ export default {
 	},
 
 	created() {
-		awaitCsrfCookie();
+		fetchCsrfCookie();
 		this.getProducts();
 	},
 
