@@ -95,27 +95,29 @@ export default {
         bg-gradient-to-t from-neutral-800 to-neutral-700">
         <div class="w-full flex-col items-center text-violet-100 p-4 h-full">
             <div class="flex flex-col h-full auto items-center justify-between space-y-4">
-
                 <div class="w-full h-60 flex justify-center mt-1 overflow-hidden">
-                    <img v-if="product.image_url" :src="product.image_url" :alt="$t('productAlt')"
-                        class="rounded-lg border-2 border-neutral-600" />
-                    <img v-else src="@/assets/placeholder.svg" :alt="$t('productAlt')" />
+                    <img 
+                        v-if="product.image_url" 
+                        :src="product.image_url" 
+                        :alt="$t('productAlt')"
+                        class="rounded-lg border-2 border-neutral-600" 
+                    />
+                    <img v-else src="@/assets/placeholder.svg" :alt="$t('productAlt')"/>
                 </div>
 
                 <h2 class="text-2xl">{{ product.title }}</h2>
                 <h3 class="text-xs mx-5">{{ product.description }}</h3>
-                <h2 class="text-2xl" v-show="isCartPage"> {{ $t('quantity') + ": " + product.quantity }}</h2>
+                <h2 v-show="isCartPage" class="text-2xl"> {{ $t('quantity') + ": " + product.quantity }}</h2>
                 <h2 class="text-3xl text-violet-300">${{ product.price }}</h2>
 
                 <div class="flex justify-center items-center mt-1 flex-col">
                     <ProductButton :is-cart-page="isCartPage" @action="handleButtonClick(product.id, quantity || 0)" />
-                    
-                    <label :for="`quantity-${product.id}`" v-show="!isCartPage">{{ $t('selectQuantity') }}</label>
-                    <select :id="`quantity-${product.id}`" v-model="quantity" v-show="!isCartPage">
+
+                    <label v-show="!isCartPage" :for="`quantity-${product.id}`">{{ $t('selectQuantity') }}</label>
+                    <select v-show="!isCartPage" v-model="quantity" :id="`quantity-${product.id}`">
                         <option v-for="i in 10" :key="i" class="text-black">{{ i }}</option>
                     </select>
                 </div>
-
             </div>
         </div>
     </div>

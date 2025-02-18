@@ -12,6 +12,7 @@ export default {
 
     data() {
         return {
+            product:{},
             id: 0,
             title: '',
             description: '',
@@ -42,8 +43,10 @@ export default {
                     this.price = res.data.price;
                     this.currentImageUrl = res.data.image_url;
                     this.edit = true;
+                })
+                .catch(()=>{
+                    router.push({ 'name' : 'notFound'});
                 });
-
 
             this.loaded = true;
         },
@@ -84,7 +87,7 @@ export default {
                         router.push({ name: 'products' });
                     })
                     .catch((error) => {
-                        this.errors = error.response?.data?.errors
+                        this.errors = error.response?.data?.errors;
                     });
             } else {
                 await axios

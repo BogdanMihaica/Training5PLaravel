@@ -20,7 +20,7 @@ class SPACartController extends Controller
     public function index()
     {
         $cartItems = Session::get('cart', []);
-        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->whereNull('deleted_at')->paginate(10);
+        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
 
         return ProductResource::collection($products);
     }
@@ -52,9 +52,11 @@ class SPACartController extends Controller
     {
         $cartItems = Session::get('cart');
 
-        request()->merge(['id' => $product->getKey()])->validate([
-            'id' => ['required', Rule::in(array_keys($cartItems))]
-        ]);
+        request()
+            ->merge(['id' => $product->getKey()])
+            ->validate([
+                'id' => ['required', Rule::in(array_keys($cartItems))]
+            ]);
 
         unset($cartItems[$product->getKey()]);
         Session::put('cart', $cartItems);

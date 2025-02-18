@@ -54,8 +54,11 @@ export default {
                 <NavbarLink :route="{ 'name': 'products' }" icon="fas fa-boxes-stacked">{{ $t('products') }}</NavbarLink>
                 <NavbarLink :route="{ 'name': 'orders' }" icon="fas fa-box">{{ $t('orders') }}</NavbarLink>
                 <NavbarLink :route="{ 'name': 'create' }" icon="fas fa-upload">{{ $t('create') }}</NavbarLink>
-                <button class="text-white rounded-lg min-w-20 px-4 py-2 bg-red-800 transition-all duration-500 flex justify-center items-center text-lg
-                    hover:bg-red-600 cursor-pointer" @click.prevent="handleLogout">
+                <button 
+                    class="text-white rounded-lg min-w-20 px-4 py-2 bg-red-800 transition-all duration-500 flex justify-center items-center text-lg
+                        hover:bg-red-600 cursor-pointer" 
+                    @click.prevent="handleLogout"
+                >
                     {{ $t('logout') }}
                 </button>
             </span>

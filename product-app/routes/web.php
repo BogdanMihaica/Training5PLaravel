@@ -82,7 +82,7 @@ Route::prefix('/spa')->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
             Route::get('/orders', 'index');
             Route::get('/orders/{order}', 'show');
-            Route::get('/orders/{order}/products', 'showProducts');
+            Route::get('/orders/{order}/products', 'listProducts');
         });
     });
 

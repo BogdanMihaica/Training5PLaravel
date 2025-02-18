@@ -19,7 +19,7 @@ export default {
          */
         async handleLogin() {
             let authStore = useAuthStore();
-            this.errors = await authStore.login(this.email, this.password)
+            this.errors = await authStore.login(this.email, this.password);
         }
     }
 };
@@ -38,7 +38,7 @@ export default {
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterEmail')" 
                     />
-                    <ErrorMessage v-if="errors.email" :error="errors.email" />
+                    <ErrorMessage v-if="errors.email" :error="errors.email"/>
                 </div>
 
                 <div class="mb-6">
@@ -49,7 +49,7 @@ export default {
                         v-model="password"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterPassword')" />
-                    <ErrorMessage v-if="errors.password" :error="errors.password" />
+                    <ErrorMessage v-if="errors.password" :error="errors.password"/>
                 </div>
 
                 <div class="flex items-center justify-between">

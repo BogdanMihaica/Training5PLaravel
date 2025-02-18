@@ -31,7 +31,7 @@ export default {
                 .then(response => {
                     this.orders = response.data?.data;
                     this.paginationInfo = response.data?.meta;
-                })
+                });
 
             this.loaded = true;
         },

@@ -17,7 +17,7 @@ class SPAAdminProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::orderByDesc('created_at')->whereNull('deleted_at')->paginate(12));
+        return ProductResource::collection(Product::orderByDesc('created_at')->paginate(12));
     }
 
     /**
@@ -39,7 +39,7 @@ class SPAAdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->deleteOrFail();
+        $product->delete();
     }
 
     /**

@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Order;
-use App\Models\OrderProduct;
-use App\Models\Product;
 use App\Notifications\OrderSent;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 
 class SPAOrderController extends Controller
 {
@@ -50,10 +46,13 @@ class SPAOrderController extends Controller
         $order->customer_email = $validated['email'];
 
         $order->save();
+        
 
-        $order->products()->whereNull('deleted_at')->sync(
-            collect($cartItems)->map(fn($quantity) => ['quantity' => $quantity])->toArray()
-        );
+        $order
+            ->products()
+            ->sync(
+                collect($cartItems)->map(fn($quantity) => ['quantity' => $quantity])->toArray()
+            );
 
         Notification::route('mail', config('mail.from.address'))->notify(new OrderSent($order));
 
@@ -81,7 +80,7 @@ class SPAOrderController extends Controller
      * 
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function showProducts(Order $order)
+    public function listProducts(Order $order)
     {
         return ProductResource::collection($order->products()->paginate(12));
     }

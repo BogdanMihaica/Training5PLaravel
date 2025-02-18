@@ -17,7 +17,7 @@ class SPAProductController extends Controller
     public function index()
     {
         $cartItems = Session::get('cart',[]);
-        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->whereNull('deleted_at')->paginate(10);
+        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
 
         return ProductResource::collection($products);
     }

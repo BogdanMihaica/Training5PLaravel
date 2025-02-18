@@ -94,7 +94,7 @@ export default {
             <tbody>
                 <tr class="bg-neutral-800" v-for="product in products" :key="product.id">
                     <td> {{ product.id }}</td>
-                    <td> <img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')"></td>
+                    <td><img class="h-20 rounded-lg" :src="product.image_url" :alt="$t('productAlt')"></td>
                     <td> {{ product.title }}</td>
                     <td> {{ product.description }}</td>
                     <td> {{ product.price }}</td>
