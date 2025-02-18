@@ -5,7 +5,6 @@ namespace App\Http\Controllers\SPA;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +17,7 @@ class SPAAdminProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::orderByDesc('created_at')->paginate(12));
+        return ProductResource::collection(Product::orderByDesc('created_at')->where('deleted',0)->paginate(12));
     }
 
     /**
@@ -40,11 +39,12 @@ class SPAAdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->image_filename) {
-            Storage::disk('public')->delete('products' . DIRECTORY_SEPARATOR . $product->image_filename);
-        }
+        request()
+            ->merge(['deleted' => $product['deleted']])
+            ->validate(['deleted' => 'declined']);
 
-        $product->delete();
+        $product['deleted'] = 1;
+        $product->save();
     }
 
     /**
@@ -91,7 +91,7 @@ class SPAAdminProductController extends Controller
         $product->title = $validated['title'];
         $product->description = $validated['description'];
         $product->price = $validated['price'];
-
+        
         if ($newProduct) {
             $product->save();
         }

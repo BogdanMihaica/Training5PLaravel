@@ -31,23 +31,33 @@ export default {
             <form @submit.prevent="handleLogin">
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-300">{{ $t('email') }}</label>
-                    <input type="email" id="email" v-model="email"
+                    <input 
+                        type="email" 
+                        id="email" 
+                        v-model="email"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
-                        :placeholder="$t('enterEmail')" />
+                        :placeholder="$t('enterEmail')" 
+                    />
                     <ErrorMessage v-if="errors.email" :error="errors.email" />
                 </div>
 
                 <div class="mb-6">
                     <label for="password" class="block text-sm font-medium text-gray-300">{{ $t('password') }}</label>
-                    <input type="password" id="password" v-model="password"
+                    <input 
+                        type="password" 
+                        id="password" 
+                        v-model="password"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterPassword')" />
                     <ErrorMessage v-if="errors.password" :error="errors.password" />
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button type="submit"
-                        class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                    <button 
+                        type="submit"
+                        class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 
+                        focus:ring-violet-500"
+                    >
                         {{ $t('login') }}
                     </button>
                 </div>

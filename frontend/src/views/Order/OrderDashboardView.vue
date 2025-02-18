@@ -38,6 +38,9 @@ export default {
     },
 
     watch: {
+        /**
+         * Watches for the change of current page to fetch the products for that specific page
+         */
         currentPage() {
             this.getOrders();
         }

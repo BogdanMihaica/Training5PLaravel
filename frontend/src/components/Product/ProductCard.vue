@@ -109,9 +109,8 @@ export default {
 
                 <div class="flex justify-center items-center mt-1 flex-col">
                     <ProductButton :is-cart-page="isCartPage" @action="handleButtonClick(product.id, quantity || 0)" />
-
+                    
                     <label :for="`quantity-${product.id}`" v-show="!isCartPage">{{ $t('selectQuantity') }}</label>
-
                     <select :id="`quantity-${product.id}`" v-model="quantity" v-show="!isCartPage">
                         <option v-for="i in 10" :key="i" class="text-black">{{ i }}</option>
                     </select>

@@ -44,5 +44,21 @@
     "save" : "Salveaza",
     "enterTitle" : "Introdu titlul produsului",
     "enterDescription" : "Introdu descrierea produsului",
-    "enterPrice" : "Introdu pretul produsului"
+    "enterPrice" : "Introdu pretul produsului",
+    "productAlt" : "Imagine produs",
+    "success" : "Succes",
+    "productCreated" : "Produs creat cu succes!",
+    "productUpdated" : "Produs actualizat cu succes!",
+    "productDeleted" : "Produs eliminat cu succes!",
+    "errorTitle" : "Uff..",
+    "somethingWrongHappened" : "Ceva nu a functionat.",
+    "addedToCart" : "Produsul a fost adaugat in cos.",
+    "removedFromCart" : "Produs eliminat din cos.",
+    "loggedIn" : "Te-ai autentificat cu succes!",
+    "orderPlaced" : "Comanda ta a fost inregistrata!",
+    "en" : "EN",
+    "ro" : "RO",
+    "next" : "Urmatoarea pagina",
+    "previous" : "Pagina precedenta",
+    "404" : "404"
 }

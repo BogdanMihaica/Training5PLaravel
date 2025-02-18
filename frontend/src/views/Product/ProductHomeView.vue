@@ -34,13 +34,16 @@ export default {
 				.then(response => {
 					this.products = response.data?.data;
 					this.paginationInfo = response.data?.meta;
-				})
+				});
 
 			this.loaded = true;
 		},
 	},
 
 	watch: {
+		/**
+ 		* Watches for the change of current page to fetch the products for that specific page
+ 		*/
 		currentPage() {
 			this.getProducts();
 		}

@@ -49,19 +49,11 @@ export default {
         <div class="flex gap-5">
             <NavbarLink :route="{ 'name': 'home' }" icon="fas fa-house" class="first:ml-5">{{ $t('home') }}</NavbarLink>
             <NavbarLink :route="{ 'name': 'cart' }" icon="fas fa-cart-shopping">{{ $t('cart') }}</NavbarLink>
-            <NavbarLink :route="{ 'name': 'login' }" icon="fas fa-right-to-bracket" v-show="!isAuthenticated">
-                {{ $t('login') }}
-            </NavbarLink>
+            <NavbarLink v-show="!isAuthenticated" :route="{ 'name': 'login' }" icon="fas fa-right-to-bracket">{{ $t('login') }}</NavbarLink>
             <span v-show="isAuthenticated" class="flex gap-5">
-                <NavbarLink :route="{ 'name': 'products' }" icon="fas fa-boxes-stacked">
-                    {{ $t('products') }}
-                </NavbarLink>
-                <NavbarLink :route="{ 'name': 'orders' }" icon="fas fa-box">
-                    {{ $t('orders') }}
-                </NavbarLink>
-                <NavbarLink :route="{ 'name': 'create' }" icon="fas fa-upload">
-                    {{ $t('create') }}
-                </NavbarLink>
+                <NavbarLink :route="{ 'name': 'products' }" icon="fas fa-boxes-stacked">{{ $t('products') }}</NavbarLink>
+                <NavbarLink :route="{ 'name': 'orders' }" icon="fas fa-box">{{ $t('orders') }}</NavbarLink>
+                <NavbarLink :route="{ 'name': 'create' }" icon="fas fa-upload">{{ $t('create') }}</NavbarLink>
                 <button class="text-white rounded-lg min-w-20 px-4 py-2 bg-red-800 transition-all duration-500 flex justify-center items-center text-lg
                     hover:bg-red-600 cursor-pointer" @click.prevent="handleLogout">
                     {{ $t('logout') }}
@@ -70,12 +62,16 @@ export default {
         </div>
 
         <div class="mr-10 flex gap-2">
-            <button class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
-                @click.prevent="handleLocaleChange('en')">
+            <button 
+                class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
+                @click.prevent="handleLocaleChange('en')"
+            >
                 {{ $t('en') }}
             </button>
-            <button class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
-                @click.prevent="handleLocaleChange('ro')">
+            <button 
+                class="cursor-pointer px-3 bg-violet-300 text-black rounded-sm hover:bg-violet-400"
+                @click.prevent="handleLocaleChange('ro')"
+            >
                 {{ $t('ro') }}
             </button>
         </div>

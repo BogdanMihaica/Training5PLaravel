@@ -27,9 +27,19 @@ export default {
 
 <template>
     <div class="flex gap-50 w-full justify-center my-8">
-        <button class="text-white rounded-lg min-w-20 px-4 py-2 bg-violet-800 transition-all duration-500 flex justify-center items-center text-lg
-                    hover:bg-violet-600" @click.prevent="handlePrevious()">{{ $t('previous') }}</button>
-        <button class="text-white rounded-lg min-w-20 px-4 py-2 bg-violet-800 transition-all duration-500 flex justify-center items-center text-lg
-                    hover:bg-violet-600" @click.prevent="handleNext()">{{ $t('next') }}</button>
+        <button 
+            class="text-white rounded-lg min-w-20 px-4 py-2 bg-violet-800 transition-all 
+                    duration-500 flex justify-center items-center text-lg hover:bg-violet-600" 
+            @click.prevent="handlePrevious()"
+        >
+            {{ $t('previous') }}
+        </button>
+        <button 
+            class="text-white rounded-lg min-w-20 px-4 py-2 bg-violet-800 transition-all 
+                    duration-500 flex justify-center items-center text-lg hover:bg-violet-600" 
+            @click.prevent="handleNext()"
+        >
+            {{ $t('next') }}
+        </button>
     </div>
 </template>

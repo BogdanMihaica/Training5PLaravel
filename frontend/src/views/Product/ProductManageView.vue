@@ -82,7 +82,6 @@ export default {
                         });
 
                         router.push({ name: 'products' });
-
                     })
                     .catch((error) => {
                         this.errors = error.response?.data?.errors
@@ -152,9 +151,13 @@ export default {
                     <label for="title" class="block text-sm font-medium text-gray-300">
                         {{ $t('title') }}
                     </label>
-                    <input type="text" id="title" v-model="title"
+                    <input 
+                        type="text" 
+                        id="title" 
+                        v-model="title"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
-                        :placeholder="$t('enterTitle')" />
+                        :placeholder="$t('enterTitle')" 
+                    />
                     <ErrorMessage v-if="errors.title" :error="errors.title" />
                 </div>
 
@@ -162,9 +165,12 @@ export default {
                     <label for="description" class="block text-sm font-medium text-gray-300">
                         {{ $t('description') }}
                     </label>
-                    <textarea id="description" v-model="description"
+                    <textarea 
+                        id="description" 
+                        v-model="description"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
-                        :placeholder="$t('enterDescription')" rows="6">
+                        :placeholder="$t('enterDescription')" rows="6"
+                    >
                     </textarea>
                     <ErrorMessage v-if="errors.description" :error="errors.description" />
                 </div>
@@ -173,9 +179,13 @@ export default {
                     <label for="price" class="block text-sm font-medium text-gray-300">
                         {{ $t('price') }}
                     </label>
-                    <input type="text" id="price" v-model="price"
+                    <input 
+                        type="text" 
+                        id="price" 
+                        v-model="price"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
-                        :placeholder="$t('enterPrice')" />
+                        :placeholder="$t('enterPrice')" 
+                    />
                     <ErrorMessage v-if="errors.price" :error="errors.price" />
                 </div>
 
@@ -185,13 +195,18 @@ export default {
                     </label>
                     <input
                         class="mt-2 block w-full h-8 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
-                        type="file" id="image" @change="handleImageChange($event)" />
+                        type="file" 
+                        id="image" 
+                        @change="handleImageChange($event)"
+                    />
                     <ErrorMessage v-if="errors.image" :error="errors.image" />
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button type="submit"
-                        class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                    <button 
+                        type="submit"
+                        class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    >
                         {{ $t('save') }}
                     </button>
                 </div>

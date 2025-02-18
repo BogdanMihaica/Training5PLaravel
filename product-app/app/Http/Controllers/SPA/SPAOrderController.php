@@ -8,6 +8,7 @@ use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Product;
 use App\Notifications\OrderSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -34,7 +35,7 @@ class SPAOrderController extends Controller
      * 
      * @return \Illuminate\Http\Response|OrderResource
      */
-    public function store(Request $request)
+    public function store()
     {
         $cartItems = Session::get('cart', []);
 

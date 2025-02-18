@@ -5,6 +5,7 @@ use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 return new class extends Migration
 {
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->double('price')->price(0);
             $table->string('image_filename')->nullable();
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
 

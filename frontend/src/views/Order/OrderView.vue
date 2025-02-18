@@ -65,11 +65,8 @@ export default {
          */
         computeGrandTotal() {
             let total = 0;
-
-            if (this.products) {
-                this.products.forEach(product => total += (product.price * product.pivot.quantity));
-            }
-
+            this.products?.forEach(product => total += (product.price * product.pivot.quantity));
+            
             return total.toFixed(2);
         }
     },
@@ -83,6 +80,9 @@ export default {
     },
 
     watch: {
+        /**
+         * Watches for the change of current page to fetch the products for that specific page
+         */
         currentPage() {
             this.getProducts();
         }

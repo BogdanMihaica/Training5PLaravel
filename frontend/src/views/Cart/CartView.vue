@@ -77,6 +77,9 @@ export default {
 	},
 
 	watch: {
+		/**
+		 * Watches for the change of current page to fetch the products for that specific page
+		 */
 		currentPage() {
 			this.getProducts();
 		}
@@ -97,8 +100,12 @@ export default {
 	</div>
 
 	<div v-if="products.length" class="my-6 w-full flex justify-center items-center flex-col">
-		<button v-if="!checkoutOpen" @click.prevent=" toggleCheckout()" class=" cursor-pointer w-40 py-2 px-4 bg-violet-600 text-white rounded-md
-			hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
+		<button 
+			v-if="!checkoutOpen" 
+			@click.prevent=" toggleCheckout()" 
+			class=" cursor-pointer w-40 py-2 px-4 bg-violet-600 text-white rounded-md
+			hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+		>
 			{{ $t('checkout') }}
 		</button>
 
@@ -118,22 +125,32 @@ export default {
 					<label for="customer-email" class="block text-sm font-medium text-gray-300">
 						{{ $t('email') }}
 					</label>
-					<input type="email" id="customer-email" v-model="email"
+					<input 
+						type="email" 
+						id="customer-email" 
+						v-model="email"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
-						:placeholder="$t('enterEmail')" />
+						:placeholder="$t('enterEmail')" 
+					/>
 					<ErrorMessage v-if="errors.email" :error="errors.email" />
 				</div>
 
 				<div class="mb-6">
 					<label for="name" class="block text-sm font-medium text-gray-300">{{ $t('name') }}</label>
-					<input type="text" id="name" v-model="name"
+					<input 
+						type="text" 
+						id="name" 
+						v-model="name"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
-						:placeholder="$t('enterName')" />
+						:placeholder="$t('enterName')" 
+					/>
 					<ErrorMessage v-if="errors.name" :error="errors.name" />
 				</div>
 
 				<div class="flex items-center justify-between">
-					<button type="submit" class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md 
+					<button 
+						type="submit" 
+						class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md 
 						hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
 						{{ $t('submit') }}
 					</button>

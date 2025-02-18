@@ -59,5 +59,9 @@
     "en" : "EN",
     "ro" : "RO",
     "next" : "Next",
-    "previous" : "Previous"
+    "previous" : "Previous",
+    "404" : "404",
+    "deleted": "Deleted",
+    "yes" : "Yes",
+    "no" : "No"
 }

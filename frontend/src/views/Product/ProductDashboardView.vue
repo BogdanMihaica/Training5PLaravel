@@ -34,7 +34,7 @@ export default {
                 .then(response => {
                     this.products = response.data?.data;
                     this.paginationInfo = response.data?.meta;
-                })
+                });
 
             this.loaded = true;
         },
@@ -60,11 +60,14 @@ export default {
                         text: this.$t('somethingWrongHappened'),
                         icon: 'error'
                     });
-                })
+                });
         }
     },
 
     watch: {
+        /**
+         * Watches for the change of current page to fetch the products for that specific page
+         */
         currentPage() {
             this.getProducts();
         }
@@ -85,6 +88,7 @@ export default {
                     <th> {{ $t('description') }}</th>
                     <th> {{ $t('price') }}</th>
                     <th> {{ $t('createdAt') }}</th>
+                    <th> {{ $t('deleted') }}</th>
                     <th class="rounded-tr-lg"> {{ $t('actions') }}</th>
                 </tr>
             </thead>
@@ -96,17 +100,20 @@ export default {
                     <td> {{ product.description }}</td>
                     <td> {{ product.price }}</td>
                     <td> {{ product.created_at }}</td>
+                    <td> {{ product.deleted ? $t('yes') : $t('no') }}</td>
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
-                            <RouterLink :key="$route.fullPath" :to="{ name: 'product', params: { id: product.id } }"
+                            <RouterLink :to="{ name: 'product', params: { id: product.id } }"
                                 class="px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
-                                focus:ring-blue-400 focus:ring-1">
+                                focus:ring-blue-400 focus:ring-1"
+                            >
                                 {{ $t('edit') }}
                             </RouterLink>
 
 
-                            <button class="px-4 py-1 bg-red-500 rounded-lg cursor-pointer hover:bg-red-600
-                                focus:ring-red-400 focus:ring-1" @click.prevent="handleDelete(product.id)">
+                            <button class="px-4 py-1 bg-red-500 rounded-lg cursor-pointer hover:bg-red-600 
+                                focus:ring-red-400 focus:ring-1" @click.prevent="handleDelete(product.id)"
+                            >
                                 {{ $t('delete') }}
                             </button>
                         </div>

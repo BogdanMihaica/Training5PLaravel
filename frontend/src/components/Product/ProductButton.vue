@@ -21,7 +21,9 @@ export default {
         <i :class="{
             'fas fa-plus': !isCartPage,
             'fas fa-x': isCartPage,
-        }" class="ml-2 text-lg"></i>
+            }" 
+            class="ml-2 text-lg"
+        ></i>
 
     </button>
 </template>

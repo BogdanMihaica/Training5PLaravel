@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Support\Facades\Session;
 
 class SPAProductController extends Controller
 {
@@ -19,8 +16,8 @@ class SPAProductController extends Controller
      */
     public function index()
     {
-        $cartItems = session('cart');
-        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
+        $cartItems = Session::get('cart',[]);
+        $products = Product::whereNotIn('id', $cartItems ? array_keys($cartItems) : [])->where('deleted',0)->paginate(10);
 
         return ProductResource::collection($products);
     }

@@ -22,7 +22,7 @@ export default {
 	</div>
 
 	<div class="wrapper mt-20 mx-5 z-10">
-		<RouterView />
+		<RouterView :key="$route.fullPath"/>
 	</div>
 </template>
 
