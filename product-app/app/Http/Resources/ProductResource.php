@@ -17,8 +17,10 @@ class ProductResource extends JsonResource
     public function toArray(Request $request): array
     {
         $attributes = parent::toArray($request);
+
         $attributes['image_url'] = $this->getImageUrl();
         $attributes['quantity'] = Session::get('cart')[$this->getKey()] ?? 0;
+        
         return $attributes;
     }
 }

@@ -17,7 +17,7 @@ class SPAAdminProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::orderByDesc('created_at')->where('deleted',0)->paginate(12));
+        return ProductResource::collection(Product::orderByDesc('created_at')->whereNull('deleted_at')->paginate(12));
     }
 
     /**
@@ -39,12 +39,7 @@ class SPAAdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        request()
-            ->merge(['deleted' => $product['deleted']])
-            ->validate(['deleted' => 'declined']);
-
-        $product['deleted'] = 1;
-        $product->save();
+        $product->deleteOrFail();
     }
 
     /**
@@ -62,6 +57,8 @@ class SPAAdminProductController extends Controller
 
     /**
      * Updates a product from the database and returns it as response
+     * 
+     * @param Product $product 
      * 
      * @return ProductResource
      */
@@ -88,10 +85,8 @@ class SPAAdminProductController extends Controller
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
-        $product->title = $validated['title'];
-        $product->description = $validated['description'];
-        $product->price = $validated['price'];
-        
+        $product->fill($validated);
+
         if ($newProduct) {
             $product->save();
         }

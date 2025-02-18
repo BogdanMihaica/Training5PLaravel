@@ -37,7 +37,7 @@ class SPAUserController extends Controller
     }
 
     /**
-     * Logout logic
+     * Logs the current user out
      */
     public function logout()
     {

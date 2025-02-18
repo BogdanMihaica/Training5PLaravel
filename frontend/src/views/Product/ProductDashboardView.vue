@@ -88,7 +88,6 @@ export default {
                     <th> {{ $t('description') }}</th>
                     <th> {{ $t('price') }}</th>
                     <th> {{ $t('createdAt') }}</th>
-                    <th> {{ $t('deleted') }}</th>
                     <th class="rounded-tr-lg"> {{ $t('actions') }}</th>
                 </tr>
             </thead>
@@ -100,7 +99,6 @@ export default {
                     <td> {{ product.description }}</td>
                     <td> {{ product.price }}</td>
                     <td> {{ product.created_at }}</td>
-                    <td> {{ product.deleted ? $t('yes') : $t('no') }}</td>
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
                             <RouterLink :to="{ name: 'product', params: { id: product.id } }"

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CartProductsCollection;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class SPACartController extends Controller
@@ -22,7 +20,7 @@ class SPACartController extends Controller
     public function index()
     {
         $cartItems = Session::get('cart', []);
-        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->whereNot('deleted', '1')->paginate(10);
+        $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->whereNull('deleted_at')->paginate(10);
 
         return ProductResource::collection($products);
     }
@@ -30,7 +28,7 @@ class SPACartController extends Controller
     /**
      * Stores an item in the cart if it doesn't already exist
      * 
-     * @param Product $product
+     * @param Request $request
      */
     public function store(Request $request)
     {

@@ -51,7 +51,7 @@ class SPAOrderController extends Controller
 
         $order->save();
 
-        $order->products()->sync(
+        $order->products()->whereNull('deleted_at')->sync(
             collect($cartItems)->map(fn($quantity) => ['quantity' => $quantity])->toArray()
         );
 

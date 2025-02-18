@@ -60,5 +60,6 @@
     "ro" : "RO",
     "next" : "Urmatoarea pagina",
     "previous" : "Pagina precedenta",
-    "404" : "404"
+    "404" : "404",
+    "background" : "fundal"
 }
