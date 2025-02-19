@@ -7,6 +7,7 @@ use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Order;
 use App\Notifications\OrderSent;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +21,9 @@ class SPAOrderController extends Controller
      */
     public function index()
     {
-        return OrderResource::collection(Order::orderByDesc('created_at')->paginate(12));
+        $orders = Order::orderBy("created_at","desc")->paginate(10);
+
+        return JsonResource::collection($orders);
     }
 
     /**
@@ -29,7 +32,7 @@ class SPAOrderController extends Controller
      * 
      * @param \Illuminate\Http\Request $request
      * 
-     * @return \Illuminate\Http\Response|OrderResource
+     * @return JsonResource
      */
     public function store()
     {
@@ -37,17 +40,14 @@ class SPAOrderController extends Controller
 
         $validated = request()->merge(['cart' => $cartItems])->validate([
             'cart' => ['required'],
-            'name' => ['required', 'max:100'],
-            'email' => ['required', 'email'],
+            'customer_name' => ['required', 'max:100'],
+            'customer_email' => ['required', 'email'],
         ]);
 
         $order = new Order();
-        $order->customer_name = $validated['name'];
-        $order->customer_email = $validated['email'];
-
+        $order->fill($validated);
         $order->save();
         
-
         $order
             ->products()
             ->sync(
@@ -58,7 +58,7 @@ class SPAOrderController extends Controller
 
         Session::forget('cart');
 
-        return new OrderResource($order);
+        return new JsonResource($order);
     }
 
     /**
@@ -66,11 +66,11 @@ class SPAOrderController extends Controller
      * 
      * @param int $id
      * 
-     * @return OrderResource
+     * @return JsonResource
      */
     public function show(Order $order)
     {
-        return new OrderResource($order);
+        return new JsonResource($order);
     }
 
     /**
@@ -82,6 +82,8 @@ class SPAOrderController extends Controller
      */
     public function listProducts(Order $order)
     {
-        return ProductResource::collection($order->products()->paginate(12));
+        $products = $order->products()->paginate(12);
+
+        return ProductResource::collection($products);
     }
 }

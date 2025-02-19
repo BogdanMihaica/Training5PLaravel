@@ -8,7 +8,8 @@ export default {
 
     data() {
         return {
-            quantity: 1
+            quantity: 1,
+            disabledButton: false
         }
     },
 
@@ -80,11 +81,15 @@ export default {
          * @param quantity 
          */
         async handleButtonClick(id, quantity) {
+            this.disabledButton = true;
+
             if (this.isCartPage) {
                 await this.removeFromCart(id);
             } else {
                 await this.addToCart(id, quantity);
             }
+
+            this.disabledButton = false;
         }
     },
 }
@@ -111,7 +116,11 @@ export default {
                 <h2 class="text-3xl text-violet-300">${{ product.price }}</h2>
 
                 <div class="flex justify-center items-center mt-1 flex-col">
-                    <ProductButton :is-cart-page="isCartPage" @action="handleButtonClick(product.id, quantity || 0)" />
+                    <ProductButton 
+                        :is-cart-page="isCartPage" 
+                        @action="handleButtonClick(product.id, quantity || 0)" 
+                        :disabled="disabledButton"
+                    />
 
                     <label v-show="!isCartPage" :for="`quantity-${product.id}`">{{ $t('selectQuantity') }}</label>
                     <select v-show="!isCartPage" v-model="quantity" :id="`quantity-${product.id}`">

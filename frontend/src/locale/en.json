@@ -62,5 +62,6 @@
     "previous" : "Previous",
     "404" : "404",
     "deleted": "Deleted",
-    "background" : "background"
+    "background" : "background",
+    "loading" : "Loading..."
 }

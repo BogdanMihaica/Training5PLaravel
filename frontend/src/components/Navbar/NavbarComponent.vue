@@ -2,13 +2,15 @@
 import { useAuthStore } from '@/stores/authStore';
 import NavbarLink from './NavbarLink.vue';
 import { mapStores } from 'pinia';
+import CircleLoader from '../Loaders/CircleLoader.vue';
 
 export default {
-    components: { NavbarLink },
+    components: {NavbarLink, CircleLoader},
 
     data() {
         return {
-            loggedIn: false
+            loggedIn: false,
+            disabledButtons: {}
         }
     },
 
@@ -17,7 +19,11 @@ export default {
          * Handles the logout of the user
          */
         async handleLogout() {
+            this.disabledButtons.logout = true;
+
             await this.authStore.logout();
+
+            this.disabledButtons.logout = false;
         },
 
         /**
@@ -55,11 +61,19 @@ export default {
                 <NavbarLink :route="{ 'name': 'orders' }" icon="fas fa-box">{{ $t('orders') }}</NavbarLink>
                 <NavbarLink :route="{ 'name': 'create' }" icon="fas fa-upload">{{ $t('create') }}</NavbarLink>
                 <button 
+                    :class="{
+                        'cursor-not-allowed' : disabledButtons.logout,
+                        'cursor-pointer' : !disabledButtons.logout
+                    }"
                     class="text-white rounded-lg min-w-20 px-4 py-2 bg-red-800 transition-all duration-500 flex justify-center items-center text-lg
-                        hover:bg-red-600 cursor-pointer" 
+                        hover:bg-red-600" 
                     @click.prevent="handleLogout"
+                    :disabled="disabledButtons.logout"
                 >
-                    {{ $t('logout') }}
+                    <CircleLoader v-if="disabledButtons.logout"/>
+                    <span v-else>
+                        {{ $t('logout') }}
+                    </span>
                 </button>
             </span>
         </div>

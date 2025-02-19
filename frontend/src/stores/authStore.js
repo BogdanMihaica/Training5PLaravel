@@ -17,7 +17,7 @@ export const useAuthStore = defineStore('auth',
 			 * @param {Object} userParam 
 			 * @param {string} token 
 			 */
-			async login(email, password){
+			async login(email, password) {
 				const body = {
 					email: email,
 					password: password
@@ -34,9 +34,7 @@ export const useAuthStore = defineStore('auth',
 
 					router.push({ name: 'home' });
 				})
-				.catch(error => {
-					console.log(error);
-					
+				.catch(error => {			
 					errors = error.response?.data?.errors;
 				});
 
@@ -46,7 +44,7 @@ export const useAuthStore = defineStore('auth',
 			/**
 			 * Logs the user out
 			 */
-			async logout(){
+			async logout() {
 				await fetchCsrfCookie();
 
 				await axios.post(`/spa/logout`).then(()=>{
@@ -62,8 +60,7 @@ export const useAuthStore = defineStore('auth',
 			 * Initializes the store by trying to fetch the authenticated user from the server
 			 */
 			async initialize() {
-				if(!this.isInitialized)
-				{
+				if (!this.isInitialized) {
 					await axios.get(`/spa/user`).then(() => {
 						this.isAuthenticated = true;
 					}) .catch(() => {

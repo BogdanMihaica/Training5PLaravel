@@ -1,15 +1,17 @@
 <script>
 import { fetchCsrfCookie } from '@/common/functions';
+import CircleLoader from '@/components/Loaders/CircleLoader.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
-    components: { SquaresLoader, PaginationButtons },
+    components: { SquaresLoader, PaginationButtons, CircleLoader },
 
     data() {
         return {
+            disabledButtons: {},
             products: [],
             paginationInfo: {},
             currentPage: 1,
@@ -45,6 +47,8 @@ export default {
          * @param index 
          */
         async handleDelete(id) {
+            this.disabledButtons[id] = true;
+
             await axios
                 .delete(`/spa/products/${id}`)
                 .then(() => {
@@ -61,6 +65,8 @@ export default {
                         icon: 'error'
                     });
                 });
+            
+            this.disabledButtons[id] = false;
         }
     },
 
@@ -102,17 +108,26 @@ export default {
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
                             <RouterLink :to="{ name: 'product', params: { id: product.id } }"
-                                class="px-4 py-1 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
+                                class="px-4 py-1 h-8 w-24 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
                                 focus:ring-blue-400 focus:ring-1"
                             >
                                 {{ $t('edit') }}
                             </RouterLink>
 
 
-                            <button class="px-4 py-1 bg-red-500 rounded-lg cursor-pointer hover:bg-red-600 
-                                focus:ring-red-400 focus:ring-1" @click.prevent="handleDelete(product.id)"
+                            <button
+                                :class="{
+                                    'cursor-not-allowed': disabledButtons[product.id],
+                                    'cursor-pointer' : !disabledButtons[product.id]
+                                }"
+                                class="px-4 py-1 h-8 w-24 bg-red-500 rounded-lg hover:bg-red-600 
+                                focus:ring-red-400 focus:ring-1" 
+                                @click.prevent="handleDelete(product.id)"
                             >
-                                {{ $t('delete') }}
+                                <CircleLoader v-if="disabledButtons[product.id]"/>
+                                <span v-else>
+                                    {{ $t('delete') }}
+                                </span>
                             </button>
                         </div>
                     </td>

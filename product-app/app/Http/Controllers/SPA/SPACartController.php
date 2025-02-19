@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SPA;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CartProductResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class SPACartController extends Controller
         $cartItems = Session::get('cart', []);
         $products = Product::whereIn('id', $cartItems ? array_keys($cartItems) : [])->paginate(10);
 
-        return ProductResource::collection($products);
+        return CartProductResource::collection($products);
     }
 
     /**

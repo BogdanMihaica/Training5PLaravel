@@ -2,22 +2,20 @@
 <script>
 import { fetchCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
+import CircleLoader from '@/components/Loaders/CircleLoader.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import router from '@/router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
-    components: { ErrorMessage, SquaresLoader },
+    components: { ErrorMessage, SquaresLoader, CircleLoader },
 
     data() {
         return {
+            disabledButton: false,
             product:{},
             id: 0,
-            title: '',
-            description: '',
-            price: '',
-            currentImageUrl: '',
             image: null,
             edit: false,
             errors: {},
@@ -35,13 +33,7 @@ export default {
             await axios
                 .get(`/spa/products/${id}`)
                 .then((res) => {
-                    res = res.data;
-
-                    this.id = id;
-                    this.title = res.data.title;
-                    this.description = res.data.description;
-                    this.price = res.data.price;
-                    this.currentImageUrl = res.data.image_url;
+                    this.product = res.data?.data;
                     this.edit = true;
                 })
                 .catch(()=>{
@@ -58,26 +50,26 @@ export default {
         async handleSubmit() {
             let formData = new FormData();
 
-            formData.append('title', this.title);
-            formData.append('description', this.description);
-            formData.append('price', this.price);
+            formData.append('title', this.product.title);
+            formData.append('description', this.product.description);
+            formData.append('price', this.product.price);
 
             if (this.image) {
                 formData.append('image', this.image);
             }
 
+            this.disabledButton = true;
+
             if (this.edit) {
                 formData.append('_method', 'PUT');
 
                 await axios
-                    .post(`/spa/products/${this.id}`, formData, {
+                    .post(`/spa/products/${this.product.id}`, formData, {
                         headers: {
                             'Content-Type': 'multipart/form-data'
                         }
                     })
                     .then((res) => {
-                        console.log(res);
-
                         Swal.fire({
                             title: this.$t('success'),
                             text: this.$t('productUpdated'),
@@ -111,6 +103,8 @@ export default {
                         this.errors = error.response?.data?.errors;
                     });
             }
+
+            this.disabledButton = false;
         },
 
         /**
@@ -146,10 +140,10 @@ export default {
             </h2>
 
             <div v-if="edit" class="w-full flex justify-center mb-2">
-                <img :src="currentImageUrl" :alt="$t('productAlt')" class="h-50">
+                <img :src="product.image_url" :alt="$t('productAlt')" class="h-50">
             </div>
 
-            <form @submit.prevent="handleSubmit()">
+            <form>
                 <div class="mb-4">
                     <label for="title" class="block text-sm font-medium text-gray-300">
                         {{ $t('title') }}
@@ -157,7 +151,7 @@ export default {
                     <input 
                         type="text" 
                         id="title" 
-                        v-model="title"
+                        v-model="product.title"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterTitle')" 
                     />
@@ -170,7 +164,7 @@ export default {
                     </label>
                     <textarea 
                         id="description" 
-                        v-model="description"
+                        v-model="product.description"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
                         :placeholder="$t('enterDescription')" rows="6"
                     >
@@ -185,7 +179,7 @@ export default {
                     <input 
                         type="text" 
                         id="price" 
-                        v-model="price"
+                        v-model="product.price"
                         class="w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                         :placeholder="$t('enterPrice')" 
                     />
@@ -206,11 +200,19 @@ export default {
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button 
-                        type="submit"
-                        class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    <button
+                        :class="{
+                            'cursor-not-allowed': disabledButton,
+                            'cursor-pointer' : !disabledButton
+                        }"
+                        class="h-12 w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none 
+                            focus:ring-2 focus:ring-violet-500"
+                        @click.prevent="handleSubmit()"
                     >
-                        {{ $t('save') }}
+                        <CircleLoader v-if="disabledButton"/>
+                        <span v-else>
+                            {{ $t('save') }}
+                        </span>
                     </button>
                 </div>
             </form>

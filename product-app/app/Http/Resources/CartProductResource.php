@@ -2,12 +2,11 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Session;
 
-class ProductResource extends JsonResource
+class CartProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +17,8 @@ class ProductResource extends JsonResource
     {
         $attributes = parent::toArray($request);
         $attributes['image_url'] = $this->getImageUrl();
-        
+        $attributes['quantity'] = Session::get('cart')[$this->getKey()];
+
         return $attributes;
     }
 }

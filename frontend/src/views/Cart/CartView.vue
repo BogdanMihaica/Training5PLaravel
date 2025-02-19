@@ -1,6 +1,7 @@
 <script>
 import { fetchCsrfCookie } from '@/common/functions';
 import ErrorMessage from '@/components/Error/ErrorMessage.vue';
+import CircleLoader from '@/components/Loaders/CircleLoader.vue';
 import SquaresLoader from '@/components/Loaders/SquaresLoader.vue';
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import ProductCard from '@/components/Product/ProductCard.vue';
@@ -8,17 +9,17 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
-	components: { ProductCard, SquaresLoader, ErrorMessage, PaginationButtons },
+	components: { ProductCard, SquaresLoader, ErrorMessage, PaginationButtons, CircleLoader },
 
 	data() {
 		return {
+			disabledButton: false,
+			order: {},
 			products: [],
 			paginationInfo: {},
 			currentPage: 1,
 			loaded: false,
 			checkoutOpen: false,
-			name: '',
-			email: '',
 			errors: {}
 		}
 	},
@@ -56,11 +57,10 @@ export default {
 		 * Handles the checkout process by making a post request to the server
 		 */
 		async handleCheckout() {
+			this.disabledButton = true;
+
 			await axios
-				.post(`/spa/orders`, {
-					name: this.name,
-					email: this.email
-				})
+				.post(`/spa/orders`, this.order)
 				.then(() => {
 					Swal.fire({
 						title: this.$t('success'),
@@ -73,6 +73,8 @@ export default {
 				.catch(error => {
 					this.errors = error.response?.data?.errors || {};
 				});
+			
+			this.disabledButton = false;
 		}
 	},
 
@@ -120,7 +122,7 @@ export default {
 
 			<h2 class="text-2xl font-semibold text-center text-white mb-6">{{ $t('checkout') }}</h2>
 
-			<form @submit.prevent="handleCheckout" class="w-[70%]">
+			<form class="w-[70%]">
 				<div class="mb-4">
 					<label for="customer-email" class="block text-sm font-medium text-gray-300">
 						{{ $t('email') }}
@@ -128,31 +130,39 @@ export default {
 					<input 
 						type="email" 
 						id="customer-email" 
-						v-model="email"
+						v-model="order.customer_email"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
 						:placeholder="$t('enterEmail')" 
 					/>
-					<ErrorMessage v-if="errors.email" :error="errors.email" />
+					<ErrorMessage v-if="errors.customer_email" :error="errors.customer_email" />
 				</div>
 
 				<div class="mb-6">
-					<label for="name" class="block text-sm font-medium text-gray-300">{{ $t('name') }}</label>
+					<label for="customer-name" class="block text-sm font-medium text-gray-300">{{ $t('name') }}</label>
 					<input 
 						type="text" 
-						id="name" 
-						v-model="name"
+						id="customer-name"
+						v-model="order.customer_name"
 						class="text-white w-full p-2 mt-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
 						:placeholder="$t('enterName')" 
 					/>
-					<ErrorMessage v-if="errors.name" :error="errors.name" />
+					<ErrorMessage v-if="errors.customer_name" :error="errors.customer_name" />
 				</div>
 
 				<div class="flex items-center justify-between">
-					<button 
-						type="submit" 
-						class="cursor-pointer w-full py-2 px-4 bg-violet-600 text-white rounded-md 
-						hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
-						{{ $t('submit') }}
+					<button
+						:class="{
+                            'cursor-not-allowed': disabledButton,
+                            'cursor-pointer' : !disabledButton
+                        }"
+						class="cursor-pointer w-full h-12 py-2 px-4 bg-violet-600 text-white rounded-md 
+						hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+						@click.prevent="handleCheckout"
+					>
+						<CircleLoader v-if="disabledButton"/>
+                        <span v-else>
+                            {{ $t('submit') }}
+                        </span>
 					</button>
 				</div>
 			</form>
