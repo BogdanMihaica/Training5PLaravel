@@ -207,6 +207,7 @@ export default {
                         }"
                         class="h-12 w-full py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none 
                             focus:ring-2 focus:ring-violet-500"
+                        :disabled="disabledButton"
                         @click.prevent="handleSubmit()"
                     >
                         <CircleLoader v-if="disabledButton"/>

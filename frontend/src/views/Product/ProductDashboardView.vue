@@ -127,6 +127,7 @@ export default {
                                 }" 
                                 class="px-4 py-1 h-8 w-24 bg-red-500 rounded-lg hover:bg-red-600 
                                 focus:ring-red-400 focus:ring-1" 
+                                :disabled="disabledButtons[product.id]"
                                 @click.prevent="handleDelete(product.id)"
                             >
                                 <CircleLoader v-if="disabledButtons[product.id]" />

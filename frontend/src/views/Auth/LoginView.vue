@@ -65,6 +65,7 @@ export default {
                             'cursor-not-allowed': disabledButton,
                             'cursor-pointer': !disabledButton
                         }"
+                        :disabled="disabledButton"
                         class="w-full h-10 py-2 px-4 bg-violet-600 text-white rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 
                         focus:ring-violet-500"
                     >
