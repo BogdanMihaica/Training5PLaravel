@@ -35,16 +35,20 @@ export default {
 
             this.loaded = true;
         },
-    },
 
-    watch: {
         /**
-         * Watches for the change of current page to fetch the products for that specific page
+         * Handles the change of the current page index
+         * 
+         * @param {Number} newPage
          */
-        currentPage() {
-            this.getOrders();
+        handlePageChange(newPage) {
+            this.currentPage = newPage;
+
+            if (newPage !== this.paginationInfo.current_page) {
+                this.getProducts();
+            }
         }
-    }
+    },
 }
 </script>
 
@@ -79,7 +83,7 @@ export default {
                 </tr>
             </tbody>
         </table>
-        <PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
+        <PaginationButtons :pagination-info="paginationInfo" @pageChange="handlePageChange($event)" />
     </div>
 </template>
 <style scoped>

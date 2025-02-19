@@ -75,17 +75,21 @@ export default {
 				});
 			
 			this.disabledButton = false;
+		},
+
+		/**
+		 * Handles the change of the current page index
+		 * 
+		 * @param {Number} newPage
+		 */
+		handlePageChange(newPage) {
+			this.currentPage = newPage;
+			
+			if (newPage !== this.paginationInfo.current_page) {
+				this.getProducts();
+			}
 		}
 	},
-
-	watch: {
-		/**
-		 * Watches for the change of current page to fetch the products for that specific page
-		 */
-		currentPage() {
-			this.getProducts();
-		}
-	}
 }
 </script>
 
@@ -97,8 +101,8 @@ export default {
 	</div>
 
 	<div class="w-full flex flex-wrap gap-4 justify-center">
-		<ProductCard v-for="product in products" :key="product.id" :product="product" :is-cart-page="true" />
-		<PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
+		<ProductCard v-for="product in products" :key="product.id" :product="product" :is-cart-page="true"/>
+		<PaginationButtons :pagination-info="paginationInfo" @pageChange="handlePageChange($event)"/>
 	</div>
 
 	<div v-if="products.length" class="my-6 w-full flex justify-center items-center flex-col">

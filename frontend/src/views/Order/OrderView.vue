@@ -59,15 +59,16 @@ export default {
         },
 
         /**
-         * Calculates the total cost of the order and returns it
+         * Handles the change of the current page index
          * 
-         * @returns {Number}
+         * @param {Number} newPage
          */
-        computeGrandTotal() {
-            let total = 0;
-            this.products?.forEach(product => total += (product.price * product.pivot.quantity));
+        handlePageChange(newPage) {
+            this.currentPage = newPage;
             
-            return total.toFixed(2);
+            if (newPage !== this.paginationInfo.current_page) {
+                this.getProducts();
+            }
         }
     },
 
@@ -79,14 +80,19 @@ export default {
         }
     },
 
-    watch: {
+    computed: {
         /**
-         * Watches for the change of current page to fetch the products for that specific page
-         */
-        currentPage() {
-            this.getProducts();
+         * Calculates the total cost of the order and returns it
+         * 
+         * @returns {Number}
+        */
+        computeGrandTotal() {
+            let total = 0;
+            this.products?.forEach(product => total += (product.price * product.pivot.quantity));
+
+            return total.toFixed(2);
         }
-    }
+    },
 }
 </script>
 
@@ -130,11 +136,11 @@ export default {
                         <tr class="bg-neutral-800">
                             <td colspan="5"></td>
                             <td>{{ $t('grandTotal') }}</td>
-                            <td>{{ computeGrandTotal() }}</td>
+                            <td>{{ computeGrandTotal }}</td>
                         </tr>
                     </tbody>
                 </table>
-                <PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
+                <PaginationButtons :pagination-info="paginationInfo" @pageChange="handlePageChange($event)" />
             </div>
         </div>
     </div>

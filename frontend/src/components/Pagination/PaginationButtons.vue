@@ -2,7 +2,6 @@
 export default {
     props: {
         paginationInfo: Object,
-        modelValue: Number
     },
 
     methods: {
@@ -10,16 +9,22 @@ export default {
          * Handles the "previous" button click
          */
         handlePrevious() {
-            let newPage = this.modelValue > 1 ? this.modelValue - 1 : this.modelValue;
-            this.$emit('update:modelValue', newPage);
+            let newPage = this.paginationInfo.current_page > 1 ? 
+                            this.paginationInfo.current_page - 1 : 
+                            this.paginationInfo.current_page;
+                            
+            this.$emit('pageChange', newPage);
         },
 
         /**
          * Handles the "next" button click
          */
         handleNext() {
-            let newPage = this.modelValue < this.paginationInfo.last_page ? this.modelValue + 1 : this.modelValue;
-            this.$emit('update:modelValue', newPage);
+            let newPage = this.paginationInfo.current_page < this.paginationInfo.last_page ? 
+                            this.paginationInfo.current_page + 1 : 
+                            this.paginationInfo.current_page;
+
+            this.$emit('pageChange', newPage);
         }
     }
 }

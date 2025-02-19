@@ -38,16 +38,20 @@ export default {
 
 			this.loaded = true;
 		},
-	},
 
-	watch: {
 		/**
- 		* Watches for the change of current page to fetch the products for that specific page
- 		*/
-		currentPage() {
-			this.getProducts();
+		 * Handles the change of the current page index
+		 * 
+		 * @param {Number} newPage
+		 */
+		handlePageChange(newPage) {
+			this.currentPage = newPage;
+			
+			if (newPage !== this.paginationInfo.current_page) {
+				this.getProducts();
+			}
 		}
-	}
+	},
 }
 </script>
 <template>
@@ -59,6 +63,6 @@ export default {
 
 	<div class="w-full flex flex-wrap gap-4 justify-center">
 		<ProductCard v-for="product in products" :key="product.id" :product="product" />
-		<PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
+		<PaginationButtons :pagination-info="paginationInfo" @pageChange="handlePageChange($event)"/>
 	</div>
 </template>

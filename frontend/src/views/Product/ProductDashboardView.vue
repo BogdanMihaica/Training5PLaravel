@@ -67,17 +67,21 @@ export default {
                 });
             
             this.disabledButtons[id] = false;
+        },
+
+        /**
+         * Handles the change of the current page index
+         * 
+         * @param {Number} newPage
+         */
+        handlePageChange(newPage) {
+            this.currentPage = newPage;
+            
+            if (newPage !== this.paginationInfo.current_page) {
+                this.getProducts();
+            }
         }
     },
-
-    watch: {
-        /**
-         * Watches for the change of current page to fetch the products for that specific page
-         */
-        currentPage() {
-            this.getProducts();
-        }
-    }
 }
 </script>
 
@@ -107,7 +111,8 @@ export default {
                     <td> {{ product.created_at }}</td>
                     <td>
                         <div class="flex flex-col justify-center items-center w-full gap-2">
-                            <RouterLink :to="{ name: 'product', params: { id: product.id } }"
+                            <RouterLink 
+                                :to="{ name: 'product', params: { id: product.id } }" 
                                 class="px-4 py-1 h-8 w-24 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-600 
                                 focus:ring-blue-400 focus:ring-1"
                             >
@@ -115,16 +120,16 @@ export default {
                             </RouterLink>
 
 
-                            <button
+                            <button 
                                 :class="{
                                     'cursor-not-allowed': disabledButtons[product.id],
                                     'cursor-pointer' : !disabledButtons[product.id]
-                                }"
+                                }" 
                                 class="px-4 py-1 h-8 w-24 bg-red-500 rounded-lg hover:bg-red-600 
                                 focus:ring-red-400 focus:ring-1" 
                                 @click.prevent="handleDelete(product.id)"
                             >
-                                <CircleLoader v-if="disabledButtons[product.id]"/>
+                                <CircleLoader v-if="disabledButtons[product.id]" />
                                 <span v-else>
                                     {{ $t('delete') }}
                                 </span>
@@ -134,7 +139,7 @@ export default {
                 </tr>
             </tbody>
         </table>
-        <PaginationButtons :pagination-info="paginationInfo" v-model="currentPage" />
+        <PaginationButtons :pagination-info="paginationInfo" @pageChange="handlePageChange($event)" />
     </div>
 </template>
 <style scoped>
