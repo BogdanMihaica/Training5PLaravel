@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "./banner.css";
+@import "./navbar.css";
+
+:root {
+    --psd-red: rgb(243, 129, 129);
+    --psd-yellow: rgb(252, 227, 138);
+    --psd-red-90: rgba(243, 129, 129, 0.9);
+    --psd-yellow-90: rgba(252, 227, 138, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

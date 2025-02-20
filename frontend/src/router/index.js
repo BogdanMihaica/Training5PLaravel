@@ -8,6 +8,7 @@ import LoginView from '@/views/Auth/LoginView.vue'
 import CartView from '@/views/Cart/CartView.vue'
 import OrderDashboardView from '@/views/Order/OrderDashboardView.vue'
 import OrderView from '@/views/Order/OrderView.vue'
+import PSDSlicingView from '@/views/PSDSlicing/PSDSlicingView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +57,11 @@ const router = createRouter({
 			name: 'order',
 			component: OrderView,
 			meta: {auth : true}
+		},
+		{
+			path: "/psd",
+			name: "psd-slicing",
+			component: PSDSlicingView
 		},
 		{
 			path: "/:catchAll(.*)",

@@ -1,0 +1,90 @@
+#banner {
+    height: 100vh;
+    width: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--psd-yellow);
+}
+
+#banner img {
+    width: 1920px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+@media(max-width: 1200px) {
+    
+}
+#banner .container {
+    position: relative;
+    margin-inline: auto;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+
+    background: var(--psd-yellow);
+    background: linear-gradient(
+        0deg,
+        var(--psd-yellow-90) 0%,
+        var(--psd-red-90) 100%
+    );
+    color: white;
+
+    z-index: 10;
+}
+
+#banner .author {
+    margin-bottom: 30px;
+
+    font-family: "Kaushan Script", serif;
+    font-size: 72px;
+}
+
+#banner .title {
+    width: 1000px;
+
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    font-size: 150px;
+    line-height: 0.9;
+}
+
+.small-separator {
+    width: 60px;
+    height: 3px;
+
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+    background-color: white;
+}
+
+.learn-more-button {
+    text-decoration: none;
+
+    color: white;
+
+    font-family: 'Montserrat', serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding: 12px 31px;
+    border: 3px solid white
+}
+
+.container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

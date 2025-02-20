@@ -106,6 +106,10 @@ Route::prefix('/spa')->group(function () {
     });
 });
 
+// PSD Slicing Route
+Route::get('/psd-slicing', function() {
+    return view('psd-slicing');
+});
 
 Route::fallback(function () {
     if (request()->isMethod('GET')) {

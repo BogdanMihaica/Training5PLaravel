@@ -1,5 +1,5 @@
 /* color palette from <https://github.com/vuejs/theme> */
-@import "tailwindcss";
+@import 'tailwindcss';
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -20,6 +20,13 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --psd-red: rgb(243, 129, 129);
+  --psd-yellow: rgb(252, 227, 138);
+  --psd-red-90: rgba(243, 129, 129, 0.9);
+  --psd-yellow-90: rgba(252, 227, 138, 0.9);
+  --psd-lime: #eaffd0;
+  --psd-aqua: #95e1d3;
 }
 
 /* semantic color variables for this project */
@@ -68,6 +75,6 @@
   background: #a040ff;
 }
 
-body{
+/* body{
   background-color: #181818;
-}
+} */

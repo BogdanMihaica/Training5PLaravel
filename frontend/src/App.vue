@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-unused-components -->
 <script>
 import { RouterView } from 'vue-router'
 import NavbarComponent from './components/Navbar/NavbarComponent.vue';
@@ -15,11 +16,11 @@ export default {
 }
 </script>
 <template>
-	<NavbarComponent class="z-100" />
+	<!-- <NavbarComponent class="z-100" />
 
 	<div class="z-0 w-full fixed blob left-100 top-0">
 		<img src="@/assets/bg-blob.png" :alt="$t('background')" class="w-300 blur-2xl opacity-20">
-	</div>
+	</div> -->
 
 	<div class="wrapper mt-20 mx-5 z-10">
 		<RouterView :key="$route.fullPath"/>
