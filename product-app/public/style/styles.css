@@ -9,6 +9,8 @@
 @import "./services.css";
 @import "./unique.css";
 @import "./service.css";
+@import "./quote.css";
+@import "./team.css";
 
 :root {
     --psd-red: rgb(243, 129, 129);

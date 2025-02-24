@@ -7,7 +7,8 @@
 #unique-design .background {
     opacity: 0.15;
     position: absolute;
-    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
 }
 
@@ -29,4 +30,12 @@
     bottom: -90px;
     transform: translateX(97px);
     z-index: 20;
+}
+
+.background-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
 }

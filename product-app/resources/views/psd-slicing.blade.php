@@ -219,14 +219,28 @@
 
         <!-- Uniqe design -->
         <section id="unique-design">
-            <img class="background" src="/images/unique-design-bg.png" alt="background">
+            <div class="background-container">
+                <img
+                    class="background"
+                    src="/images/unique-design-bg.png"
+                    alt="background"
+                />
+            </div>
             <div class="heading">
                 <p class="secondary-title">For all devices</p>
                 <p class="primary-title">UNIQUE DESIGN</p>
                 <div class="red-separator"></div>
             </div>
-            <img class="big-phone" src="/images/big-phone.png" alt="big phone">
-            <img class="small-phone" src="/images/small-phone.png" alt="small phone">
+            <img
+                class="big-phone"
+                src="/images/big-phone.png"
+                alt="big phone"
+            />
+            <img
+                class="small-phone"
+                src="/images/small-phone.png"
+                alt="small phone"
+            />
         </section>
 
         <!-- Service -->
@@ -245,25 +259,119 @@
             </p>
 
             <div class="container">
-                <div class="service-image-container"></div>
+                <div class="service-image-container">
+                    <img src="/images/service-photo.png" alt="Service photo" />
+                </div>
                 <div class="service-items">
                     <div class="item">
                         <div class="item-header">
                             <div class="icon-text-group">
-                                <img src="/images/picture.png" alt="picture" class="icon">
+                                <img
+                                    src="/images/picture.png"
+                                    alt="picture"
+                                    class="icon"
+                                />
                                 <p class="item-title">PHOTOGRAPHY</p>
                             </div>
+                            <img
+                                src="/images/arrow-up.png"
+                                alt="Arrow up"
+                                class="arrow"
+                            />
                         </div>
-                        <div class="item-description"></div>
+                        <div class="item-description">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum
+                                dolore eu fugiat nulla pariatur. Excepteur sint
+                                occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <div class="scroll-bar">
+                                <div class="slider"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="item">
-                        <div class="item-header"></div>
+                        <div class="item-header">
+                            <div class="icon-text-group">
+                                <img
+                                    src="/images/equalizer.png"
+                                    alt="equalizer"
+                                    class="icon"
+                                />
+                                <p class="item-title">CREATIVITY</p>
+                            </div>
+                            <img
+                                src="/images/arrow-down.png"
+                                alt="Arrow down"
+                                class="arrow"
+                            />
+                        </div>
                     </div>
                     <div class="item">
-                        <div class="item-header"></div>
+                        <div class="item-header">
+                            <div class="icon-text-group">
+                                <img
+                                    src="/images/target.png"
+                                    alt="target"
+                                    class="icon"
+                                />
+                                <p class="item-title web-design">WEB DESIGN</p>
+                            </div>
+                            <img
+                                src="/images/arrow-down.png"
+                                alt="Arrow down"
+                                class="arrow"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Quote -->
+        <section id="quote">
+            <div class="container">
+                <img src="/images/arrow-left.png" alt="Arrow Left" />
+                <div class="quote-image">
+                    <img src="/images/speech.png" alt="Quote image" />
+                </div>
+                <div class="quote-block">
+                    <p class="quote-text">
+                        “Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation.”
+                    </p>
+                    <div class="quote-author">
+                        <div class="red-separator"></div>
+                        <p>Jon Doe</p>
+                    </div>
+                </div>
+                <img src="/images/arrow-right.png" alt="Arrow Right" />
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team">
+            <div class="heading">
+                <p class="secondary-title">Who we are</p>
+                <p class="primary-title">MEET OUR TEAM</p>
+                <div class="red-separator"></div>
+            </div>
+
+            <p class="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+            </p>
         </section>
     </body>
 </html>
