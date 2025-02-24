@@ -1,0 +1,46 @@
+#facts {
+    height: 270px;
+    width: 100%;
+    background-color: var(--psd-teal);
+
+    margin-top: 110px;
+    margin-bottom: 105px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+#facts .container{
+    height: 100%;
+    width: 1201px;
+    display: flex;
+
+    margin-inline: auto;
+}
+.fact {
+    height: 100%;
+    width: 239px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.fact:not(:first-of-type){
+    margin-left: 1px;
+}
+.fact:first-of-type {
+    border-left: 1px solid rgba(255,255,255,0.3);
+}
+
+.fact .number {
+    font-weight: bold;
+    font-size: 72px;
+}
+
+.fact .type {
+    font-size: 14px;
+    margin-bottom: 18px;
+}

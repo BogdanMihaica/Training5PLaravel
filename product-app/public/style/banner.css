@@ -1,5 +1,5 @@
 #banner {
-    height: 100vh;
+    height: 1000px;
     width: 100%;
 
     position: relative;
@@ -11,14 +11,11 @@
 #banner img {
     width: 1920px;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 0;
 }
-@media(max-width: 1200px) {
-    
-}
+
 #banner .container {
     position: relative;
     margin-inline: auto;
@@ -27,7 +24,7 @@
     height: 100%;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 
@@ -45,7 +42,7 @@
 }
 
 #banner .author {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 
     font-family: "Kaushan Script", serif;
     font-size: 72px;
@@ -57,16 +54,17 @@
     font-family: "Montserrat", serif;
     font-weight: bold;
     font-size: 150px;
-    line-height: 0.9;
+    line-height: 0.94;
+    letter-spacing: -5px;
+    text-align: center;
 }
 
 .small-separator {
     width: 60px;
     height: 3px;
 
-    margin-bottom: 50px;
-    margin-top: 50px;
-
+    margin-top: 54px;
+    margin-bottom: 51px;
     background-color: white;
 }
 
@@ -79,11 +77,12 @@
     font-size: 14px;
     font-weight: bold;
 
-    padding: 12px 31px;
+    padding: 9px 28px;
     border: 3px solid white
 }
 
 .container .content {
+    margin-top: 211px;
     display: flex;
     flex-direction: column;
     align-items: center;

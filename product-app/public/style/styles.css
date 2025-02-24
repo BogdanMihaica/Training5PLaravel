@@ -1,17 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "./banner.css";
 @import "./navbar.css";
+@import "./slider.css";
+@import "./about.css";
+@import "./facts.css";
+@import "./services.css";
+@import "./unique.css";
+@import "./service.css";
 
 :root {
     --psd-red: rgb(243, 129, 129);
     --psd-yellow: rgb(252, 227, 138);
+    --psd-teal : #95e1d3;
+    --psd-lime: #eaffd0;
     --psd-red-90: rgba(243, 129, 129, 0.9);
     --psd-yellow-90: rgba(252, 227, 138, 0.9);
+
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 85px;
+
+    z-index: 100;
+}
+
+.secondary-title {
+    font-family: "Kaushan Script", serif;
+    font-size: 24px;
+    
+    margin-bottom: 6px;
+}
+
+.primary-title {
+    margin-bottom: 32px;
+
+    font-family: 'Montseratt', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    word-spacing: -6px;
+}
+
+.red-separator {
+    width: 60px;
+    height: 3px;
+    margin-inline: auto;
+    background-color: var(--psd-red);
 }

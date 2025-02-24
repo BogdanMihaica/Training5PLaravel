@@ -1,0 +1,32 @@
+#unique-design {
+    margin-top: 119px;
+    height:850px;
+    position: relative;
+}
+
+#unique-design .background {
+    opacity: 0.15;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+}
+
+#unique-design .heading {
+    transform: translateY(102px);
+}
+
+.big-phone {
+    position: absolute;
+    z-index: 10;
+    left:50%;
+    transform: translateX(-265px);
+    bottom: 0;
+}
+
+.small-phone {
+    position: absolute;
+    left:50%;
+    bottom: -90px;
+    transform: translateX(97px);
+    z-index: 20;
+}

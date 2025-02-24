@@ -4,19 +4,26 @@
     align-items: center;
 
     position: absolute;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
 
     width: 1200px;
 
-    font-family: 'Montserrat', serif;
+    font-family: "Montserrat", serif;
     color: white;
 }
 
+@media (max-width: 1200px) {
+    #navbar {
+        width: 100%;
+    }
+}
 #navbar .logo {
     font-weight: bold;
     font-size: 30px;
+    letter-spacing: -1px;
 }
 
 .navbar-links a {
@@ -30,12 +37,37 @@
 
     border-bottom: 3px solid var(--psd-yellow);
 }
+
 .navbar-links {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 53px;
+    gap: 0px;
+    margin-top: 20px;
 
-    font-size: 14px;
-    margin-top: 40px;
+    transform: translateX(2px);
+    font-size: 13px;
+}
+
+/* Pentru a fi pixel perfect trebuie sa ajustez fiecare link in parte, datorita gap-ului inconsistent*/
+
+.cart-link {
+    margin-right: 42px;
+}
+
+.contact-link {
+    margin-right: 53px;
+}
+
+.blog-link,
+.work-link {
+    margin-right: 60px;
+}
+
+.service-link {
+    margin-right: 58px;
+}
+
+.about-link {
+    margin-right: 58px;
 }
