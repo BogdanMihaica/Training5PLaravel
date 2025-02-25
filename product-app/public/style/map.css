@@ -1,0 +1,39 @@
+#map {
+    height: 200px;
+    
+    margin-top: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+#map .background {
+    opacity: 0.15;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index:0;
+}
+
+.map-header {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.map-header p {
+    word-spacing: -1px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--psd-red);
+
+    transform: translateY(-1px);
+}

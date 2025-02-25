@@ -1,3 +1,89 @@
 #team {
     margin-top: 95px;
 }
+
+#team .container {
+    width: 1200px;
+
+    margin-inline: auto;
+    margin-top: 88px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.developer-card {
+    position: relative;
+    width: 380px;
+    height: 470px;
+}
+
+.developer-image {
+    height: 470px;
+    overflow: hidden;
+}
+.developer-card:first-of-type .developer-image {
+    transform: translate(-10px, -10px);
+    box-shadow: 10px 10px var(--psd-teal);
+}
+
+.developer-details {
+    margin-top: 27px;
+    text-align: center;
+}
+
+.developer-details .name{
+    word-spacing: -2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.developer-details .role{
+    margin-top: 7px;
+
+    line-height: 24px;
+    font-family: "Roboto";
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 300;
+    color: #999;
+    word-spacing: -1px;
+}
+
+.developer-links {
+    position: absolute;
+    width: 224px;
+    height:56px;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.developer-links div{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary-link {
+    background-color: var(--psd-red);
+}
+
+.primary-link img{
+    transform: translateX(2px);
+}
+
+.secondary-link {
+    background-color: var(--psd-yellow);
+}
+
+.secondary-link:not(:last-of-type) {
+    border-right: 1px solid #f9bd87;
+}

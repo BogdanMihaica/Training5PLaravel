@@ -1,0 +1,94 @@
+#reviews {
+    margin-top: 91px;
+    height:850px;
+    position: relative;
+}
+
+#reviews .background {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index:0;
+}
+
+#reviews .heading {
+    transform: translateY(103px);
+}
+
+#reviews .container {
+    position: relative;
+    width: 1200px;
+    margin-inline: auto;
+    z-index:100;
+    margin-top: 200px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 42px;
+    row-gap: 75px;
+    
+}
+
+.review {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 42.8%;
+
+    column-gap: 29px;
+}
+
+.review > img {
+    transform: translate(-2px, -9px);
+    
+}
+
+.reviewer-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+}
+
+.reviewer-details .name{
+    word-spacing: -2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.reviewer-details .role{
+    margin-top: 7px;
+
+    line-height: 24px;
+    font-family: "Roboto";
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 300;
+    color: #999;
+    word-spacing: -1px;
+
+    transform: translateX(-1px);
+}
+
+.reviewer-details .message {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #999;
+    line-height: 24px;
+    word-spacing: 0px;
+    font-weight: 500;
+
+    transform: translateX(1px);
+}
+
+.reviewer-details .red-separator {
+    margin-inline: 0;
+    margin-top: 13px;
+    margin-bottom: 19px;
+}
+

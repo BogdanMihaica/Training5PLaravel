@@ -13,26 +13,27 @@
         <title>Psd slicing</title>
     </head>
     <body>
-        <!-- Navbar -->
-        <div id="navbar">
-            <p class="logo">MoGo</p>
-            <div class="navbar-links">
-                <a href="#about" class="about-link">ABOUT</a>
-                <a href="#service" class="service-link">SERVICE</a>
-                <a href="#work" class="work-link">WORK</a>
-                <a href="#blog" class="blog-link">BLOG</a>
-                <a href="#contact" class="contact-link">CONTACT</a>
-                <a href="#" class="cart-link"
-                    ><img src="/images/shopping-cart.png" alt="Cart"
-                /></a>
-                <a href="#" class="search-link"
-                    ><img src="/images/magnifying-glass.png" alt="Search"
-                /></a>
-            </div>
-        </div>
+        
 
         <!-- Banner -->
         <section id="banner">
+            <!-- Navbar -->
+            <div class="navbar">
+                <span class="logo">MoGo</span>
+                <div class="navbar-links">
+                    <a href="#about" class="about-link">ABOUT</a>
+                    <a href="#service" class="service-link">SERVICE</a>
+                    <a href="#work" class="work-link">WORK</a>
+                    <a href="#blog" class="blog-link">BLOG</a>
+                    <a href="#footer" class="contact-link">CONTACT</a>
+                    <a href="#" class="cart-link"
+                        ><img src="/images/shopping-cart.png" alt="Cart"
+                    /></a>
+                    <a href="#" class="search-link"
+                        ><img src="/images/magnifying-glass.png" alt="Search"
+                    /></a>
+                </div>
+            </div>
             <img src="/images/banner-background.png" />
 
             <div class="container">
@@ -136,7 +137,7 @@
 
             <div class="container">
                 <div class="service-group">
-                    <div class="service">
+                    <div class="service-component">
                         <img class="icon" src="/images/alarm.png" alt="alarm" />
                         <div class="service-text">
                             <p class="service-title">PHOTOGRAPHY</p>
@@ -147,7 +148,7 @@
                         </div>
                     </div>
 
-                    <div class="service">
+                    <div class="service-component">
                         <img
                             class="icon"
                             src="/images/line-graph.png"
@@ -162,7 +163,7 @@
                         </div>
                     </div>
 
-                    <div class="service">
+                    <div class="service-component">
                         <img
                             class="icon"
                             src="/images/computer-ok.png"
@@ -181,7 +182,7 @@
                 <div class="separator"></div>
 
                 <div class="service-group">
-                    <div class="service">
+                    <div class="service-component">
                         <img class="icon" src="/images/book.png" alt="book" />
                         <div class="service-text">
                             <p class="service-title">SEO</p>
@@ -192,7 +193,7 @@
                         </div>
                     </div>
 
-                    <div class="service">
+                    <div class="service-component">
                         <img class="icon" src="/images/home.png" alt="home" />
                         <div class="service-text">
                             <p class="service-title">CSS/HTML</p>
@@ -203,7 +204,7 @@
                         </div>
                     </div>
 
-                    <div class="service">
+                    <div class="service-component">
                         <img class="icon" src="/images/frame.png" alt="frame" />
                         <div class="service-text">
                             <p class="service-title">DIGITAL</p>
@@ -372,6 +373,468 @@
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
+
+            <div class="container">
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <div class="developer-links">
+                            <div class="primary-link">
+                                <img
+                                    src="/images/facebook.png"
+                                    alt="Facebook"
+                                />
+                            </div>
+                            <div class="secondary-link">
+                                <img src="/images/twitter.png" alt="Twitter" />
+                            </div>
+                            <div class="secondary-link">
+                                <img
+                                    src="/images/pinterest.png"
+                                    alt="Pinterest"
+                                />
+                            </div>
+                            <div class="secondary-link">
+                                <img
+                                    src="/images/instagram.png"
+                                    alt="Instagram"
+                                />
+                            </div>
+                        </div>
+                        <img src="/images/developer-1.png" alt="about image" />
+                        <div class="gradient-filter"></div>
+                    </div>
+
+                    <div class="developer-details">
+                        <p class="name">MATTHEW DIX</p>
+                        <p class="role">Graphic Design</p>
+                    </div>
+                </div>
+
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <img src="/images/developer-2.png" alt="about image" />
+                    </div>
+
+                    <div class="developer-details">
+                        <p class="name">CHRISTOPHER CAMPBELL</p>
+                        <p class="role">Branding/UX design</p>
+                    </div>
+                </div>
+
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <img src="/images/developer-3.png" alt="about image" />
+                    </div>
+
+                    <div class="developer-details">
+                        <p class="name">MICHAEL FERTIG</p>
+                        <p class="role">Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logos -->
+        <section id="logos">
+            <img src="/images/logos.png" alt="Logos" />
+        </section>
+
+        <!-- Work -->
+        <section id="work">
+            <div class="heading">
+                <p class="secondary-title">What we do</p>
+                <p class="primary-title">SOME OF OUR WORK</p>
+                <div class="red-separator"></div>
+            </div>
+
+            <p class="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+            </p>
+
+            <div class="grid-container">
+                <div class="grid-images">
+                    <div class="grid-element-1">
+                        <img src="/images/grid-image-1.png" alt="Grid image" />
+                    </div>
+
+                    <div class="grid-element-2">
+                        <img src="/images/grid-image-2.png" alt="Grid image" />
+                    </div>
+
+                    <div class="grid-element-3">
+                        <img src="/images/grid-image-3.png" alt="Grid image" />
+                    </div>
+
+                    <div class="grid-element-4">
+                        <img src="/images/grid-image-4.png" alt="Grid image" />
+                        <div class="gradient-filter"></div>
+                        <div class="grid-element-details">
+                            <img
+                                src="/images/picture-white.png"
+                                alt="Picture"
+                            />
+                            <p class="detail-title">CREATIVELY DESIGNED</p>
+                            <p class="detail-description">
+                                Lorem ipsum dolor sit
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid-element-5">
+                        <img src="/images/grid-image-5.png" alt="Grid image" />
+                    </div>
+
+                    <div class="grid-element-6">
+                        <img src="/images/grid-image-6.png" alt="Grid image" />
+                    </div>
+
+                    <div class="grid-element-7">
+                        <img src="/images/grid-image-7.png" alt="Grid image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section id="testimonial">
+            <div class="container">
+                <img src="/images/arrow-left.png" alt="Arrow Left" />
+                <div class="quote-image testimonial-image">
+                    <img
+                        src="/images/testimonial-picture.png"
+                        alt="Testimonial image"
+                    />
+                </div>
+                <div class="quote-block testimonial-block">
+                    <p class="quote-text">
+                        “Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation.”
+                    </p>
+                    <div class="quote-author">
+                        <div class="red-separator"></div>
+                        <p>Joshua Earle</p>
+                    </div>
+                </div>
+                <img src="/images/arrow-right.png" alt="Arrow Right" />
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section id="reviews">
+            <div class="background-container">
+                <img
+                    class="background"
+                    src="/images/reviews-bg.png"
+                    alt="background"
+                />
+            </div>
+
+            <div class="heading">
+                <p class="secondary-title">Happy Clients</p>
+                <p class="primary-title">WHAT PEOPLE SAY</p>
+                <div class="red-separator"></div>
+            </div>
+
+            <div class="container">
+                <div class="review">
+                    <img src="/images/person-1.png" alt="Reviewer" />
+                    <div class="reviewer-details">
+                        <p class="name">MATTHEW DIX</p>
+                        <p class="role">Graphic Design</p>
+                        <div class="red-separator"></div>
+                        <p class="message">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <img src="/images/person-2.png" alt="Reviewer" />
+                    <div class="reviewer-details">
+                        <p class="name">NICK KARVOUNIS</p>
+                        <p class="role">Graphic Design</p>
+                        <div class="red-separator"></div>
+                        <p class="message">
+                            Sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam
+                        </p>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <img src="/images/person-3.png" alt="Reviewer" />
+                    <div class="reviewer-details">
+                        <p class="name">JAELYNN CASTILLO</p>
+                        <p class="role">Graphic Design</p>
+                        <div class="red-separator"></div>
+                        <p class="message">
+                            Ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua. Ut enim ad minim veniam
+                        </p>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <img src="/images/person-4.png" alt="Reviewer" />
+                    <div class="reviewer-details">
+                        <p class="name">MIKE PETRUCCI</p>
+                        <p class="role">Graphic Design</p>
+                        <div class="red-separator"></div>
+                        <p class="message">
+                            Dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog">
+            <div class="heading">
+                <p class="secondary-title">Our stories</p>
+                <p class="primary-title">LATEST BLOG</p>
+                <div class="red-separator"></div>
+            </div>
+
+            <div class="container">
+                <div class="blog-post">
+                    <div class="image-container">
+                        <img src="/images/blog-1.png" alt="Blog thumbnail" />
+                    </div>
+                    <div class="date">
+                        <p class="day">15</p>
+                        <p class="month">Jan</p>
+                    </div>
+                    <p class="post-title">LOREM IPSUM DOLOR SIT AMET</p>
+                    <p class="post-description">
+                        Consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <div class="separator"></div>
+                    <div class="post-stats">
+                        <div class="stat">
+                            <img src="/images/view.png" alt="Views" />
+                            <p class="number">542</p>
+                        </div>
+                        <div class="stat">
+                            <img
+                                src="/images/speech-bubble.png"
+                                alt="Comments"
+                            />
+                            <p class="number">17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <div class="image-container">
+                        <img src="/images/blog-2.png" alt="Blog thumbnail" />
+                    </div>
+                    <div class="date">
+                        <p class="day">14</p>
+                        <p class="month">Jan</p>
+                    </div>
+                    <p class="post-title">SED DO EIUSMOD TEMPOR</p>
+                    <p class="post-description">
+                        Adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                    <div class="separator"></div>
+                    <div class="post-stats">
+                        <div class="stat">
+                            <img src="/images/view.png" alt="Views" />
+                            <p class="number">992</p>
+                        </div>
+                        <div class="stat">
+                            <img
+                                src="/images/speech-bubble.png"
+                                alt="Comments"
+                            />
+                            <p class="number">42</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <div class="image-container">
+                        <img src="/images/blog-3.png" alt="Blog thumbnail" />
+                    </div>
+                    <div class="date">
+                        <p class="day">12</p>
+                        <p class="month">Jan</p>
+                    </div>
+                    <p class="post-title">INCIDIDUNT UT LABORE ET DOLORE</p>
+                    <p class="post-description">
+                        Elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.
+                    </p>
+                    <div class="separator"></div>
+                    <div class="post-stats">
+                        <div class="stat">
+                            <img src="/images/view.png" alt="Views" />
+                            <p class="number">1560</p>
+                        </div>
+                        <div class="stat">
+                            <img
+                                src="/images/speech-bubble.png"
+                                alt="Comments"
+                            />
+                            <p class="number">98</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section id="map">
+            <div class="background-container">
+                <img
+                    class="background"
+                    src="/images/map-background.png"
+                    alt="background"
+                />
+
+                <div class="map-header">
+                    <img src="/images/pin.png" alt="Pin" />
+                    <p>OPEN MAP</p>
+                    <div class="red-separator"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="contact">
+                    <p class="company-title">MoGo</p>
+                    <p class="company-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </p>
+                    <div class="followers">
+             
+                        <p class="number">15k</p>
+                        <p class="text">followers</p>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="follow-us-container">
+                        <p class="follow-us">Follow Us:</p>
+                        <div class="social-media-icons">
+                            <img
+                                src="/images/facebook-footer-icon.png"
+                                alt="Facebook"
+                            />
+                            <img
+                                src="/images/twitter-footer-icon.png"
+                                alt="Twitter"
+                            />
+                            <img
+                                src="/images/instagram-footer-icon.png"
+                                alt="Instagram"
+                            />
+                            <img
+                                src="/images/pinterest-footer-icon.png"
+                                alt="Pinterest"
+                            />
+                            <img
+                                src="/images/google-plus-footer-icon.png"
+                                alt="Google plus"
+                            />
+                            <img
+                                src="/images/youtube-footer-icon.png"
+                                alt="Youtube"
+                            />
+                            <img
+                                src="/images/dribbble-footer-icon.png"
+                                alt="Dribbble"
+                            />
+                            <img
+                                src="/images/tumblr-footer-icon.png"
+                                alt="Tumblr"
+                            />
+                        </div>
+                    </div>
+                    <form class="subscribe">
+                        <input type="text" placeholder="Your Email..." />
+                        <button>SUBSCRIBE</button>
+                    </form>
+                </div>
+
+                <div class="footer-component footer-blog">
+                    <p class="footer-component-title">BLOGS</p>
+                    <div class="footer-blog-posts">
+                        <div class="post">
+                            <img
+                                src="/images/footer-blog-1.png"
+                                alt="Blog thumbnail"
+                            />
+                            <div class="post-details">
+                                <p class="footer-blog-post-title">
+                                    LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING
+                                </p>
+                                <p class="post-date">Jan 9, 2016</p>
+                            </div>
+                        </div>
+
+                        <div class="post">
+                            <img
+                                src="/images/footer-blog-2.png"
+                                alt="Blog thumbnail"
+                            />
+                            <div class="post-details">
+                                <p class="footer-blog-post-title">
+                                    CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR
+                                </p>
+                                <p class="post-date">Jan 9, 2016</p>
+                            </div>
+                        </div>
+
+                        <div class="post">
+                            <img
+                                src="/images/footer-blog-3.png"
+                                alt="Blog thumbnail"
+                            />
+                            <div class="post-details">
+                                <p class="footer-blog-post-title">
+                                    SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE
+                                </p>
+                                <p class="post-date">Jan 9, 2016</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-component instagram-posts">
+                    <p class="footer-component-title">INSTAGRAM</p>
+                    <div class="instagram-grid">
+                        <img src="/images/ig-1.png" alt="Instagram post">
+                        <img src="/images/ig-2.png" alt="Instagram post">
+                        <img src="/images/ig-3.png" alt="Instagram post">
+                        <img src="/images/ig-4.png" alt="Instagram post">
+                        <img src="/images/ig-5.png" alt="Instagram post">
+                        <img src="/images/ig-6.png" alt="Instagram post">
+                        <img src="/images/ig-7.png" alt="Instagram post">
+                        <img src="/images/ig-8.png" alt="Instagram post">
+                        <img src="/images/ig-9.png" alt="Instagram post">
+                    </div>
+                    <p class="view-more">View more photos</p>
+                </div>
+            </div>
         </section>
     </body>
 </html>

@@ -1,4 +1,4 @@
-#navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@
         width: 100%;
     }
 }
-#navbar .logo {
+.navbar > span {
     font-weight: bold;
     font-size: 30px;
     letter-spacing: -1px;
@@ -42,16 +42,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0px;
+    gap: 53px;
     margin-top: 20px;
-
-    transform: translateX(2px);
     font-size: 13px;
 }
 
 /* Pentru a fi pixel perfect trebuie sa ajustez fiecare link in parte, datorita gap-ului inconsistent*/
 
-.cart-link {
+/* .cart-link {
     margin-right: 42px;
 }
 
@@ -70,4 +68,4 @@
 
 .about-link {
     margin-right: 58px;
-}
+} */

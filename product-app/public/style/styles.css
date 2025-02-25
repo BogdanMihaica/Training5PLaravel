@@ -11,6 +11,12 @@
 @import "./service.css";
 @import "./quote.css";
 @import "./team.css";
+@import "./logos.css";
+@import "./work.css";
+@import "./reviews.css";
+@import "./blog.css";
+@import "./map.css";
+@import "./footer.css";
 
 :root {
     --psd-red: rgb(243, 129, 129);
@@ -29,9 +35,9 @@
 }
 
 .heading {
+    position: relative;
     text-align: center;
     margin-top: 85px;
-
     z-index: 100;
 }
 
@@ -57,4 +63,18 @@
     height: 3px;
     margin-inline: auto;
     background-color: var(--psd-red);
+}
+
+.paragraph {
+    width: 970px;
+
+    margin-top: 41px;
+    margin-inline: auto;
+
+    line-height: 24px;
+    color: #999;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
 }
