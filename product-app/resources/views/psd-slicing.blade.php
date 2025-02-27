@@ -6,253 +6,206 @@
         <link rel="stylesheet" href="/style/styles.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
         <title>Psd slicing</title>
     </head>
     <body>
         
-
         <!-- Banner -->
-        <section id="banner">
-            <!-- Navbar -->
+        <section class="banner">
             <div class="navbar">
-                <span class="logo">MoGo</span>
+                <span>MoGo</span>
+
                 <div class="navbar-links">
-                    <a href="#about" class="about-link">ABOUT</a>
-                    <a href="#service" class="service-link">SERVICE</a>
-                    <a href="#work" class="work-link">WORK</a>
-                    <a href="#blog" class="blog-link">BLOG</a>
-                    <a href="#footer" class="contact-link">CONTACT</a>
-                    <a href="#" class="cart-link"
-                        ><img src="/images/shopping-cart.png" alt="Cart"
-                    /></a>
-                    <a href="#" class="search-link"
-                        ><img src="/images/magnifying-glass.png" alt="Search"
-                    /></a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">SERVICE</a>
+                    <a href="#">WORK</a>
+                    <a href="#">BLOG</a>
+                    <a href="#">CONTACT</a>
+                    <a href="#">
+                        <img src="/images/shopping-cart.png" alt="Cart"/>
+                    </a>
+                    <a href="#">
+                        <img src="/images/magnifying-glass.png" alt="Search"/>
+                    </a>
                 </div>
             </div>
-            <img src="/images/banner-background.png" />
-
+            
+            
             <div class="container">
-                <div class="content">
-                    <p class="author">Creative Template</p>
-                    <p class="title">WELCOME TO MOGO</p>
-                    <div class="small-separator"></div>
-                    <a href="#" class="learn-more-button">LEARN MORE</a>
-                </div>
+                <span class="author">Creative Template</span>
+                <span class="title">WELCOME TO MOGO</span>
+                <div class="small-separator"></div>
+                <a href="#" class="learn-more-button">LEARN MORE</a> 
             </div>
 
-            <div id="slider">
-                <div class="slider-item">
-                    <p class="slider-number">01</p>
-                    <p class="slider-text">INTRO</p>
+            <div class="banner-slider">
+                <div>
+                    <span>01</span>
+                    <span>INTRO</span>
                 </div>
 
-                <div class="slider-item">
-                    <p class="slider-number">02</p>
-                    <p class="slider-text">WORK</p>
+                <div>
+                    <span>02</span>
+                    <span>WORK</span>
                 </div>
 
-                <div class="slider-item">
-                    <p class="slider-number">03</p>
-                    <p class="slider-text">ABOUT</p>
+                <div>
+                    <span>03</span>
+                    <span>ABOUT</span>
                 </div>
 
-                <div class="slider-item">
-                    <p class="slider-number">04</p>
-                    <p class="slider-text">CONTACTS</p>
+                <div>
+                    <span>04</span>
+                    <span>CONTACTS</span>
                 </div>
             </div>
         </section>
 
         <!-- About -->
-        <section id="about">
+        <section class="about">
             <div class="heading">
-                <p class="secondary-title">What we do</p>
-                <p class="primary-title">STORY ABOUT US</p>
+                <span class="secondary-title">What we do</span>
+                <span class="primary-title">STORY ABOUT US</span>
                 <div class="red-separator"></div>
             </div>
 
-            <p class="paragraph">
+            <p class="section-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
 
-            <div class="images-container">
-                <div class="image-container">
-                    <div class="overlaping-details">
-                        <img src="/images/users.png" alt="users" />
-                        <p>SUPER TEAM</p>
-                    </div>
+            <ul class="images-container">
+                <li class="image-item"> 
                     <img src="/images/about-1.png" alt="about image" />
-                    <div class="gradient-filter"></div>
-                </div>
-                <div class="image-container">
+                    <div class="overlapping-details">
+                        <img src="/images/users.png" alt="users" />
+                        <span>SUPER TEAM</span>
+                    </div>
+                </li>
+
+                <li class="image-item">
                     <img src="/images/about-2.png" alt="about image" />
-                </div>
-                <div class="image-container">
+                    <div class="overlapping-details">
+                        <img src="/images/users.png" alt="users" />
+                        <span>SUPER TEAM</span>
+                    </div>
+                </li>
+
+                <li class="image-item">
                     <img src="/images/about-3.png" alt="about image" />
-                </div>
-            </div>
+                    <div class="overlapping-details">
+                        <img src="/images/users.png" alt="users" />
+                        <span>SUPER TEAM</span>
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <!-- Facts -->
-        <section id="facts">
-            <div class="container">
-                <div class="fact">
-                    <p class="number">42</p>
-                    <p class="type">WEB DESIGN PROJECTS</p>
-                </div>
-                <div class="fact">
-                    <p class="number">123</p>
-                    <p class="type">HAPPY CLIENT</p>
-                </div>
-                <div class="fact">
-                    <p class="number">15</p>
-                    <p class="type">AWARD WINNER</p>
-                </div>
-                <div class="fact">
-                    <p class="number">99</p>
-                    <p class="type">CUP OF COFFEE</p>
-                </div>
-                <div class="fact">
-                    <p class="number">24</p>
-                    <p class="type">MEMBERS</p>
-                </div>
+        <section class="facts">
+            <div>
+                <span>42</span>
+                <span>WEB DESIGN PROJECTS</span>
+            </div>
+            <div>
+                <span>123</span>
+                <span>HAPPY CLIENT</span>
+            </div>
+            <div>
+                <span>15</span>
+                <span>AWARD WINNER</span>
+            </div>
+            <div>
+                <span>99</span>
+                <span>CUP OF COFFEE</span>
+            </div>
+            <div>
+                <span>24</span>
+                <span>MEMBERS</span>
             </div>
         </section>
 
         <!-- Services -->
-        <section id="services">
+        <section class="services">
             <div class="heading">
-                <p class="secondary-title">We work with</p>
-                <p class="primary-title">AMAZING SERVICES</p>
+                <span class="secondary-title">We work with</span>
+                <span class="primary-title">AMAZING SERVICES</span>
                 <div class="red-separator"></div>
             </div>
 
-            <div class="container">
-                <div class="service-group">
-                    <div class="service-component">
-                        <img class="icon" src="/images/alarm.png" alt="alarm" />
-                        <div class="service-text">
-                            <p class="service-title">PHOTOGRAPHY</p>
-                            <p class="service-description">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="service-component">
-                        <img
-                            class="icon"
-                            src="/images/line-graph.png"
-                            alt="line graph"
-                        />
-                        <div class="service-text">
-                            <p class="service-title">WEB DESIGN</p>
-                            <p class="service-description">
-                                Ipsum dolor sit amet, consectetur adipisicing
-                                elit, sed do eiusmod tempor.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="service-component">
-                        <img
-                            class="icon"
-                            src="/images/computer-ok.png"
-                            alt="computer"
-                        />
-                        <div class="service-text">
-                            <p class="service-title">CREATIVITY</p>
-                            <p class="service-description">
-                                Dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor.
-                            </p>
-                        </div>
+          
+            <div class="service-group">
+                <div class="service-component">
+                    <img src="/images/alarm.png" alt="alarm" />
+                    <div class="service-text">
+                        <span>PHOTOGRAPHY</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
                 </div>
 
-                <div class="separator"></div>
-
-                <div class="service-group">
-                    <div class="service-component">
-                        <img class="icon" src="/images/book.png" alt="book" />
-                        <div class="service-text">
-                            <p class="service-title">SEO</p>
-                            <p class="service-description">
-                                Ipsum dolor sit amet, consectetur adipisicing
-                                elit, sed do eiusmod.
-                            </p>
-                        </div>
+                <div class="service-component">
+                    <img src="/images/line-graph.png" alt="line graph"/>
+                    <div class="service-text">
+                        <span>WEB DESIGN</span>
+                        <span>Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
+                </div>
 
-                    <div class="service-component">
-                        <img class="icon" src="/images/home.png" alt="home" />
-                        <div class="service-text">
-                            <p class="service-title">CSS/HTML</p>
-                            <p class="service-description">
-                                Lorem dolor sit amet, consectetur adipisicing
-                                elit, sed do tempor.
-                            </p>
-                        </div>
+                <div class="service-component">
+                    <img src="/images/computer-ok.png" alt="computer"/>
+                    <div class="service-text">
+                        <span>CREATIVITY</span>
+                        <span>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
-
-                    <div class="service-component">
-                        <img class="icon" src="/images/frame.png" alt="frame" />
-                        <div class="service-text">
-                            <p class="service-title">DIGITAL</p>
-                            <p class="service-description">
-                                Sit amet, consectetur adipisicing elit, sed do
-                                eiusmod tempor.
-                            </p>
-                        </div>
+                </div>
+                
+                <div class="service-component">
+                    <img src="/images/book.png" alt="book" />
+                    <div class="service-text">
+                        <span>SEO</span>
+                        <span>Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</span>
+                    </div>
+                </div>
+                <div class="service-component">
+                    <img src="/images/home.png" alt="home" />
+                    <div class="service-text">
+                        <span>CSS/HTML</span>
+                        <span>Lorem dolor sit amet, consectetur adipisicing elit, sed do tempor.</span>
+                    </div>
+                </div>
+                <div class="service-component">
+                    <img src="/images/frame.png" alt="frame" />
+                    <div class="service-text">
+                        <span>DIGITAL</span>
+                        <span>Sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Uniqe design -->
-        <section id="unique-design">
-            <div class="background-container">
-                <img
-                    class="background"
-                    src="/images/unique-design-bg.png"
-                    alt="background"
-                />
-            </div>
+        <section class="unique-design">
             <div class="heading">
-                <p class="secondary-title">For all devices</p>
-                <p class="primary-title">UNIQUE DESIGN</p>
+                <span class="secondary-title">For all devices</span>
+                <span class="primary-title">UNIQUE DESIGN</span>
                 <div class="red-separator"></div>
             </div>
-            <img
-                class="big-phone"
-                src="/images/big-phone.png"
-                alt="big phone"
-            />
-            <img
-                class="small-phone"
-                src="/images/small-phone.png"
-                alt="small phone"
-            />
+            <img class="big-phone" src="/images/big-phone.png" alt="big phone"/>
+            <img class="small-phone" src="/images/small-phone.png" alt="small phone"/>
         </section>
 
         <!-- Service -->
-        <section id="service">
+        <section class="service">
             <div class="heading">
-                <p class="secondary-title">Service</p>
-                <p class="primary-title">WHAT WE DO</p>
+                <span class="secondary-title">Service</span>
+                <span class="primary-title">WHAT WE DO</span>
                 <div class="red-separator"></div>
             </div>
 
-            <p class="paragraph">
+            <p class="section-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -260,76 +213,65 @@
             </p>
 
             <div class="container">
-                <div class="service-image-container">
-                    <img src="/images/service-photo.png" alt="Service photo" />
-                </div>
+                <img src="/images/service-photo.png" alt="Service photo"/>
+           
                 <div class="service-items">
                     <div class="item">
                         <div class="item-header">
                             <div class="icon-text-group">
-                                <img
-                                    src="/images/picture.png"
-                                    alt="picture"
-                                    class="icon"
-                                />
+                                <img src="/images/picture.png" alt="picture"/>
                                 <p class="item-title">PHOTOGRAPHY</p>
                             </div>
-                            <img
-                                src="/images/arrow-up.png"
-                                alt="Arrow up"
-                                class="arrow"
-                            />
+                            <img src="/images/arrow-up.png" alt="Arrow up"/>
                         </div>
                         <div class="item-description">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum.
-                            </p>
-                            <div class="scroll-bar">
-                                <div class="slider"></div>
+                            <div class="scrollable">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    <br><br>
+                                    DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT
+                                    DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT 
+                                    DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT
+                                </p>
                             </div>
                         </div>
                     </div>
+
                     <div class="item">
                         <div class="item-header">
                             <div class="icon-text-group">
-                                <img
-                                    src="/images/equalizer.png"
-                                    alt="equalizer"
-                                    class="icon"
-                                />
-                                <p class="item-title">CREATIVITY</p>
+                                <img src="/images/equalizer.png" alt="equalizer"/>
+                                <span class="item-title">CREATIVITY</span>
                             </div>
-                            <img
-                                src="/images/arrow-down.png"
-                                alt="Arrow down"
-                                class="arrow"
-                            />
+                            <img src="/images/arrow-down.png" alt="Arrow down" />
+                        </div>
+                        <div class="item-description">
+                            <div class="scrollable">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    
                     <div class="item">
                         <div class="item-header">
                             <div class="icon-text-group">
-                                <img
-                                    src="/images/target.png"
-                                    alt="target"
-                                    class="icon"
-                                />
-                                <p class="item-title web-design">WEB DESIGN</p>
+                                <img src="/images/target.png" alt="target"/>
+                                <span class="item-title web-design">WEB DESIGN</span>
                             </div>
-                            <img
-                                src="/images/arrow-down.png"
-                                alt="Arrow down"
-                                class="arrow"
-                            />
+                            <img src="/images/arrow-down.png" alt="Arrow down"/>
+                        </div>
+                        <div class="item-description">
+                            <div class="scrollable">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -337,37 +279,35 @@
         </section>
 
         <!-- Quote -->
-        <section id="quote">
-            <div class="container">
-                <img src="/images/arrow-left.png" alt="Arrow Left" />
-                <div class="quote-image">
-                    <img src="/images/speech.png" alt="Quote image" />
+        <section class="quote">
+            <img src="/images/arrow-left.png" alt="Arrow Left" />
+            <img class="quote-image" src="/images/speech.png" alt="Quote image" />
+    
+            <div class="quote-block">
+                <p>
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation.”
+                </p>
+                <div class="quote-author">
+                    <div class="red-separator"></div>
+                    <span>Jon Doe</span>
                 </div>
-                <div class="quote-block">
-                    <p class="quote-text">
-                        “Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation.”
-                    </p>
-                    <div class="quote-author">
-                        <div class="red-separator"></div>
-                        <p>Jon Doe</p>
-                    </div>
-                </div>
-                <img src="/images/arrow-right.png" alt="Arrow Right" />
             </div>
+            <img src="/images/arrow-right.png" alt="Arrow Right" />
+
         </section>
 
         <!-- Team -->
-        <section id="team">
+        <section class="team">
             <div class="heading">
-                <p class="secondary-title">Who we are</p>
-                <p class="primary-title">MEET OUR TEAM</p>
+                <span class="secondary-title">Who we are</span>
+                <span class="primary-title">MEET OUR TEAM</span>
                 <div class="red-separator"></div>
             </div>
 
-            <p class="paragraph">
+            <p class="section-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -378,161 +318,148 @@
                 <div class="developer-card">
                     <div class="developer-image">
                         <div class="developer-links">
-                            <div class="primary-link">
-                                <img
-                                    src="/images/facebook.png"
-                                    alt="Facebook"
-                                />
-                            </div>
-                            <div class="secondary-link">
-                                <img src="/images/twitter.png" alt="Twitter" />
-                            </div>
-                            <div class="secondary-link">
-                                <img
-                                    src="/images/pinterest.png"
-                                    alt="Pinterest"
-                                />
-                            </div>
-                            <div class="secondary-link">
-                                <img
-                                    src="/images/instagram.png"
-                                    alt="Instagram"
-                                />
-                            </div>
+                            <a class="primary-link" href="#">
+                                <img src="/images/facebook.png" alt="Facebook"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/twitter.png" alt="Twitter"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/pinterest.png" alt="Pinterest"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/instagram.png" alt="Instagram"/>
+                            </a>
                         </div>
+
                         <img src="/images/developer-1.png" alt="about image" />
-                        <div class="gradient-filter"></div>
                     </div>
 
                     <div class="developer-details">
-                        <p class="name">MATTHEW DIX</p>
-                        <p class="role">Graphic Design</p>
+                        <span>MATTHEW DIX</span>
+                        <span>Graphic Design</span>
                     </div>
                 </div>
 
                 <div class="developer-card">
                     <div class="developer-image">
+                         <div class="developer-links">
+                            <a class="primary-link" href="#">
+                                <img src="/images/facebook.png" alt="Facebook"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/twitter.png" alt="Twitter"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/pinterest.png" alt="Pinterest"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/instagram.png" alt="Instagram"/>
+                            </a>
+                        </div>
+
                         <img src="/images/developer-2.png" alt="about image" />
                     </div>
 
                     <div class="developer-details">
-                        <p class="name">CHRISTOPHER CAMPBELL</p>
-                        <p class="role">Branding/UX design</p>
+                        <span>CHRISTOPHER CAMPBELL</span>
+                        <span>Branding/UX design</span>
                     </div>
                 </div>
 
                 <div class="developer-card">
                     <div class="developer-image">
+                         <div class="developer-links">
+                            <a class="primary-link" href="#">
+                                <img src="/images/facebook.png" alt="Facebook"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/twitter.png" alt="Twitter"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/pinterest.png" alt="Pinterest"/>
+                            </a>
+                            <a class="secondary-link" href="#">
+                                <img src="/images/instagram.png" alt="Instagram"/>
+                            </a>
+                        </div>
+
                         <img src="/images/developer-3.png" alt="about image" />
                     </div>
 
                     <div class="developer-details">
-                        <p class="name">MICHAEL FERTIG</p>
-                        <p class="role">Developer</p>
+                        <span>MICHAEL FERTIG</span>
+                        <span>Developer</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Logos -->
-        <section id="logos">
+        <section class="logos">
             <img src="/images/logos.png" alt="Logos" />
         </section>
 
         <!-- Work -->
-        <section id="work">
+        <!-- TODO -->
+        <section class="work">
             <div class="heading">
-                <p class="secondary-title">What we do</p>
-                <p class="primary-title">SOME OF OUR WORK</p>
+                <span class="secondary-title">What we do</span>
+                <span class="primary-title">SOME OF OUR WORK</span>
                 <div class="red-separator"></div>
             </div>
 
-            <p class="paragraph">
+            <p class="section-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
             </p>
 
-            <div class="grid-container">
-                <div class="grid-images">
-                    <div class="grid-element-1">
-                        <img src="/images/grid-image-1.png" alt="Grid image" />
-                    </div>
-
-                    <div class="grid-element-2">
-                        <img src="/images/grid-image-2.png" alt="Grid image" />
-                    </div>
-
-                    <div class="grid-element-3">
-                        <img src="/images/grid-image-3.png" alt="Grid image" />
-                    </div>
-
-                    <div class="grid-element-4">
-                        <img src="/images/grid-image-4.png" alt="Grid image" />
-                        <div class="gradient-filter"></div>
-                        <div class="grid-element-details">
-                            <img
-                                src="/images/picture-white.png"
-                                alt="Picture"
-                            />
-                            <p class="detail-title">CREATIVELY DESIGNED</p>
-                            <p class="detail-description">
-                                Lorem ipsum dolor sit
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid-element-5">
-                        <img src="/images/grid-image-5.png" alt="Grid image" />
-                    </div>
-
-                    <div class="grid-element-6">
-                        <img src="/images/grid-image-6.png" alt="Grid image" />
-                    </div>
-
-                    <div class="grid-element-7">
-                        <img src="/images/grid-image-7.png" alt="Grid image" />
+            
+            <div class="grid-images">
+                <img class="grid-element-1 grid-image" src="/images/grid-image-1.png" alt="Grid image" />
+                <img class="grid-element-2 grid-image" src="/images/grid-image-2.png" alt="Grid image" />
+                <img class="grid-element-3 grid-image" src="/images/grid-image-3.png" alt="Grid image" />
+           
+                <div class="grid-element-4">
+                    <img class="grid-image" src="/images/grid-image-4.png" alt="Grid image" />
+                    <div class="grid-element-details">
+                        <img src="/images/picture-white.png" alt="Picture Icon"/>
+                        <span class="detail-title">CREATIVELY DESIGNED</span>
+                        <span class="detail-description">Lorem ipsum dolor sit</span>
                     </div>
                 </div>
+
+                <img class="grid-element-5 grid-image" src="/images/grid-image-5.png" alt="Grid image" />
+                <img class="grid-element-6 grid-image" src="/images/grid-image-6.png" alt="Grid image" />
+                <img class="grid-element-7 grid-image" src="/images/grid-image-7.png" alt="Grid image" />
             </div>
         </section>
 
         <!-- Testimonial -->
-        <section id="testimonial">
-            <div class="container">
-                <img src="/images/arrow-left.png" alt="Arrow Left" />
-                <div class="quote-image testimonial-image">
-                    <img
-                        src="/images/testimonial-picture.png"
-                        alt="Testimonial image"
-                    />
+        <section class="testimonial">
+            <img src="/images/arrow-left.png" alt="Arrow Left" />
+    
+            <img class="testimonial-image" src="/images/testimonial-picture.png" alt="Testimonial image"/>
+        
+            <div class="quote-block testimonial-block">
+                <p class="quote-text">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation.”
+                </p>
+                <div class="quote-author">
+                    <div class="red-separator"></div>
+                    <span>Joshua Earle</span>
                 </div>
-                <div class="quote-block testimonial-block">
-                    <p class="quote-text">
-                        “Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation.”
-                    </p>
-                    <div class="quote-author">
-                        <div class="red-separator"></div>
-                        <p>Joshua Earle</p>
-                    </div>
-                </div>
-                <img src="/images/arrow-right.png" alt="Arrow Right" />
             </div>
+            <img src="/images/arrow-right.png" alt="Arrow Right" />
         </section>
 
         <!-- Reviews -->
-        <section id="reviews">
-            <div class="background-container">
-                <img
-                    class="background"
-                    src="/images/reviews-bg.png"
-                    alt="background"
-                />
-            </div>
+        <section class="reviews">
 
             <div class="heading">
                 <p class="secondary-title">Happy Clients</p>
@@ -544,8 +471,8 @@
                 <div class="review">
                     <img src="/images/person-1.png" alt="Reviewer" />
                     <div class="reviewer-details">
-                        <p class="name">MATTHEW DIX</p>
-                        <p class="role">Graphic Design</p>
+                        <span>MATTHEW DIX</span>
+                        <span>Graphic Design</span>
                         <div class="red-separator"></div>
                         <p class="message">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -558,8 +485,8 @@
                 <div class="review">
                     <img src="/images/person-2.png" alt="Reviewer" />
                     <div class="reviewer-details">
-                        <p class="name">NICK KARVOUNIS</p>
-                        <p class="role">Graphic Design</p>
+                        <span>NICK KARVOUNIS</span>
+                        <span>Graphic Design</span>
                         <div class="red-separator"></div>
                         <p class="message">
                             Sit amet, consectetur adipiscing elit, sed do
@@ -572,8 +499,8 @@
                 <div class="review">
                     <img src="/images/person-3.png" alt="Reviewer" />
                     <div class="reviewer-details">
-                        <p class="name">JAELYNN CASTILLO</p>
-                        <p class="role">Graphic Design</p>
+                        <span>JAELYNN CASTILLO</span>
+                        <span>Graphic Design</span>
                         <div class="red-separator"></div>
                         <p class="message">
                             Ipsum dolor sit amet, consectetur adipiscing elit,
@@ -586,8 +513,8 @@
                 <div class="review">
                     <img src="/images/person-4.png" alt="Reviewer" />
                     <div class="reviewer-details">
-                        <p class="name">MIKE PETRUCCI</p>
-                        <p class="role">Graphic Design</p>
+                        <span>MIKE PETRUCCI</span>
+                        <span>Graphic Design</span>
                         <div class="red-separator"></div>
                         <p class="message">
                             Dolor sit amet, consectetur adipiscing elit, sed do
@@ -600,10 +527,10 @@
         </section>
 
         <!-- Blog -->
-        <section id="blog">
+        <section class="blog">
             <div class="heading">
-                <p class="secondary-title">Our stories</p>
-                <p class="primary-title">LATEST BLOG</p>
+                <span class="secondary-title">Our stories</span>
+                <span class="primary-title">LATEST BLOG</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -613,10 +540,10 @@
                         <img src="/images/blog-1.png" alt="Blog thumbnail" />
                     </div>
                     <div class="date">
-                        <p class="day">15</p>
-                        <p class="month">Jan</p>
+                        <span class="day">15</span>
+                        <span class="month">Jan</span>
                     </div>
-                    <p class="post-title">LOREM IPSUM DOLOR SIT AMET</p>
+                    <span class="post-title">LOREM IPSUM DOLOR SIT AMET</span>
                     <p class="post-description">
                         Consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua.
@@ -625,14 +552,11 @@
                     <div class="post-stats">
                         <div class="stat">
                             <img src="/images/view.png" alt="Views" />
-                            <p class="number">542</p>
+                            <span class="number">542</span>
                         </div>
                         <div class="stat">
-                            <img
-                                src="/images/speech-bubble.png"
-                                alt="Comments"
-                            />
-                            <p class="number">17</p>
+                            <img src="/images/speech-bubble.png" alt="Comments"/>
+                            <span class="number">17</span>
                         </div>
                     </div>
                 </div>
@@ -642,10 +566,10 @@
                         <img src="/images/blog-2.png" alt="Blog thumbnail" />
                     </div>
                     <div class="date">
-                        <p class="day">14</p>
-                        <p class="month">Jan</p>
+                        <span class="day">14</span>
+                        <span class="month">Jan</span>
                     </div>
-                    <p class="post-title">SED DO EIUSMOD TEMPOR</p>
+                    <span class="post-title">SED DO EIUSMOD TEMPOR</span>
                     <p class="post-description">
                         Adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.
@@ -654,14 +578,11 @@
                     <div class="post-stats">
                         <div class="stat">
                             <img src="/images/view.png" alt="Views" />
-                            <p class="number">992</p>
+                            <span class="number">992</span>
                         </div>
                         <div class="stat">
-                            <img
-                                src="/images/speech-bubble.png"
-                                alt="Comments"
-                            />
-                            <p class="number">42</p>
+                            <img src="/images/speech-bubble.png" alt="Comments"/>
+                            <span class="number">42</span>
                         </div>
                     </div>
                 </div>
@@ -671,10 +592,10 @@
                         <img src="/images/blog-3.png" alt="Blog thumbnail" />
                     </div>
                     <div class="date">
-                        <p class="day">12</p>
-                        <p class="month">Jan</p>
+                        <span class="day">12</span>
+                        <span class="month">Jan</span>
                     </div>
-                    <p class="post-title">INCIDIDUNT UT LABORE ET DOLORE</p>
+                    <span class="post-title">INCIDIDUNT UT LABORE ET DOLORE</span>
                     <p class="post-description">
                         Elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua.
@@ -683,14 +604,11 @@
                     <div class="post-stats">
                         <div class="stat">
                             <img src="/images/view.png" alt="Views" />
-                            <p class="number">1560</p>
+                            <span class="number">1560</span>
                         </div>
                         <div class="stat">
-                            <img
-                                src="/images/speech-bubble.png"
-                                alt="Comments"
-                            />
-                            <p class="number">98</p>
+                            <img src="/images/speech-bubble.png" alt="Comments"/>
+                            <span class="number">98</span>
                         </div>
                     </div>
                 </div>
@@ -698,24 +616,14 @@
         </section>
 
         <!-- Map -->
-        <section id="map">
-            <div class="background-container">
-                <img
-                    class="background"
-                    src="/images/map-background.png"
-                    alt="background"
-                />
-
-                <div class="map-header">
-                    <img src="/images/pin.png" alt="Pin" />
-                    <p>OPEN MAP</p>
-                    <div class="red-separator"></div>
-                </div>
-            </div>
+        <section class="map">
+            <img src="/images/pin.png" alt="Pin" />
+            <span>OPEN MAP</span>
+            <div class="red-separator"></div>
         </section>
 
         <!-- Footer -->
-        <section id="footer">
+        <section class="footer">
             <div class="container">
                 <div class="contact">
                     <p class="company-title">MoGo</p>
@@ -735,38 +643,14 @@
                     <div class="follow-us-container">
                         <p class="follow-us">Follow Us:</p>
                         <div class="social-media-icons">
-                            <img
-                                src="/images/facebook-footer-icon.png"
-                                alt="Facebook"
-                            />
-                            <img
-                                src="/images/twitter-footer-icon.png"
-                                alt="Twitter"
-                            />
-                            <img
-                                src="/images/instagram-footer-icon.png"
-                                alt="Instagram"
-                            />
-                            <img
-                                src="/images/pinterest-footer-icon.png"
-                                alt="Pinterest"
-                            />
-                            <img
-                                src="/images/google-plus-footer-icon.png"
-                                alt="Google plus"
-                            />
-                            <img
-                                src="/images/youtube-footer-icon.png"
-                                alt="Youtube"
-                            />
-                            <img
-                                src="/images/dribbble-footer-icon.png"
-                                alt="Dribbble"
-                            />
-                            <img
-                                src="/images/tumblr-footer-icon.png"
-                                alt="Tumblr"
-                            />
+                            <img src="/images/facebook-footer-icon.png" alt="Facebook"/>
+                            <img src="/images/twitter-footer-icon.png" alt="Twitter"/>
+                            <img src="/images/instagram-footer-icon.png" alt="Instagram"/>
+                            <img src="/images/pinterest-footer-icon.png" alt="Pinterest"/>
+                            <img src="/images/google-plus-footer-icon.png" alt="Google plus"/>
+                            <img src="/images/youtube-footer-icon.png" alt="Youtube"/>
+                            <img src="/images/dribbble-footer-icon.png" alt="Dribbble"/>
+                            <img src="/images/tumblr-footer-icon.png" alt="Tumblr"/>
                         </div>
                     </div>
                     <form class="subscribe">

@@ -1,4 +1,8 @@
-#blog .container {
+.blog {
+    padding-top: 103px;
+    padding-bottom: 115px;
+}
+.blog .container {
     width: 1200px;
     display: flex;
     justify-content: space-between;
@@ -10,6 +14,8 @@
 .blog-post {
     position: relative;
     width: 380px;
+    display: flex;
+    flex-direction: column;
 }
 
 .blog-post .date {
@@ -27,14 +33,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 2px;
+    justify-content: center;
 }
 
 .blog-post .date .day {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     font-weight: 700;
-    transform: translateY(6px);
 }
 
 .blog-post .date .month {
@@ -50,8 +55,7 @@
     font-size: 14px;
     font-weight: 600;
 
-    margin-top: 13px;
-    transform: translateX(-1px);
+    padding-top: 13px;
 }
 
 .post-description {
@@ -90,5 +94,5 @@
 }
 
 .blog-post:last-of-type .post-stats {
-    gap:11px;
+    gap:1px;
 }

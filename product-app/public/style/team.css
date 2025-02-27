@@ -1,45 +1,43 @@
-#team {
-    margin-top: 95px;
+.team {
+    padding-top: 95px;
+    padding-bottom: 113px;
 }
 
-#team .container {
-    width: 1200px;
-
+.team .container {
     margin-inline: auto;
     margin-top: 88px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .developer-card {
     position: relative;
-    width: 380px;
-    height: 470px;
+    max-width: 380px;
 }
 
 .developer-image {
-    height: 470px;
-    overflow: hidden;
-}
-.developer-card:first-of-type .developer-image {
-    transform: translate(-10px, -10px);
-    box-shadow: 10px 10px var(--psd-teal);
+    max-height: 470px;
+    transition: all 0.5s ease;
 }
 
 .developer-details {
     margin-top: 27px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.developer-details .name{
+.developer-details span:first-child{
     word-spacing: -2px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 600;
 }
 
-.developer-details .role{
+.developer-details span:nth-child(2){
     margin-top: 7px;
 
     line-height: 24px;
@@ -55,6 +53,7 @@
     position: absolute;
     width: 224px;
     height:56px;
+
     z-index: 100;
     left: 50%;
     top: 50%;
@@ -62,9 +61,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    opacity: 0;
+    transition: all 0.5s ease;
 }
 
-.developer-links div{
+.developer-links a{
     width: 25%;
     height: 100%;
     display: flex;
@@ -76,14 +78,29 @@
     background-color: var(--psd-red);
 }
 
-.primary-link img{
-    transform: translateX(2px);
-}
-
 .secondary-link {
     background-color: var(--psd-yellow);
 }
 
 .secondary-link:not(:last-of-type) {
     border-right: 1px solid #f9bd87;
+}
+
+.developer-image:hover{
+    transform: translate(-10px, -10px);
+    box-shadow: 10px 10px var(--psd-teal);
+}
+
+.developer-image:hover .developer-links{
+    opacity: 1;
+}
+
+.developer-image:hover::after {
+    position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: var(--gradient-filter);
 }
