@@ -39,12 +39,9 @@
 }
 
 .heading {
-    position: relative;
-
     display: flex;
     flex-direction: column;
     text-align: center;
-    z-index: 100;
 }
 
 .heading > span:first-of-type {
@@ -72,7 +69,7 @@
 }
 
 .section-description {
-    margin-top: 41px;
+    padding-top: 41px;
     margin-inline: auto;
 
     line-height: 24px;
@@ -90,7 +87,6 @@
 }
 @media (max-width: 1200px) {
     .section-description {
-        width: auto;
         margin-inline: 20px;
     }
 }

@@ -3,7 +3,6 @@
     padding-bottom: 114px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .service .heading .primary-title {
@@ -21,6 +20,11 @@
 
     justify-content: center;
     gap: 30px;
+}
+
+
+.service .container > img {
+    width: 100%;
 }
 
 .service-items {
@@ -95,7 +99,7 @@
     word-spacing: -1px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
     .service .container {
         max-width: 90%;
         flex-direction: column;

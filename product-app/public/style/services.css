@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     row-gap: 65px;
 }
 
@@ -24,7 +25,7 @@
     column-gap: 29px;
 }
 
-.service-text {
+.service-group > div > div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -32,14 +33,14 @@
     row-gap: 7px;
 }
 
-.service-text span:first-child {
+.service-group > div > div span:first-child {
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #333;
 }
 
-.service-text span:nth-child(2) {
+.service-group > div > div span:nth-child(2) {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #999;

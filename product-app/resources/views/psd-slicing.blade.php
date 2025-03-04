@@ -143,7 +143,7 @@
             <div class="service-group">
                 <div>
                     <img src="/images/alarm.png" alt="alarm" />
-                    <div class="service-text">
+                    <div>
                         <span>PHOTOGRAPHY</span>
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
@@ -151,7 +151,7 @@
 
                 <div>
                     <img src="/images/line-graph.png" alt="line graph"/>
-                    <div class="service-text">
+                    <div>
                         <span>WEB DESIGN</span>
                         <span>Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
@@ -159,7 +159,7 @@
 
                 <div>
                     <img src="/images/computer-ok.png" alt="computer"/>
-                    <div class="service-text">
+                    <div>
                         <span>CREATIVITY</span>
                         <span>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
@@ -167,7 +167,7 @@
                 
                 <div>
                     <img src="/images/book.png" alt="book" />
-                    <div class="service-text">
+                    <div>
                         <span>SEO</span>
                         <span>Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</span>
                     </div>
@@ -175,7 +175,7 @@
 
                 <div>
                     <img src="/images/home.png" alt="home" />
-                    <div class="service-text">
+                    <div>
                         <span>CSS/HTML</span>
                         <span>Lorem dolor sit amet, consectetur adipisicing elit, sed do tempor.</span>
                     </div>
@@ -183,7 +183,7 @@
 
                 <div>
                     <img src="/images/frame.png" alt="frame" />
-                    <div class="service-text">
+                    <div>
                         <span>DIGITAL</span>
                         <span>Sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</span>
                     </div>
@@ -229,9 +229,9 @@
                                 <img src="/images/picture.png" alt="picture"/>
                                 <span class="item-title">PHOTOGRAPHY</span>
                             </div>
-
                             <img src="/images/arrow-up.png" alt="Arrow up"/>
                         </div>
+
                         <div class="item-description">
                             <div class="scrollable">
                                 <p>
@@ -257,9 +257,11 @@
                             </div>
                             <img src="/images/arrow-down.png" alt="Arrow down" />
                         </div>
+
                         <div class="item-description">
                             <div class="scrollable">
                                 <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 </p>
                             </div>
@@ -274,9 +276,11 @@
                             </div>
                             <img src="/images/arrow-down.png" alt="Arrow down"/>
                         </div>
+
                         <div class="item-description">
                             <div class="scrollable">
                                 <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 </p>
                             </div>
@@ -328,18 +332,10 @@
                 <div class="developer-card">
                     <div class="developer-image">
                         <div class="developer-links">
-                            <a href="#">
-                                <img src="/images/facebook.png" alt="Facebook"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/twitter.png" alt="Twitter"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/pinterest.png" alt="Pinterest"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/instagram.png" alt="Instagram"/>
-                            </a>
+                            <a href="#"><img src="/images/facebook.png" alt="Facebook"/></a>
+                            <a href="#"><img src="/images/twitter.png" alt="Twitter"/></a>
+                            <a href="#"><img src="/images/pinterest.png" alt="Pinterest"/></a>
+                            <a href="#"><img src="/images/instagram.png" alt="Instagram"/></a>
                         </div>
 
                         <img src="/images/developer-1.png" alt="about image" />
@@ -380,18 +376,10 @@
                 <div class="developer-card">
                     <div class="developer-image">
                          <div class="developer-links">
-                            <a href="#">
-                                <img src="/images/facebook.png" alt="Facebook"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/twitter.png" alt="Twitter"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/pinterest.png" alt="Pinterest"/>
-                            </a>
-                            <a href="#">
-                                <img src="/images/instagram.png" alt="Instagram"/>
-                            </a>
+                            <a href="#"><img src="/images/facebook.png" alt="Facebook"/></a>
+                            <a href="#"><img src="/images/twitter.png" alt="Twitter"/></a>
+                            <a href="#"><img src="/images/pinterest.png" alt="Pinterest"/></a>
+                            <a href="#"><img src="/images/instagram.png" alt="Instagram"/></a>
                         </div>
 
                         <img src="/images/developer-3.png" alt="about image" />
@@ -554,9 +542,7 @@
 
             <div class="container">
                 <div class="blog-post">
-                    <div class="image-container">
-                        <img src="/images/blog-1.png" alt="Blog thumbnail" />
-                    </div>
+                    <img src="/images/blog-1.png" alt="Blog thumbnail" />
 
                     <div class="date">
                         <span>15</span>
@@ -586,9 +572,7 @@
                 </div>
 
                 <div class="blog-post">
-                    <div class="image-container">
-                        <img src="/images/blog-2.png" alt="Blog thumbnail" />
-                    </div>
+                    <img src="/images/blog-2.png" alt="Blog thumbnail" />
 
                     <div class="date">
                         <span>14</span>
@@ -618,9 +602,7 @@
                 </div>
 
                 <div class="blog-post">
-                    <div class="image-container">
-                        <img src="/images/blog-3.png" alt="Blog thumbnail" />
-                    </div>
+                    <img src="/images/blog-3.png" alt="Blog thumbnail" />
 
                     <div class="date">
                         <span>12</span>

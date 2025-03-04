@@ -1,6 +1,5 @@
 .facts {
     min-height: 270px;
-    width: 100%;
     background-color: var(--psd-teal);
 
     font-family: "Montserrat", sans-serif;
@@ -11,8 +10,6 @@
     justify-content: center;
 }
 .facts > div {
-    width: 240px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,4 +28,10 @@
 .facts > div span:last-child {
     font-size: 14px;
     padding-bottom: 18px;
+}
+
+@media (min-width:320px) {
+    .facts > div {
+        width: 240px;
+    }
 }

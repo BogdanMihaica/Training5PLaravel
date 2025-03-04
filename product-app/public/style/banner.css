@@ -1,5 +1,4 @@
 .banner {
-    background: var(--psd-yellow);
     background: var(--gradient-filter),
         url("/images/banner-background.png") no-repeat;
     background-size: cover;
@@ -25,7 +24,6 @@
 .banner .container div:first-child {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 24px;
 }
@@ -73,5 +71,15 @@
     .banner .container span:nth-child(2) {
         width: 500px;
         font-size: 90px;
+    }
+}
+@media (max-width: 530px) {
+    .banner .container span:first-child {
+        font-size: 30px;
+    }
+
+    .banner .container span:nth-child(2) {
+        width: 300px;
+        font-size: 60px;
     }
 }

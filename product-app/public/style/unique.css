@@ -13,17 +13,27 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     row-gap: 43px;
 }
 
 .small-phone {
     position: absolute;
-    left: calc(50% + 97px);
+    left: calc(53%);
     bottom: -90px;
 }
 
 .big-phone {
     padding-right: 50px;
+}
+
+@media (max-width: 600px) {
+    .small-phone {
+        width: 30%;
+        bottom: -50px;
+    }
+
+    .big-phone {
+        width: 70%;
+    }
 }

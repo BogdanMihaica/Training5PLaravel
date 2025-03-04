@@ -80,3 +80,10 @@
     color: white;
     word-spacing: -1px;
 }
+
+
+@media (max-width:700px) {
+    .grid-images > * {
+        width: 50%;
+    }
+}
