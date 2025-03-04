@@ -5,7 +5,7 @@
 
 .team .container {
     margin-inline: auto;
-    margin-top: 88px;
+    padding-top: 88px;
 
     display: flex;
     justify-content: center;
@@ -15,12 +15,11 @@
 
 .developer-card {
     position: relative;
-    max-width: 380px;
 }
 
 .developer-image {
-    max-height: 470px;
     transition: all 0.5s ease;
+    display: flex;
 }
 
 .developer-details {
@@ -67,7 +66,7 @@
 }
 
 .developer-links a{
-    width: 25%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;

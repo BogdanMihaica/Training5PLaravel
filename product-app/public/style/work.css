@@ -1,5 +1,6 @@
 .work {
     padding-top: 105px;
+    width: 100%;
 }
 
 .work .heading .primary-title {
@@ -7,49 +8,41 @@
 }
 
 .grid-images {
-    margin-top: 98px;
-    display: grid;
-    grid-template-columns: repeat(4, 25vw);
-    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    padding-top: 98px;
+    margin-inline: auto;
+    justify-content: space-between;
+    display: flex;
+
+    flex-wrap: wrap;
     gap: 0;
+
 }
 
 .grid-images > * {
-    max-width: 25vw;
-}
-.grid-element-1 {
-    grid-area: 1 / 1 / 2 / 2;
-}
-.grid-element-2 {
-    grid-area: 2 / 1 / 3 / 2;
-}
-.grid-element-3 {
-    grid-area: 1 / 2 / 2 / 3;
-}
-.grid-element-4 {
-    position: relative;
-    max-height: 390px;
-    grid-area: 2 / 2 / 3 / 3;
+    width: 25%;
 }
 
-.grid-element-4::after {
+.grid-images img:not(.detail-icon) {
+    width: 100%;
+}
+
+.grid-images > div:nth-of-type(2) > div::after {
+    content: "";
     position: absolute;
-    content:"";
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     background: var(--gradient-filter);
+    z-index: 1;
 }
 
-.grid-element-5 {
-    grid-area: 1 / 3 / 3 / 4;
+.grid-images img {
+    display: flex;
 }
-.grid-element-6 {
-    grid-area: 1 / 4 / 2 / 5;
-}
-.grid-element-7 {
-    grid-area: 2 / 4 / 3 / 5;
+.grid-images > div:nth-of-type(2) > div{
+    position: relative;
 }
 
 .grid-element-details {
@@ -71,7 +64,7 @@
     margin-bottom: 17px;
 }
 
-.detail-title {
+.grid-element-details span:first-of-type {
     color: white;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
@@ -80,7 +73,7 @@
     margin-bottom: 12px;
 }
 
-.detail-description {
+.grid-element-details span:nth-of-type(2) {
     font-family: "Roboto";
     font-style: italic;
     font-size: 15px;

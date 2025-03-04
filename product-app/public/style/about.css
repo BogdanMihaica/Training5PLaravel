@@ -3,22 +3,20 @@
     padding-bottom: 110px;
 }
 
-.about .images-container {
-    max-height: 250px;
-
+.about ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
 
     margin-inline: auto;
-    margin-top: 97px;
+    padding-top: 97px;
 
     list-style-type: none;
 }
 
-.about .image-item {
-    height: 250px;
+.about li {
+    display: flex;
 
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -27,7 +25,7 @@
     transition: all 0.5s ease;
 }
 
-.overlapping-details {
+.about li div {
     position: absolute;
     left:50%;
     top:50%;
@@ -44,16 +42,17 @@
     opacity: 0;
     transition: all 0.5s ease;
 }
-.about .image-item:hover{
+
+.about li:hover{
     transform: translate(-10px, -10px);
     box-shadow: 10px 10px var(--psd-teal);
 }
 
-.about .image-item:hover .overlapping-details{
+.about li:hover div{
     opacity: 1;
 }
 
-.about .image-item:hover::after {
+.about li:hover::after {
     position: absolute;
     content:"";
     height:100%;

@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    column-gap: 42px;
+    column-gap: 55px;
     row-gap: 75px;
     
     width:67%;
@@ -29,9 +29,9 @@
 .review {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    width: 42.8%;
-
+    align-items: flex-start;
+    max-width: 42.8%;
+    min-width: 400px;
     column-gap: 29px;
 }
 

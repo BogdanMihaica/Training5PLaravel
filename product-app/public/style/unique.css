@@ -1,7 +1,6 @@
 .unique-design {
     padding-top: 108px;
     
-    height:850px;
     position: relative;
     background: linear-gradient(
         0deg,
@@ -15,6 +14,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    row-gap: 43px;
     
 }
 
