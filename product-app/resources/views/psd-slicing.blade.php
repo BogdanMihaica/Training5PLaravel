@@ -16,19 +16,15 @@
             <div class="navbar">
                 <span>MoGo</span>
 
-                <div class="navbar-links">
-                    <a href="#">ABOUT</a>
-                    <a href="#">SERVICE</a>
-                    <a href="#">WORK</a>
-                    <a href="#">BLOG</a>
-                    <a href="#">CONTACT</a>
-                    <a href="#">
-                        <img src="/images/shopping-cart.png" alt="Cart"/>
-                    </a>
-                    <a href="#">
-                        <img src="/images/magnifying-glass.png" alt="Search"/>
-                    </a>
-                </div>
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">WORK</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#"><img src="/images/shopping-cart.png" alt="Cart"/></a></li>
+                    <li><a href="#"><img src="/images/magnifying-glass.png" alt="Search"/></a></li>
+                </ul>
             </div>
             
             
@@ -67,8 +63,8 @@
         <!-- About -->
         <section class="about">
             <div class="heading">
-                <span>What we do</span>
-                <span>STORY ABOUT US</span>
+                <div>What we do</div>
+                <div>STORY ABOUT US</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -134,8 +130,8 @@
         <section class="services">
 
             <div class="heading">
-                <span>We work with</span>
-                <span>AMAZING SERVICES</span>
+                <div>We work with</div>
+                <div>AMAZING SERVICES</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -194,8 +190,8 @@
         <!-- Uniqe design -->
         <section class="unique-design">
             <div class="heading">
-                <span>For all devices</span>
-                <span>UNIQUE DESIGN</span>
+                <div>For all devices</div>
+                <div>UNIQUE DESIGN</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -207,8 +203,8 @@
         <!-- Service -->
         <section class="service">
             <div class="heading">
-                <span>Service</span>
-                <span>WHAT WE DO</span>
+                <div>Service</div>
+                <div>WHAT WE DO</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -316,8 +312,8 @@
         <!-- Team -->
         <section class="team">
             <div class="heading">
-                <span>Who we are</span>
-                <span>MEET OUR TEAM</span>
+                <div>Who we are</div>
+                <div>MEET OUR TEAM</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -328,8 +324,8 @@
                 nisi ut aliquip ex ea commodo consequat.
             </p>
 
-            <div class="container">
-                <div class="developer-card">
+            <ul>
+                <li>
                     <div class="developer-image">
                         <div class="developer-links">
                             <a href="#"><img src="/images/facebook.png" alt="Facebook"/></a>
@@ -345,9 +341,9 @@
                         <span>MATTHEW DIX</span>
                         <span>Graphic Design</span>
                     </div>
-                </div>
+                </li>
 
-                <div class="developer-card">
+                <li>
                     <div class="developer-image">
                          <div class="developer-links">
                             <a href="#">
@@ -371,9 +367,9 @@
                         <span>CHRISTOPHER CAMPBELL</span>
                         <span>Branding/UX design</span>
                     </div>
-                </div>
+                </li>
 
-                <div class="developer-card">
+                <li>
                     <div class="developer-image">
                          <div class="developer-links">
                             <a href="#"><img src="/images/facebook.png" alt="Facebook"/></a>
@@ -389,7 +385,7 @@
                         <span>MICHAEL FERTIG</span>
                         <span>Developer</span>
                     </div>
-                </div>
+                </li>
             </div>
         </section>
 
@@ -401,8 +397,8 @@
         <!-- Work -->
         <section class="work">
             <div class="heading">
-                <span>What we do</span>
-                <span>SOME OF OUR WORK</span>
+                <div>What we do</div>
+                <div>SOME OF OUR WORK</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -468,8 +464,8 @@
         <section class="reviews">
 
             <div class="heading">
-                <span>Happy Clients</span>
-                <span>WHAT PEOPLE SAY</span>
+                <div>Happy Clients</div>
+                <div>WHAT PEOPLE SAY</div>
                 <div class="red-separator"></div>
             </div>
 
@@ -535,13 +531,13 @@
         <!-- Blog -->
         <section class="blog">
             <div class="heading">
-                <span>Our stories</span>
-                <span>LATEST BLOG</span>
+                <div>Our stories</div>
+                <div>LATEST BLOG</div>
                 <div class="red-separator"></div>
             </div>
 
-            <div class="container">
-                <div class="blog-post">
+            <ul>
+                <li>
                     <img src="/images/blog-1.png" alt="Blog thumbnail" />
 
                     <div class="date">
@@ -569,9 +565,9 @@
                             <span>17</span>
                         </div>
                     </div>
-                </div>
+                </li>
 
-                <div class="blog-post">
+                <li>
                     <img src="/images/blog-2.png" alt="Blog thumbnail" />
 
                     <div class="date">
@@ -599,9 +595,9 @@
                             <span>42</span>
                         </div>
                     </div>
-                </div>
+                </li>
 
-                <div class="blog-post">
+                <li>
                     <img src="/images/blog-3.png" alt="Blog thumbnail" />
 
                     <div class="date">
@@ -629,7 +625,7 @@
                             <span>98</span>
                         </div>
                     </div>
-                </div>
+                </li>
             </div>
         </section>
 
@@ -682,7 +678,7 @@
             <div class="footer-component footer-blog">
                 <span class="footer-component-title">BLOGS</span>
                 <div class="footer-blog-posts">
-                    <a class="post" href="#">
+                    <a href="#">
                         <img src="/images/footer-blog-1.png" alt="Blog thumbnail"/>
                         <div class="post-details">
                             <span>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING</span>
@@ -690,7 +686,7 @@
                         </div>
                     </a>
 
-                    <a class="post" href="#">
+                    <a href="#">
                         <img src="/images/footer-blog-2.png" alt="Blog thumbnail"/>
                         <div class="post-details">
                             <span>CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR</span>
@@ -698,7 +694,7 @@
                         </div>
                     </a>
 
-                    <a class="post" href="#">
+                    <a href="#">
                         <img src="/images/footer-blog-3.png" alt="Blog thumbnail" />
                         <div class="post-details">
                             <span>SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE</span>

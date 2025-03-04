@@ -3,25 +3,27 @@
     padding-bottom: 115px;
 }
 
-.blog .container {
+.blog ul {
     max-width: 1200px;
     display: flex;
     justify-content: center;
     gap: 30px;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 47px;
+    margin-top: 47px;
     margin-inline: auto;
+
+    list-style-type: none;
 }
 
-.blog-post {
+.blog ul li {
     position: relative;
     max-width: 380px;
     display: flex;
     flex-direction: column;
 }
 
-.blog-post .date {
+.blog ul li .date {
     width: 60px;
     height: 70px;
     background-color: var(--psd-teal);
@@ -39,13 +41,13 @@
     justify-content: center;
 }
 
-.blog-post .date span:first-of-type {
+.blog ul li .date span:first-of-type {
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: 700;
 }
 
-.blog-post .date span:nth-of-type(2) {
+.blog ul li .date span:nth-of-type(2) {
     font-family: "Roboto", arial;
     font-size: 15px;
     font-style: italic;
@@ -58,7 +60,7 @@
     font-size: 14px;
     font-weight: 600;
 
-    padding-top: 13px;
+    margin-top: 13px;
 }
 
 .post-description {
@@ -81,7 +83,7 @@
 
     display: flex;
     gap: 18px;
-    justify-content: flex-start;
+    
 }
 
 .post-stats > div {
@@ -91,17 +93,17 @@
     gap: 6px;
 }
 
-.blog-post .separator {
+.blog ul li .separator {
     margin-top: 16px;
     margin-bottom: 17px;
 }
 
-.blog-post img {
+.blog ul li img {
     width:100%;
 }
 
 @media (max-width: 400px) {
-    .blog-post .date {
+    .blog ul li .date {
          top: 120px;
     }
 }

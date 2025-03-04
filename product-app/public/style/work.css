@@ -8,8 +8,7 @@
 }
 
 .grid-images {
-    width: 100%;
-    padding-top: 98px;
+    margin-top: 98px;
     margin-inline: auto;
     justify-content: space-between;
     display: flex;

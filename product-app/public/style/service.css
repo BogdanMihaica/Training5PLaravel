@@ -12,11 +12,10 @@
 .service .container {
     max-width: 1200px;
 
-    padding-top: 90px;
+    margin-top: 90px;
     margin-inline: auto;
 
     display: flex;
-    align-items: flex-start;
 
     justify-content: center;
     gap: 30px;
@@ -101,7 +100,7 @@
 
 @media (max-width: 1000px) {
     .service .container {
-        max-width: 90%;
+        width: 90%;
         flex-direction: column;
         align-items: center;
     }

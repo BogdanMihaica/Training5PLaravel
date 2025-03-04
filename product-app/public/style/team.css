@@ -8,17 +8,19 @@
     
 }
 
-.team .container {
+.team ul {
     margin-inline: auto;
-    padding-top: 88px;
+    margin-top: 88px;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+
+    list-style-type: none;
 }
 
-.developer-card {
+.team ul li{
     position: relative;
 }
 
@@ -109,6 +111,6 @@
     background: var(--gradient-filter);
 }
 
-.developer-image > img{
+.developer-image > img {
     width: 100%;
 }

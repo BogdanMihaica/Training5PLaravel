@@ -5,7 +5,7 @@
     background-color: #f8f8f8;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    
     flex-wrap: wrap;
     gap: 47px;
 }
@@ -36,16 +36,16 @@
     word-spacing: 0px;
     font-weight: 600;
 
-    padding-top: 25px;
+    margin-top: 25px;
 }
 .followers {
     display: flex;
     gap: 4px;
-    justify-content: flex-start;
+    
     align-items: flex-end;
     font-family: "Montserrat", sans-serif;
 
-    padding-top: 43px;
+    margin-top: 43px;
 }
 
 .followers span:first-of-type {
@@ -75,10 +75,10 @@
 
 .follow-us-container .social-media-icons {
     display: flex;
-    justify-content: flex-start;
+    
     align-items: center;
     gap: 16px;
-    padding-left: 22px;
+    margin-left: 22px;
 }
 
 .subscribe {
@@ -129,7 +129,7 @@
 }
 
 .footer-component {
-    padding-top: 14px;
+    margin-top: 14px;
 }
 
 /* Second section */
@@ -142,13 +142,13 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
-    padding-top: 36px;
+    margin-top: 36px;
 }
 
 .footer-blog-posts a {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    
     text-decoration: none;
     gap: 20px;
 }
@@ -156,7 +156,7 @@
 .footer-blog-posts .post-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    
     gap: 6px;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .instagram-posts > div {
-    padding-top: 37px;
+    margin-top: 37px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -205,5 +205,5 @@
     word-spacing: -1px;
 
     display: block;
-    padding-top: 17px;
+    margin-top: 17px;
 }
