@@ -67,8 +67,8 @@
         <!-- About -->
         <section class="about">
             <div class="heading">
-                <span class="secondary-title">What we do</span>
-                <span class="primary-title">STORY ABOUT US</span>
+                <span>What we do</span>
+                <span>STORY ABOUT US</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -134,8 +134,8 @@
         <section class="services">
 
             <div class="heading">
-                <span class="secondary-title">We work with</span>
-                <span class="primary-title">AMAZING SERVICES</span>
+                <span>We work with</span>
+                <span>AMAZING SERVICES</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -194,8 +194,8 @@
         <!-- Uniqe design -->
         <section class="unique-design">
             <div class="heading">
-                <span class="secondary-title">For all devices</span>
-                <span class="primary-title">UNIQUE DESIGN</span>
+                <span>For all devices</span>
+                <span>UNIQUE DESIGN</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -207,8 +207,8 @@
         <!-- Service -->
         <section class="service">
             <div class="heading">
-                <span class="secondary-title">Service</span>
-                <span class="primary-title">WHAT WE DO</span>
+                <span>Service</span>
+                <span>WHAT WE DO</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -312,8 +312,8 @@
         <!-- Team -->
         <section class="team">
             <div class="heading">
-                <span class="secondary-title">Who we are</span>
-                <span class="primary-title">MEET OUR TEAM</span>
+                <span>Who we are</span>
+                <span>MEET OUR TEAM</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -328,16 +328,16 @@
                 <div class="developer-card">
                     <div class="developer-image">
                         <div class="developer-links">
-                            <a class="primary-link" href="#">
+                            <a href="#">
                                 <img src="/images/facebook.png" alt="Facebook"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/twitter.png" alt="Twitter"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/pinterest.png" alt="Pinterest"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/instagram.png" alt="Instagram"/>
                             </a>
                         </div>
@@ -354,16 +354,16 @@
                 <div class="developer-card">
                     <div class="developer-image">
                          <div class="developer-links">
-                            <a class="primary-link" href="#">
+                            <a href="#">
                                 <img src="/images/facebook.png" alt="Facebook"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/twitter.png" alt="Twitter"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/pinterest.png" alt="Pinterest"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/instagram.png" alt="Instagram"/>
                             </a>
                         </div>
@@ -380,16 +380,16 @@
                 <div class="developer-card">
                     <div class="developer-image">
                          <div class="developer-links">
-                            <a class="primary-link" href="#">
+                            <a href="#">
                                 <img src="/images/facebook.png" alt="Facebook"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/twitter.png" alt="Twitter"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/pinterest.png" alt="Pinterest"/>
                             </a>
-                            <a class="secondary-link" href="#">
+                            <a href="#">
                                 <img src="/images/instagram.png" alt="Instagram"/>
                             </a>
                         </div>
@@ -413,8 +413,8 @@
         <!-- Work -->
         <section class="work">
             <div class="heading">
-                <span class="secondary-title">What we do</span>
-                <span class="primary-title">SOME OF OUR WORK</span>
+                <span>What we do</span>
+                <span>SOME OF OUR WORK</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -480,8 +480,8 @@
         <section class="reviews">
 
             <div class="heading">
-                <span class="secondary-title">Happy Clients</span>
-                <span class="primary-title">WHAT PEOPLE SAY</span>
+                <span>Happy Clients</span>
+                <span>WHAT PEOPLE SAY</span>
                 <div class="red-separator"></div>
             </div>
 
@@ -547,8 +547,8 @@
         <!-- Blog -->
         <section class="blog">
             <div class="heading">
-                <span class="secondary-title">Our stories</span>
-                <span class="primary-title">LATEST BLOG</span>
+                <span>Our stories</span>
+                <span>LATEST BLOG</span>
                 <div class="red-separator"></div>
             </div>
 

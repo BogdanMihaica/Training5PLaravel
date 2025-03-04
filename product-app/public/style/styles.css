@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "./banner.css";
 @import "./navbar.css";
 @import "./slider.css";
@@ -21,11 +21,11 @@
 :root {
     --psd-red: rgb(243, 129, 129);
     --psd-yellow: rgb(252, 227, 138);
-    --psd-teal : #95e1d3;
+    --psd-teal: #95e1d3;
     --psd-lime: #eaffd0;
     --psd-red-90: rgba(243, 129, 129, 0.9);
     --psd-yellow-90: rgba(252, 227, 138, 0.9);
-    --gradient-filter : linear-gradient(
+    --gradient-filter: linear-gradient(
         0deg,
         var(--psd-yellow-90) 0%,
         var(--psd-red-90) 100%
@@ -47,17 +47,17 @@
     z-index: 100;
 }
 
-.secondary-title {
+.heading > span:first-of-type {
     font-family: "Kaushan Script", serif;
     font-size: 24px;
-    
+
     margin-bottom: 6px;
 }
 
-.primary-title {
+.heading > span:last-of-type {
     margin-bottom: 32px;
 
-    font-family: 'Montseratt', sans-serif;
+    font-family: "Montseratt", sans-serif;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: -1px;
@@ -79,7 +79,7 @@
     color: #999;
     text-align: center;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 600;
 }
 

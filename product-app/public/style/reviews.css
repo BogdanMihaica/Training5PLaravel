@@ -1,6 +1,6 @@
 .reviews {
     position: relative;
-    background: url('/images/reviews-bg.png') no-repeat;
+    background: url("/images/reviews-bg.png") no-repeat;
     background-size: cover;
     background-position: 50% 50%;
 
@@ -10,20 +10,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:88px;
+    gap: 88px;
 }
 
-
 .reviews .container {
-    z-index:100;
+    z-index: 100;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     column-gap: 55px;
     row-gap: 75px;
-    
-    width:67%;
+
+    width: 67%;
 }
 
 .review {
@@ -39,17 +38,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;    
+    justify-content: flex-start;
 }
 
-.reviewer-details span:first-child{
+.reviewer-details span:first-child {
     word-spacing: -2px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 600;
 }
 
-.reviewer-details span:nth-child(2){
+.reviewer-details span:nth-child(2) {
     margin-top: 7px;
 
     line-height: 24px;
@@ -62,7 +61,7 @@
 }
 
 .reviewer-details .message {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #999;
     line-height: 24px;
@@ -75,4 +74,3 @@
     margin-top: 13px;
     margin-bottom: 19px;
 }
-

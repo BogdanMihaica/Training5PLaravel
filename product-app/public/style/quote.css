@@ -1,4 +1,5 @@
-.quote, .testimonial {    
+.quote,
+.testimonial {
     margin-inline: auto;
     display: flex;
     justify-content: center;
@@ -29,19 +30,18 @@
     flex-direction: column;
     align-items: flex-start;
     width: 41%;
-    gap: 13px
+    gap: 13px;
 }
 
 .quote-author {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 
     font-family: "Kaushan Script", serif;
     font-size: 24px;
 }
-
 
 .quote-block p {
     line-height: 36px;

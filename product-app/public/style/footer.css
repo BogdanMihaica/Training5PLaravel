@@ -8,7 +8,6 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 47px;
-
 }
 
 .footer .container {
@@ -23,14 +22,14 @@
 }
 
 .company-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 46px;
     color: #ccc;
     font-weight: 700;
 }
 
 .company-description {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #999;
     line-height: 24px;
@@ -44,7 +43,7 @@
     gap: 4px;
     justify-content: flex-start;
     align-items: flex-end;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 
     padding-top: 43px;
 }
@@ -54,7 +53,7 @@
     font-weight: 700;
 }
 
-.followers span:last-of-type{
+.followers span:last-of-type {
     font-size: 14px;
 }
 
@@ -63,7 +62,7 @@
     margin-bottom: 17px;
 }
 
-.follow-us-container{
+.follow-us-container {
     display: flex;
 
     font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -89,7 +88,7 @@
     margin-top: 35px;
 }
 
-.subscribe input{
+.subscribe input {
     border: 1px solid #e7e7e7;
 
     height: 40px;
@@ -109,7 +108,7 @@
     width: 150px;
     height: 40px;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: white;
     font-weight: 700;
     font-size: 14px;
@@ -118,20 +117,19 @@
     border: none;
 }
 
-
 .subscribe button:hover {
     background-color: black;
 }
 
 .footer-component-title {
     font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     color: #333;
 }
 
 .footer-component {
-    padding-top:14px;
+    padding-top: 14px;
 }
 
 /* Second section */
@@ -156,7 +154,7 @@
 }
 
 .footer-blog-posts .post-details {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
@@ -164,14 +162,14 @@
 
 .footer-blog-posts .post-details > span:first-of-type {
     font-size: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     word-spacing: -1px;
     line-height: 18px;
     color: #333;
 }
 
-.footer-blog-posts .post-details > span:last-of-type{
+.footer-blog-posts .post-details > span:last-of-type {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-style: italic;
     font-size: 13px;
@@ -191,7 +189,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 2px;
-    
 }
 
 .instagram-posts > div a {

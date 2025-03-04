@@ -20,7 +20,7 @@
     align-items: flex-start;
 
     justify-content: center;
-    gap:30px;
+    gap: 30px;
 }
 
 .service-items {
@@ -41,7 +41,7 @@
 .icon-text-group {
     display: flex;
     align-items: center;
-    gap: 15px;    
+    gap: 15px;
 }
 
 .item-title {
@@ -59,7 +59,7 @@
     display: flex;
     gap: 18px;
 
-    padding-inline:19px;
+    padding-inline: 19px;
     padding-top: 15px;
     padding-bottom: 15px;
     border: 1px solid #e5e5e5;

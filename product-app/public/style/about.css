@@ -19,7 +19,7 @@
     display: flex;
 
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 18px;
     transition: all 0.5s ease;
@@ -27,8 +27,8 @@
 
 .about li div {
     position: absolute;
-    left:50%;
-    top:50%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
 
     display: flex;
@@ -37,27 +37,27 @@
     justify-content: center;
     align-items: center;
 
-    z-index:100;
+    z-index: 100;
 
     opacity: 0;
     transition: all 0.5s ease;
 }
 
-.about li:hover{
+.about li:hover {
     transform: translate(-10px, -10px);
     box-shadow: 10px 10px var(--psd-teal);
 }
 
-.about li:hover div{
+.about li:hover div {
     opacity: 1;
 }
 
 .about li:hover::after {
     position: absolute;
-    content:"";
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
     background: var(--gradient-filter);
 }

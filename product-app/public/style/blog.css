@@ -40,13 +40,13 @@
 }
 
 .blog-post .date span:first-of-type {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 30px;
     font-weight: 700;
 }
 
 .blog-post .date span:nth-of-type(2) {
-    font-family: 'Roboto', arial;
+    font-family: "Roboto", arial;
     font-size: 15px;
     font-style: italic;
     font-weight: 200;
@@ -54,7 +54,7 @@
 
 .post-title {
     word-spacing: -2px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 600;
 
@@ -62,7 +62,7 @@
 }
 
 .post-description {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #999;
     line-height: 24px;
@@ -73,7 +73,7 @@
 }
 
 .post-stats {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #999;
     font-weight: 200;

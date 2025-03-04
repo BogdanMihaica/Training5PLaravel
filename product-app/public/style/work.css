@@ -16,7 +16,6 @@
 
     flex-wrap: wrap;
     gap: 0;
-
 }
 
 .grid-images > * {
@@ -41,7 +40,7 @@
 .grid-images img {
     display: flex;
 }
-.grid-images > div:nth-of-type(2) > div{
+.grid-images > div:nth-of-type(2) > div {
     position: relative;
 }
 
