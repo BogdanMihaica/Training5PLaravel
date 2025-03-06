@@ -41,7 +41,7 @@
     font-weight: 600;
 }
 
-.developer-details div:nth-child(2) {
+.developer-details div:last-child {
     margin-top: 7px;
 
     line-height: 24px;

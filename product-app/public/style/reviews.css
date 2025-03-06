@@ -26,14 +26,14 @@
     column-gap: 29px;
 }
 
-.reviewer-details div:first-child {
+.reviewer-details .name {
     word-spacing: -2px;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 600;
 }
 
-.reviewer-details div:nth-child(2) {
+.reviewer-details .role {
     margin-top: 7px;
 
     line-height: 24px;

@@ -30,8 +30,8 @@
             
             <div class="container">
                 <div>
-                    <div>Creative Template</div>
-                    <div>WELCOME TO MOGO</div>
+                    <div class="subtitle">Creative Template</div>
+                    <div class="title">WELCOME TO MOGO</div>
                 </div>
                 <div class="white small-separator"></div>
                 <div>
@@ -506,8 +506,8 @@
                         <img src="/images/person-1.png" alt="Reviewer" />
                     </div>
                     <div class="reviewer-details">
-                        <div>MATTHEW DIX</div>
-                        <div>Graphic Design</div>
+                        <div class="name">MATTHEW DIX</div>
+                        <div class="role">Graphic Design</div>
                         <div class="red small-separator"></div>
                         <p class="message">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -522,8 +522,8 @@
                         <img src="/images/person-2.png" alt="Reviewer" />
                     </div>
                     <div class="reviewer-details">
-                        <div>NICK KARVOUNIS</div>
-                        <div>Graphic Design</div>
+                        <div class="name">NICK KARVOUNIS</div>
+                        <div class="role">Graphic Design</div>
                         <div class="red small-separator"></div>
                         <p class="message">
                             Sit amet, consectetur adipiscing elit, sed do
@@ -538,8 +538,8 @@
                         <img src="/images/person-3.png" alt="Reviewer" />
                     </div>
                     <div class="reviewer-details">
-                        <div>JAELYNN CASTILLO</div>
-                        <div>Graphic Design</div>
+                        <div class="name">JAELYNN CASTILLO</div>
+                        <div class="role">Graphic Design</div>
                         <div class="red small-separator"></div>
                         <p class="message">
                             Ipsum dolor sit amet, consectetur adipiscing elit,
@@ -554,8 +554,8 @@
                         <img src="/images/person-4.png" alt="Reviewer" />
                     </div>
                     <div class="reviewer-details">
-                        <div>MIKE PETRUCCI</div>
-                        <div>Graphic Design</div>
+                        <div class="name">MIKE PETRUCCI</div>
+                        <div class="role">Graphic Design</div>
                         <div class="red small-separator"></div>
                         <p class="message">
                             Dolor sit amet, consectetur adipiscing elit, sed do

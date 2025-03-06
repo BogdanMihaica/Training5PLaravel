@@ -39,12 +39,12 @@
 
 
 
-.banner .container div:first-child {
+.banner .container .subtitle {
     font-family: "Kaushan Script", serif;
     font-size: 72px;
 }
 
-.banner .container div:nth-child(2) {
+.banner .container .title {
     max-width: 1000px;
 
     font-family: "Montserrat", serif;
@@ -61,7 +61,7 @@
 
 .learn-more-button {
     text-decoration: none;
-    display: block;
+        display: block;
     color: white;
 
     font-family: "Montserrat", serif;
@@ -72,21 +72,21 @@
 }
 
 @media (max-width: 1000px) {
-    .banner .container div:first-child {
+    .banner .container .subtitle {
         font-size: 52px;
     }
 
-    .banner .container div:nth-child(2) {
+    .banner .container .title {
         width: 500px;
         font-size: 90px;
     }
 }
 @media (max-width: 530px) {
-    .banner .container div:first-child {
+    .banner .container .subtitle {
         font-size: 30px;
     }
 
-    .banner .container div:nth-child(2) {
+    .banner .container .title {
         width: 300px;
         font-size: 60px;
     }
