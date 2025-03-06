@@ -4,7 +4,6 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    gap:75px;
     margin-inline: auto;
 }
 .quote {
@@ -20,6 +19,7 @@
     display: flex;
     align-items: center;
     gap:60px;
+    max-width: 1000px;
 }
 .quote-image {
     padding: 40px;
@@ -65,5 +65,11 @@
 @media (max-width:470px) {
     .testimonial-image {
         width:30%
+    }
+    .quote-content {
+        gap:20px;
+    }
+    .quote-image {
+        padding: 20px;
     }
 }

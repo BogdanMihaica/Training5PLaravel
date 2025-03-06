@@ -20,13 +20,16 @@
 
 .team ul li{
     position: relative;
+    display: block;
 }
 
 .developer-image {
     transition: all 0.5s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.developer-image > img {
+    display: block;   
+    width: 100%;
 }
 
 .developer-details {
@@ -111,9 +114,14 @@
     background: var(--gradient-filter);
 }
 
-@media (max-width: 770px) {
+
+@media (max-width: 1200px) {
     .team ul {
         width: 90%;
+    }
+}
+@media (max-width: 770px) {
+    .team ul {
         grid-template-columns: 1fr;
     }
 }

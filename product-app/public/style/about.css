@@ -74,9 +74,14 @@
     width: 100%;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 1200px) {
     .about ul {
         width: 90%;
+    }
+}
+@media (max-width: 768px) {
+    .about ul {
         grid-template-columns: 1fr;
     }
 }
