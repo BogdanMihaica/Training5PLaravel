@@ -7,12 +7,12 @@
     justify-content: space-between;
     gap: 5px;
     font-family: "Montserrat", serif;
+    
 }
 
 .banner-slider > div {
     width: 100%;
-    display: flex;
-    align-items: center;
+    
     gap: 5px;
 
     color: rgba(255, 255, 255, 0.7);
@@ -21,7 +21,7 @@
     padding: 20px 0;
 }
 
-.banner-slider > div:first-of-type {
+.banner-slider > div:first-child {
     color: white;
     border-top: 3px solid;
     border-image: linear-gradient(to right, var(--psd-red) 25%, white 25%) 1;
@@ -36,7 +36,7 @@
     font-size: 18px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
     .banner-slider {
         width: 1200px;
         gap: 30px;

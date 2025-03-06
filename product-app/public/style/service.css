@@ -1,18 +1,20 @@
 .service {
     padding-top: 104px;
     padding-bottom: 114px;
-    display: flex;
-    flex-direction: column;
 }
 
 .service .heading .primary-title {
     word-spacing: 1px;
 }
 
+.service .section-description {
+    margin-bottom: 90px;
+}
+
 .service .container {
     max-width: 1200px;
 
-    margin-top: 90px;
+    
     margin-inline: auto;
 
     display: flex;
@@ -26,10 +28,12 @@
     width: 100%;
 }
 
-.service-items {
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
+.service-items .item {
+    margin-top: 11px;
+}
+
+.service-items .item:first-child {
+    margin-top: 0;
 }
 
 .item-header {
@@ -54,14 +58,15 @@
     word-spacing: -2px;
 }
 
-.item:not(:first-child) .item-description {
+.item .item-description {
     display: none;
 }
 
-.item-description {
-    display: flex;
-    gap: 18px;
+.item:first-child .item-description{
+    display: block;
+}
 
+.item-description {
     padding-inline: 19px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -94,7 +99,7 @@
     font-style: italic;
     font-size: 15px;
     font-weight: 300;
-    color: #999;
+    color: var(--light-gray);
     word-spacing: -1px;
 }
 

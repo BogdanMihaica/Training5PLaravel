@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-top: 15px;
     font-family: "Montserrat", serif;
     color: white;
 
     width: 80%;
     max-width:1200px;
+    margin-inline: auto;
+    
 }
-.navbar > span {
+.navbar > div:first-child {
     font-weight: bold;
     font-size: 30px;
     letter-spacing: -1px;
@@ -28,7 +28,7 @@
 .navbar ul li {
     position: relative;
 }
-.navbar ul li:first-of-type {
+.navbar ul li:first-child{
     color: var(--psd-yellow);
 } 
 

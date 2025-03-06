@@ -24,14 +24,14 @@
 .company-title {
     font-family: "Montserrat", sans-serif;
     font-size: 46px;
-    color: #ccc;
+    color: var(--very-light-gray);
     font-weight: 700;
 }
 
 .company-description {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 15px;
-    color: #999;
+    color: var(--light-gray);
     line-height: 24px;
     word-spacing: 0px;
     font-weight: 600;
@@ -39,22 +39,19 @@
     margin-top: 25px;
 }
 .followers {
-    display: flex;
-    gap: 4px;
-    
-    align-items: flex-end;
     font-family: "Montserrat", sans-serif;
 
     margin-top: 43px;
 }
 
-.followers span:first-of-type {
+.followers span:first-child {
     font-size: 18px;
     font-weight: 700;
 }
 
-.followers span:last-of-type {
+.followers span:last-child {
     font-size: 14px;
+    margin-left: 4px;
 }
 
 .footer .separator {
@@ -69,7 +66,7 @@
     font-style: italic;
     font-size: 15px;
     font-weight: 300;
-    color: #999;
+    color: var(--light-gray);
     word-spacing: -1px;
 }
 
@@ -83,8 +80,6 @@
 
 .subscribe {
     display: flex;
-    gap: 0;
-
     margin-top: 35px;
 }
 
@@ -98,7 +93,7 @@
     font-style: italic;
     font-size: 15px;
     font-weight: 300;
-    color: #999;
+    color: var(--light-gray);
     word-spacing: -1px;
     text-indent: 13px;
 }
@@ -125,7 +120,7 @@
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    color: #333;
+    color: var(--dark-gray);
 }
 
 .footer-component {
@@ -137,15 +132,21 @@
     max-width: 360px;
 }
 
-.footer-blog-posts {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
+.footer-blog ul {
     margin-top: 36px;
+
+    list-style-type: none;
 }
 
-.footer-blog-posts a {
+.footer-blog ul li {
+    margin-top: 30px;
+}
+
+.footer-blog ul li:first-child {
+    margin-top: 0;
+}
+
+.footer-blog ul a {
     display: flex;
     align-items: center;
     
@@ -153,29 +154,24 @@
     gap: 20px;
 }
 
-.footer-blog-posts .post-details {
-    display: flex;
-    flex-direction: column;
-    
-    gap: 6px;
-}
-
-.footer-blog-posts .post-details > span:first-of-type {
+.footer-blog ul .post-details > div:first-child {
     font-size: 12px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     word-spacing: -1px;
     line-height: 18px;
-    color: #333;
+    color: var(--dark-gray);
 }
 
-.footer-blog-posts .post-details > span:last-of-type {
+.footer-blog ul .post-details > div:last-child {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-style: italic;
     font-size: 13px;
     font-weight: 300;
-    color: #999;
+    color: var(--light-gray);
     word-spacing: -1px;
+
+    margin-top: 6px;
 }
 
 /* Third section */
@@ -183,7 +179,7 @@
     max-width: 270px;
 }
 
-.instagram-posts > div {
+.instagram-posts > .images {
     margin-top: 37px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -196,12 +192,12 @@
     display: flex;
 }
 
-.instagram-posts > span:last-of-type {
+.instagram-posts > div:last-child {
     font-family: "Roboto";
     font-style: italic;
     font-size: 13px;
     font-weight: 300;
-    color: #333;
+    color: var(--dark-gray);
     word-spacing: -1px;
 
     display: block;

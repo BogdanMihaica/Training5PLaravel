@@ -25,6 +25,9 @@
     --psd-lime: #eaffd0;
     --psd-red-90: rgba(243, 129, 129, 0.9);
     --psd-yellow-90: rgba(252, 227, 138, 0.9);
+    --very-light-gray: #ccc;
+    --light-gray: #999;
+    --dark-gray: #333;
     --gradient-filter: linear-gradient(
         0deg,
         var(--psd-yellow-90) 0%,
@@ -39,19 +42,19 @@
 }
 
 .heading {
-    display: flex;
-    flex-direction: column;
     text-align: center;
+    display: block;
+    margin-inline: auto;
 }
 
-.heading > div:first-of-type {
+.heading > div:first-child {
     font-family: "Kaushan Script", serif;
     font-size: 24px;
 
     margin-bottom: 6px;
 }
 
-.heading > div:nth-of-type(2) {
+.heading > div:nth-child(2) {
     margin-bottom: 32px;
 
     font-family: "Montseratt", sans-serif;
@@ -61,11 +64,10 @@
     word-spacing: -6px;
 }
 
-.red-separator {
+.small-separator {
     width: 60px;
     height: 3px;
     margin-inline: auto;
-    background-color: var(--psd-red);
 }
 
 .section-description {
@@ -73,16 +75,24 @@
     margin-inline: auto;
 
     line-height: 24px;
-    color: #999;
+    color: var(--light-gray);
     text-align: center;
     font-size: 15px;
     font-family: "Roboto", sans-serif;
     font-weight: 600;
 }
+.red {
+    background-color: var(--psd-red);
+}
+
+.white {
+    background-color: white;
+}
 
 @media (min-width: 1200px) {
     .section-description {
-        width: 970px;
+        max-width: 1200px;
+        padding: 0 100px;
     }
 }
 @media (max-width: 1200px) {

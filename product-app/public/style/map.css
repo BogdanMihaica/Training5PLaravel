@@ -19,7 +19,7 @@
     min-height: 200px;
 }
 
-.map span {
+.map div {
     word-spacing: -1px;
     font-family: "Montserrat", sans-serif;
     font-size: 24px;

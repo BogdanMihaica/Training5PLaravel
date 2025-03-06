@@ -7,8 +7,11 @@
     word-spacing: -5px;
 }
 
+.work .section-description {
+    margin-bottom: 98px;
+}
+
 .grid-images {
-    margin-top: 98px;
     margin-inline: auto;
     justify-content: space-between;
     display: flex;
@@ -25,7 +28,7 @@
     width: 100%;
 }
 
-.grid-images > div:nth-of-type(2) > div::after {
+.grid-images .detailed > div::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -37,9 +40,9 @@
 }
 
 .grid-images img {
-    display: flex;
+    display: block;
 }
-.grid-images > div:nth-of-type(2) > div {
+.grid-images > .detailed > div {
     position: relative;
 }
 
@@ -62,7 +65,7 @@
     margin-bottom: 17px;
 }
 
-.grid-element-details span:first-of-type {
+.grid-element-details .detail-title {
     color: white;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
@@ -71,7 +74,7 @@
     margin-bottom: 12px;
 }
 
-.grid-element-details span:nth-of-type(2) {
+.grid-element-details .detail-description {
     font-family: "Roboto";
     font-style: italic;
     font-size: 15px;

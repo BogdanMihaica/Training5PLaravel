@@ -4,38 +4,47 @@
     background-size: cover;
     background-position: 50% 50%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    min-height: 1000px;
     
     align-items: center;
+    padding-top: 15px;
+}
+
+.banner > * {
+    margin-top: 180px;
+}
+
+.banner > *:first-child {
+    margin-top: 0;
 }
 
 .banner .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    gap: 52px;
-    align-items: center;
     color: white;
+    text-align: center;
 }
+.banner .container * {
+    margin-inline: auto;
+}
+
+.banner .container > * {
+    margin-top: 52px;
+}
+
+.banner .container > div:first-child {
+    margin-top: 0;
+}
+
+.banner .container div > div:last-child {
+    margin-top: 24px;
+} 
+
+
 
 .banner .container div:first-child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-}
-
-.banner .container span:first-child {
     font-family: "Kaushan Script", serif;
     font-size: 72px;
 }
 
-.banner .container span:nth-child(2) {
+.banner .container div:nth-child(2) {
     max-width: 1000px;
 
     font-family: "Montserrat", serif;
@@ -46,16 +55,13 @@
     text-align: center;
 }
 
-.small-separator {
-    width: 60px;
-    height: 3px;
-
-    background-color: white;
+.banner .container div:last-child {
+     display: inline-block;
 }
 
 .learn-more-button {
     text-decoration: none;
-
+    display: block;
     color: white;
 
     font-family: "Montserrat", serif;
@@ -66,21 +72,21 @@
 }
 
 @media (max-width: 1000px) {
-    .banner .container span:first-child {
+    .banner .container div:first-child {
         font-size: 52px;
     }
 
-    .banner .container span:nth-child(2) {
+    .banner .container div:nth-child(2) {
         width: 500px;
         font-size: 90px;
     }
 }
 @media (max-width: 530px) {
-    .banner .container span:first-child {
+    .banner .container div:first-child {
         font-size: 30px;
     }
 
-    .banner .container span:nth-child(2) {
+    .banner .container div:nth-child(2) {
         width: 300px;
         font-size: 60px;
     }
